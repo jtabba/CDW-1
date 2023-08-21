@@ -1,5 +1,5 @@
 {
-    "name": "secret-santa",
+    "name": "cdw-backend",
     "version": "1.0.0",
     "description": "",
     "main": "index.js",
@@ -10,7 +10,7 @@
         "dev": "NODE_OPTIONS='--experimental-specifier-resolution=node' nodemon --exec node --loader ts-node/esm src/server.ts",
         "format": "npx prettier --write .",
         "lint": "eslint . --ext .ts",
-        "prepare": "husky install"
+        "prepare": "cd .. && husky install backend/.husky"
     },
     "keywords": [],
     "author": "",

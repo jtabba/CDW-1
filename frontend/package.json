@@ -1,5 +1,5 @@
 {
-    "name": "frontend",
+    "name": "cdw-frontend",
     "version": "1.0.0",
     "description": "",
     "main": "index.js",
@@ -8,7 +8,7 @@
         "build": "webpack --config webpack.prod.js",
         "format": "npx prettier --write .",
         "lint": "eslint . --fix --max-warnings=0",
-        "prepare": "husky install"
+        "prepare": "cd .. && husky install frontend/.husky"
     },
     "keywords": [],
     "author": "",
