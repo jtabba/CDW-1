@@ -1,0 +1,23 @@
+{
+	"compilerOptions": {
+		"allowSyntheticDefaultImports": true,
+		"target": "es6",
+		"allowJs": true,
+		"esModuleInterop": true,
+		"lib": ["es2021"],
+		"module": "ES6",
+		"moduleResolution": "Node",
+		"rootDir": "src",
+		"outDir": "build",
+		"strict": true,
+		"noImplicitAny": true,
+		"declaration": true,
+		"resolveJsonModule": true
+	},
+	"ts-node": {
+		"esm": true,
+		"experimentalSpecifierResolution": "node"
+	},
+	"include": ["/**/*.ts"],
+	"exclude": ["./node_modules", "./build"]
+}
