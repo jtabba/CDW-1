@@ -1,19 +1,26 @@
-import { QueryClientProvider, QueryClient } from 'react-query'
-import { ChakraProvider, Box } from '@chakra-ui/react'
-import { customTheme } from './theme/theme'
-import { render } from 'react-dom'
-import './index.css'
+import React from 'react';
+import logo from './logo.svg';
+import './App.css';
 
-const App = () => {
-    const queryClient = new QueryClient()
-
-    return (
-        <Box maxWidth="100%" maxHeight="100%" position="relative">
-            <ChakraProvider theme={customTheme}>
-                <QueryClientProvider client={queryClient}></QueryClientProvider>
-            </ChakraProvider>
-        </Box>
-    )
+function App() {
+  return (
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.tsx</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
+    </div>
+  );
 }
 
-render(<App />, document.getElementById('App'))
+export default App;
