@@ -1,7 +1,10 @@
-import { Request, Response, Router } from "express";
-import * as dotenv from "dotenv";
-dotenv.config();
+import { Router } from 'express'
+import * as dotenv from 'dotenv'
+import userController from '../../../controllers/userController'
+dotenv.config()
 
-const router = Router();
+const router = Router()
 
-export default router;
+router.get('/users', userController.getAllUsersControl)
+
+export default router
