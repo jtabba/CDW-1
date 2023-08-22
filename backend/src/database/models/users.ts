@@ -29,7 +29,7 @@ async function deleteUsersWithLongPasswords(client, param) {
   console.log(`${result.deletedCount} document(s) was/were deleted`);
 }
 
-async function deleteListingByName(client, userName) {
+async function deleteListingByName(client, userName: string) {
   const result = await client
     .db("userDatabase")
     .collection("users")
@@ -83,11 +83,11 @@ async function createMultipleUsers(client, newUser) {
   );
 }
 
-async function createUser(client, newListing) {
+async function createUser(client, newUser) {
   const result = await client
     .db("userDatabase")
     .collection("users")
-    .insertOne(newListing);
+    .insertOne(newUser);
 
   console.log(`New user created with id: ${result.insertedId}`);
 }
