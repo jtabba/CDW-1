@@ -1,7 +1,7 @@
-import { Request, Response, Router } from "express";
-import * as dotenv from "dotenv";
-dotenv.config();
+import { Request, Response, Router } from 'express'
+import * as dotenv from 'dotenv'
+dotenv.config()
 
-const router = Router();
+const router = Router()
 
-export default router;
+export default router
