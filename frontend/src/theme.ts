@@ -1,28 +1,24 @@
-import { extendTheme } from '@chakra-ui/react';
+import { extendTheme, type ThemeConfig } from '@chakra-ui/react';
 
-export const themeWhite = "#FAFAFF";
-export const themeBlack = "#181818";
+
 export const themeGrey = "#425473";
-export const themeLightGrey = "#A6BED2";
 export const themeBlue = "#0060DF";
 export const themeLightBlue = "#8ED1FC";
 export const themeDarkBlue = "#060D3E";
-export const themeGreen = "#00D084";
-export const themeLightGreen = "#7BDCB5";
+
+
+const config: ThemeConfig = {
+    initialColorMode: 'light',
+    useSystemColorMode: false,
+}
 
 const theme = {
     colors: {
         primary: {
-            white: themeWhite,
-            500: themeBlack,
-            black: themeBlack,
             grey: themeGrey,
-            lightGrey: themeLightGrey,
             blue: themeBlue,
             lightBlue: themeLightBlue,
             darkBlue: themeDarkBlue,
-            green: themeGreen,
-            lightGreen: themeLightGreen,
         }
     },
     textStyles: {
@@ -41,7 +37,7 @@ const theme = {
         caption: {
             fontSize: ["xs", "smaller", "sm", "md"],
             margin: 0,
-            color: "primary.black",
+            color: "primary.darkBlue",
             fontWeight: "500"
         },
         error: {
@@ -54,4 +50,4 @@ const theme = {
 }
 
 
-export default extendTheme(theme);
+export default extendTheme({...theme, config});

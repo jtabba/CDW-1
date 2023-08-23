@@ -1,46 +1,83 @@
-import { Flex, Box, Avatar, Spacer } from '@chakra-ui/react';
+import { Flex, 
+        Avatar, 
+        Text,
+        List,
+        ListItem,
+        ListIcon,
+} from '@chakra-ui/react';
+import { CheckCircleIcon, ArrowForwardIcon } from '@chakra-ui/icons';
+import theme from './theme';
 
 export default function Profile(){
     return (
-        <Flex align="center" justify="center" direction="column">
-            <Flex mb={6}>
-                {/* Profile Photo and Name */}
-                <Avatar size="2xl" name="Place Holder" src="https://bit.ly/ryan-florence"></Avatar>
-                <Spacer />
-                <h1>Place Holder</h1>
-            </Flex>
+        <Flex justify="center" w="80%" ml="auto" mr="auto" direction="column">
 
-            <Flex mb={6}>
-            {/* Skills */}
-            <div></div>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio, minus odit labore nostrum eligendi fugit magni quaerat deserunt commodi laboriosam molestiae dicta assumenda praesentium, sunt consequatur, sint facere ex possimus.</p>
-            </Flex>
+                <Flex mt={20} mb={6} wrap="wrap" justify="flex-start" maxWidth="900px" >
+                    <Avatar  mr={10} size="2xl" name="Place Holder" src="https://bit.ly/ryan-florence"></Avatar>
+                    <Text fontSize="4xl" mt={6}>Place Holder</Text>
+                </Flex>
 
-            <Flex mb={6}>
-            {/* About */}
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati voluptatem error dolores nemo pariatur quae tempora est adipisci reprehenderit nulla at impedit veritatis debitis molestiae reiciendis, consectetur blanditiis incidunt! Eum?</p>
-            </Flex>
+                <Flex mb={6} maxWidth="900px" justify="flex-start" direction="column">
+                <Text fontSize="2xl" borderBottom="2px" mb={2}>About me</Text>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati voluptatem error dolores nemo pariatur quae tempora est adipisci reprehenderit nulla at impedit veritatis debitis molestiae reiciendis, consectetur blanditiis incidunt! Eum?</p>
+                </Flex>
 
-            <Flex mb={6}> 
-            {/* Experience */}
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia nulla nam eveniet, suscipit reprehenderit eum cupiditate aperiam itaque consequatur vitae voluptatibus fugiat maxime possimus enim. Totam maxime asperiores fuga in!</p>
-            </Flex>
+                <Flex mb={6}  maxWidth="900px" justify="flex-start" direction="column">
+                    <Text fontSize="2xl" borderBottom="2px" mb={2}>My skills</Text>
+                    <List spacing={3}>
+                        <ListItem>
+                            <ListIcon as={CheckCircleIcon} color='green.500' />
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit
+                        </ListItem>
+                        <ListItem>
+                            <ListIcon as={CheckCircleIcon} color='green.500' />
+                            Assumenda, quia temporibus eveniet a libero incidunt suscipit
+                        </ListItem>
+                        <ListItem>
+                            <ListIcon as={CheckCircleIcon} color='green.500' />
+                            Quidem, ipsam illum quis sed voluptatum quae eum fugit earum
+                        </ListItem>
+                        <ListItem>
+                            <ListIcon as={CheckCircleIcon} color='green.500' />
+                            Quidem, ipsam illum quis sed voluptatum quae eum fugit earum
+                        </ListItem>
+                    </List>
+                </Flex>
 
-            <Flex mb={6}> 
-            {/* Goals */}
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deserunt ipsam, ex, voluptas veniam eveniet eligendi exercitationem ea omnis maiores ad amet alias voluptatem dolore sint optio odit esse voluptate tempore!</p>
-            </Flex>
+                <Flex mb={6} maxWidth="900px" justify="flex-start" direction="column"> 
+                <Text fontSize="2xl" borderBottom="2px" mb={2}>Experience</Text>
+                        <Flex justify="space-between">
+                            <Text fontSize="xl">Job Title</Text>
+                            <Text fontSize="xl">Location</Text>
+                        </Flex>
+                        <Flex justify="space-between">
+                            <Text fontSize="l">Company Name</Text>
+                            <Text fontSize="l">Duration</Text>
+                        </Flex>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deserunt ipsam, ex, voluptas veniam eveniet eligendi exercitationem ea omnis maiores ad amet alias voluptatem dolore sint optio odit esse voluptate tempore!</p>
+                </Flex>
 
-
-
-
-
-
-
-
-
-
-
+                <Flex mb={6}  maxWidth="900px" justify="flex-start" direction="column">
+                    <Text fontSize="2xl" borderBottom="2px" mb={2}>My goals</Text>
+                    <List spacing={3}>
+                        <ListItem>
+                            <ListIcon as={ArrowForwardIcon} color='green.500' />
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit
+                        </ListItem>
+                        <ListItem>
+                            <ListIcon as={ArrowForwardIcon} color='green.500' />
+                            Assumenda, quia temporibus eveniet a libero incidunt suscipit
+                        </ListItem>
+                        <ListItem>
+                            <ListIcon as={ArrowForwardIcon} color='green.500' />
+                            Quidem, ipsam illum quis sed voluptatum quae eum fugit earum
+                        </ListItem>
+                        <ListItem>
+                            <ListIcon as={ArrowForwardIcon} color='green.500' />
+                            Quidem, ipsam illum quis sed voluptatum quae eum fugit earum
+                        </ListItem>
+                    </List>
+                </Flex>
         </Flex>
     );
 }
