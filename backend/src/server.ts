@@ -10,7 +10,7 @@ dotenv.config()
 app.get('/', (req, res)=> {
     res.send('hello node')
 })
-mongoose.connect(`mongodb+srv://noahmilliken:creamfilling@oreocluster.kasbgor.mongodb.net/?retryWrites=true&w=majority`)
+mongoose.connect(DATABASE_URI)
 .then(()=> console.log('conected to mongo'))
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
