@@ -12,9 +12,15 @@ export default function Profile(){
     return (
         <Flex justify="center" w="80%" ml="auto" mr="auto" direction="column">
 
-                <Flex mt={20} mb={6} wrap="wrap" justify="flex-start" maxWidth="900px" >
-                    <Avatar  mr={10} size="2xl" name="Place Holder" src="https://bit.ly/ryan-florence"></Avatar>
-                    <Text fontSize="4xl" mt={6}>Place Holder</Text>
+                <Flex mt={20} mb={6} wrap="wrap" justify="flex-start" maxWidth="900px">
+                    <Avatar  mt={7} mr={10} size="2xl" name="Place Holder" src="https://bit.ly/ryan-florence"></Avatar>
+                    <Flex direction="column" wrap="wrap">
+                        <Text fontSize="4xl" mt={6}>Place Holder</Text>
+                        <Text fontSize="l" mt={""}>California, USA</Text>
+                        <Text fontSize="m" mt={2}>place@holder.com</Text>
+                        <Text fontSize="m" mt={2}>username</Text>
+                    </Flex>
+
                 </Flex>
 
                 <Flex mb={6} maxWidth="900px" justify="flex-start" direction="column">
