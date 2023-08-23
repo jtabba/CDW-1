@@ -1,5 +1,3 @@
-# Full-stack Template
-
 # Full Stack App with Auth0 User Authentication
 
 This is a full stack app scaffolded with create-react-app and using auth0 for user authentication.
@@ -16,7 +14,7 @@ To install this app, follow these steps:
 
 To run the app, follow these steps:
 
-1. Run npm start to start the development server.
+1. Run `npm start` to start the development server.
 2. Open your browser and navigate to http://localhost:3000.
 
 ## Authentication
