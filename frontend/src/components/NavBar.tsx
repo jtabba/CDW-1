@@ -7,10 +7,14 @@ interface NavBarProps {
     isLoggedIn: boolean,
 }
 
-const NavBar = (props : NavBarProps) => {
-    const { isLoggedIn } = props;
+const NavBar = ({isLoggedIn} : NavBarProps): JSX.Element => {
     return (
-        <Flex justifyContent='space-between'>
+        <Flex 
+            justifyContent='space-between'
+            alignItems='center'
+            h='60px'
+            outline={1}
+        >
             <Logo />
             {/*isLoggedIn ? <NavLinks /> : null */}
             {isLoggedIn ? <Avatar /> : <AuthButtons />}

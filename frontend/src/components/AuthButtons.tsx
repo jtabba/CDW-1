@@ -10,7 +10,7 @@ const AuthButtons = () => {
                 <Button>Register</Button>
             </ButtonGroup>
         </Flex>
-    )
+    );
 };
 
 export default AuthButtons;
