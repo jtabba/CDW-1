@@ -6,5 +6,6 @@ dotenv.config()
 const router = Router()
 
 router.get('/users', userController.getAllUsersControl)
+router.post('/users', userController.createUserControl)
 
 export default router

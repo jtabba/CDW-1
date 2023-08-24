@@ -9,5 +9,14 @@ const getAllUsersControl = async (request: Request, response: Response) => {
         data: allUsers
     })
 }
+const createUserControl = async (request: Request, response: Response) => {
+    const newUser = request.body;
+    const createdUser = await userService.createUserService(newUser)
+    return response.status(201).json({
+        status: 201,
+        message: 'New user created successfully',
+        data: createdUser,    
+    })
+}
 
-export default { getAllUsersControl }
+export default { getAllUsersControl, createUserControl }
