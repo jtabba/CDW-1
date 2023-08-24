@@ -21,16 +21,9 @@ export const getAllUsers = async (): Promise<IResponse | IErrorResponse> => {
 	} catch (err) {
 		console.error(err);
 
-		if (isAxiosError(err)) {
-			return {
-				success: false,
-				data: err.message
-			};
-		} else {
-			return {
-				success: false,
-				data: err as string
-			};
-		}
+		return {
+			success: false,
+			data: isAxiosError(err) ? err.message : (err as string)
+		};
 	}
 };
