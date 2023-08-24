@@ -1,11 +1,11 @@
-import { Router } from 'express'
+import express from 'express'
 import * as dotenv from 'dotenv'
-import userController from '../../../controllers/userController'
+import { getAll, getSingle } from '../mentorShip/controllers/userController'
 dotenv.config()
 
-const router = Router()
+const router = express.Router()
 
-router.get('/users', userController.getAllUsersControl)
-router.post('/users', userController.createUserControl)
+router.get('/getAll', getAll)
+router.get('/getUser', getSingle)
 
 export default router

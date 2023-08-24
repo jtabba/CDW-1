@@ -1,9 +1,8 @@
 import dotenv from 'dotenv'
-import {MongoClient, ServerApiVersion} from 'mongodb'
-
+import { MongoClient, ServerApiVersion } from 'mongodb'
 dotenv.config()
 
-const uri: string = process.env.URI 
+const uri: string = process.env.URI!
 
 const client = new MongoClient(uri, {
     serverApi: {
@@ -12,18 +11,22 @@ const client = new MongoClient(uri, {
         deprecationErrors: true
     },
     maxPoolSize: 1
-});
+})
 
-export const connectToDb = async (collectionName: string) => {
-    
+export const getCollection = async (collectionName: string) => {
     try {
-        const connection = await client.connect();
-        const db = connection.db("shipUserDatabase");
-        const collection = db.collection(collectionName)
-        console.log("Successfully connected to MongoDb");
+        if (!uri) {
+            throw new Error('Cannot connect to database - URI is not defined')
+        }
 
-        return collection;
-    } catch (err: Error | unknown) {
-        console.error("error", err);
+        const connection = await client.connect()
+        const db = connection.db('mentorShip')
+        const collection = db.collection(collectionName)
+
+        console.log('Successfully connected to MongoDb')
+
+        return collection
+    } catch (err) {
+        console.error(err)
     }
-};
+}
