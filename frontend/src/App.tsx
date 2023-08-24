@@ -12,7 +12,6 @@ function App() {
 
   return (
     <ChakraProvider theme={theme}>
-      <Home />
       <main className="App">
         <h1>Auth0 Login</h1>
         {error && <p>Authentication Error</p>}
@@ -25,6 +24,7 @@ function App() {
           </>
         )}
       </main>
+      <Home />
     </ChakraProvider>
   );
 }
