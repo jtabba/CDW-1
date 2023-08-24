@@ -2,6 +2,7 @@ import { Container, Grid, Flex, Text, GridItem } from "@chakra-ui/react";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import Hero from "../components/Hero";
+import FeatureCard from "../components/FeatureCard";
 const Home = () : JSX.Element => {
     return (
         <Container 
@@ -21,12 +22,15 @@ const Home = () : JSX.Element => {
                     className='main'
                     flexDirection='column'
                 >
-                    <Container
-                        maxWidth='90%'
+                    <Flex
+                        maxWidth='60%'
                         margin='auto'
+                        flexDirection='column'
+                        justifyContent='center'
                     >
                         <Hero />
-                    </Container>
+                        <FeatureCard />
+                    </Flex>
                 </GridItem>
                 <GridItem className='footer'>
                     <Footer />

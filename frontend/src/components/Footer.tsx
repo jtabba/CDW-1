@@ -16,7 +16,7 @@ const Footer = () : JSX.Element => {
     });
 
     return (
-        <Box flexWrap='wrap'>
+        <Box flexWrap='wrap' height='10vh'>
             <Divider margin='10px'/>
             <Flex justifyContent='space-between'>
                 <Text fontSize='10px'>
