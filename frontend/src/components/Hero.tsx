@@ -1,14 +1,22 @@
 import { Button, Flex, Text, Heading } from '@chakra-ui/react';
-const Hero = () => {
+
+interface HeroProps {
+    headline:string
+    content:string
+    buttonLabel:string
+    buttonUrl:string
+}
+
+const Hero = ({ headline, content, buttonLabel, buttonUrl} : HeroProps) : JSX.Element => {
     return (
         <Flex flexDirection='column' height='80vh' justifyContent='center' alignItems='center' rowGap={6}>
-            <Heading fontSize='7xl' textAlign='center'>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit
+            <Heading fontSize='clamp(2rem, -0.875rem + 8.333vw, 4.5rem)' textAlign='center'>
+                {headline}
             </Heading>
-            <Text textAlign='center' fontSize='large'>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            <Text textAlign='center' fontSize='clamp(1rem, -0.875rem + 8.333vw, 1.15rem)'>
+                {content}
             </Text>
-            <Button size='md' width='4xs'>Get Started</Button>
+            <Button size='lg' width='3xs'>{buttonLabel}</Button>
         </Flex>
     );
 };

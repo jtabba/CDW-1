@@ -4,9 +4,9 @@ const AuthButtons = () => {
     return (
         <Flex>
             <ButtonGroup
-                variant='outline' spacing='6'
+                 spacing='6'
             >
-                <Button>Log In</Button>
+                <Button variant='outline'>Log In</Button>
                 <Button>Register</Button>
             </ButtonGroup>
         </Flex>

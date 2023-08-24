@@ -1,4 +1,4 @@
-import { Flex, Spacer, Box, Text, Link, Divider } from "@chakra-ui/react";
+import { Flex, Box, Text, Link, Divider } from "@chakra-ui/react";
 
 const Footer = () : JSX.Element => {
     const footerProps : {page: string, url: string}[] = [
@@ -11,8 +11,8 @@ const Footer = () : JSX.Element => {
     const links : JSX.Element[] = [];
     
     footerProps.forEach((element,index) => {
-        links.push(<Link id={element.page} fontSize='10px' href={element.url}>{element.page}</Link>);
-        if(index !== footerProps.length - 1) links.push(<Text fontSize='10px'> | </Text>); 
+        links.push(<Link key={element.page} fontSize='10px' href={element.url}>{element.page}</Link>);
+        if(index !== footerProps.length - 1) links.push(<Text key={element.page+'div'}fontSize='10px'> | </Text>); 
     });
 
     return (
