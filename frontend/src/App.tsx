@@ -33,7 +33,7 @@ function App() {
 	useEffect(() => {
 		// request demo
 		// open browser console to see result
-		const get = async () => {
+		const getUsers = async () => {
 			const response = await getAllUsers();
 			console.log("response", response);
 
@@ -43,7 +43,7 @@ function App() {
 				// create error notification wth Chakra
 			}
 		};
-		get();
+		getUsers();
 	}, []);
 
 	return (
