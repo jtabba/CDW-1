@@ -1,4 +1,5 @@
-import { connectToDb } from "./db"
+/* import { connectToDb } from "./db"
+
 const getAllUserData = async () => {
     const collection = await connectToDb('Users')
     return collection?.find({}).toArray()
@@ -9,4 +10,4 @@ const createUser = async(userData: object) => {
     
 }
 
-export default { getAllUserData, createUser }
+export default { getAllUserData, createUser } */

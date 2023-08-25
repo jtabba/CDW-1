@@ -1,5 +1,9 @@
 import { Request, Response } from 'express'
-import { getAllDataService, getSingleUser } from '../services/userServices'
+import {
+    getAllDataService,
+    getSingleUser,
+    postSingleUser
+} from '../services/userServices'
 
 export const getAll = async (req: Request, res: Response) => {
     const allData = await getAllDataService()
@@ -29,4 +33,23 @@ export const getSingle = async (req: Request, res: Response) => {
     //     "_id": "64e740b422d2034f57c25504",
     //     "name": "Jeff"
     // }
+}
+
+export const postUser = async (req: Request, res: Response) => {
+    const insertedData = await postSingleUser(req.body)
+
+    return res.send({
+        status: 201,
+        message: 'Registration is done',
+        data: insertedData
+    })
+
+    /* {
+    "firstName": "John",
+    "lastName": "Rolfe",
+    "email": "mrjohn@mail.com",
+    "username": "johnro",
+    "password": "password",
+    "location": "Ontario"
+} */
 }
