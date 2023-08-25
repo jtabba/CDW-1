@@ -1,13 +1,14 @@
 import { Avatar, Flex } from '@chakra-ui/react';
 import Logo from './Logo';
 import AuthButtons from './AuthButtons';
+import { FC } from 'react';
 //import NavLinks from './NavLinks';
 
 interface NavBarProps {
     isLoggedIn: boolean,
 }
 
-const NavBar = ({isLoggedIn} : NavBarProps): JSX.Element => {
+const NavBar: FC<NavBarProps> = ({isLoggedIn}) => {
     return (
         <Flex 
             justifyContent='space-between'

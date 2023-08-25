@@ -1,4 +1,5 @@
 import { Button, Flex, Text, Heading } from '@chakra-ui/react';
+import { FC } from 'react';
 
 interface HeroProps {
     headline:string
@@ -7,7 +8,7 @@ interface HeroProps {
     buttonUrl:string
 }
 
-const Hero = ({ headline, content, buttonLabel, buttonUrl} : HeroProps) : JSX.Element => {
+const Hero: FC<HeroProps> = ({ headline, content, buttonLabel, buttonUrl}) => {
     return (
         <Flex flexDirection='column' height='80vh' justifyContent='center' alignItems='center' rowGap={6}>
             <Heading fontSize='clamp(2rem, -0.875rem + 8.333vw, 4.5rem)' textAlign='center'>

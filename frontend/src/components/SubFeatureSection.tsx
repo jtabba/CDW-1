@@ -1,5 +1,6 @@
 import { Flex } from '@chakra-ui/react';
 import VerticalCard from './VerticalCard';
+import { FC } from 'react';
 
 interface SubFeatureProps {
   headline: string;
@@ -12,16 +13,7 @@ interface Props {
   subFeatureProps: SubFeatureProps[]; 
 }
 
-const SubFeatureSection = ({ subFeatureProps }: Props): JSX.Element => {
-  const verticalCards: JSX.Element[] = subFeatureProps.map((prop, index) => (
-    <VerticalCard
-      headline={prop.headline}
-      content={prop.content}
-      linkLabel={prop.linkLabel}
-      url={prop.url}
-      key={index}
-    />
-  ));
+const SubFeatureSection: FC<Props> = ({ subFeatureProps }) => {
 
   return (
     <Flex 
@@ -29,7 +21,16 @@ const SubFeatureSection = ({ subFeatureProps }: Props): JSX.Element => {
       maxWidth='65%'
       columnGap={8}
     >
-        {verticalCards}
+        {subFeatureProps.map((prop, index) => (
+          <VerticalCard
+            headline={prop.headline}
+            content={prop.content}
+            linkLabel={prop.linkLabel}
+            url={prop.url}
+            key={index}
+          />
+        ))
+        }
     </Flex>
   );
 };

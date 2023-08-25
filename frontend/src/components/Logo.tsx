@@ -1,10 +1,10 @@
 import { Text, Flex } from '@chakra-ui/react';
 
 
-const Logo = () : JSX.Element => {
+const Logo = () => {
     return (
         <Flex className='logo'>
-            <Text>
+            <Text >
                 MentorShip
             </Text>
         </Flex>

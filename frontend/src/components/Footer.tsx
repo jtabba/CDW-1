@@ -1,6 +1,6 @@
 import { Flex, Box, Text, Link, Divider } from "@chakra-ui/react";
 
-const Footer = () : JSX.Element => {
+const Footer = () => {
     const footerProps : {page: string, url: string}[] = [
         {'page': 'Help', 'url':'/help'},
         {'page': 'Propsective Mentors', 'url':'/mentors'},
@@ -23,7 +23,14 @@ const Footer = () : JSX.Element => {
                     Copyright © 2023 Lorem Ipsum
                 </Text>
                 <Flex gap='5px'>
-                    {links}
+                    {footerProps.map((element, index) => {
+                        return (
+                            <>
+                                <Link key={element.page} fontSize='10px' href={element.url}>{element.page}</Link>
+                                <Text key={element.page+'div'}fontSize='10px'>  {index !== footerProps.length -1 ? '|' :  '' }</Text>
+                            </>
+                        );
+                    })}
                 </Flex>
             </Flex>
         </Box>

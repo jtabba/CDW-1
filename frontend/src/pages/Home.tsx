@@ -6,7 +6,7 @@ import FeatureSection from "../components/FeatureSection";
 import SubFeatureSection from "../components/SubFeatureSection";
 import MetricSection from "../components/MetricSection";
 
-const Home = () : JSX.Element => {
+const Home = () => {
 
     //Props stored here until we start implementing an appropriate store
     const heroProps = {

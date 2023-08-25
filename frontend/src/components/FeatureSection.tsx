@@ -1,5 +1,6 @@
 import { Box, Heading, Flex, Text, Image, Button} from '@chakra-ui/react';
 import { QuestionIcon } from '@chakra-ui/icons';
+import { FC } from 'react';
 
 interface FeatureSectionProps {
     headline:string
@@ -8,7 +9,7 @@ interface FeatureSectionProps {
     buttonUrl:string
 }
 
-const FeatureSection = ({headline, content, buttonLabel, buttonUrl} : FeatureSectionProps) : JSX.Element => {
+const FeatureSection: FC<FeatureSectionProps> = ({headline, content, buttonLabel, buttonUrl}) => {
     return (
         <Box
             maxWidth='65%'

@@ -1,5 +1,6 @@
 import Metric from "./Metric";
 import { Card } from '@chakra-ui/react';
+import { FC } from 'react';
 
 interface MetricsProps {
     statNumber: string
@@ -11,9 +12,8 @@ interface MetricsProps {
     metricsProps : MetricsProps[]; 
   }
 
-const MetricSection = ({ metricsProps } : Props) : JSX.Element => {
+const MetricSection: FC<Props> = ({ metricsProps }) : JSX.Element => {
 
-    const metrics = metricsProps.map((metric, index) => <Metric key={metric.id} statNumber={metric.statNumber} statText={metric.statText}/> );
     return (
         <Card
             flexDirection='row'
@@ -21,7 +21,7 @@ const MetricSection = ({ metricsProps } : Props) : JSX.Element => {
             p='15px'
             width='65%'
         >
-            {metrics}
+            {metricsProps.map((metric, index) => <Metric key={metric.id} statNumber={metric.statNumber} statText={metric.statText}/> )}
         </Card>
     );
 };

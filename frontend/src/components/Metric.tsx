@@ -1,11 +1,12 @@
 import { Stat, StatNumber, StatHelpText } from "@chakra-ui/react";
+import { FC } from 'react';
 
 interface MetricProps {
     statNumber: string
     statText: string
 }
 
-const Metric = ({statNumber, statText} : MetricProps) : JSX.Element => {
+const Metric: FC<MetricProps> = ({statNumber, statText}) => {
     return (
         <Stat>
             <StatNumber fontSize='5xl' textAlign='center' fontWeight='extrabold'>{statNumber}</StatNumber>

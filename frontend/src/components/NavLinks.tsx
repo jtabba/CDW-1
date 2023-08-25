@@ -2,7 +2,7 @@ interface NavLinksProps{
     links?: string[]
 }
 
-const NavLinks = (props : NavLinksProps) : JSX.Element => {
+const NavLinks = (props : NavLinksProps) => {
  return (
     <>
     </>
