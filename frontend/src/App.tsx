@@ -1,9 +1,12 @@
 import { Routes, Route, BrowserRouter as Router, Link } from "react-router-dom";
-import { Box, ChakraProvider } from "@chakra-ui/react";
-import theme from "./theme/theme";
+import { ChakraProvider } from "@chakra-ui/react";
+import theme from "./theme";
+import { AuthenticationGuard } from "./components/AuthenticationGuard";
 import LoginButton from "./components/LoginButton";
 import LogoutButton from "./components/LogoutButton";
 import Home from "./pages/Home";
+
+const ProfilePage = () => <h1>ProfilePage</h1>;
 
 function App() {
 	const { user, isLoading, error } = useAuth0();
