@@ -6,9 +6,11 @@ import LogoutButton from "./components/LogoutButton";
 import Home from "./pages/Home";
 
 function App() {
+	const { user, isLoading, error } = useAuth0();
+
 	return (
 		<ChakraProvider theme={theme}>
-			<Box className="App">
+			<main className="App">
 				<Router>
 					<nav className="dummy-nav">
 						<Link to={"/explore"}>Explore</Link>
@@ -23,12 +25,21 @@ function App() {
 						<Link to={"/signup"}>Sign Up</Link>
 					</nav>
 
+					<div className="profile-info">
+						{error && <p>Authentication Error</p>}
+						{!error && isLoading && <p>Loading...</p>}
+						{!error && !isLoading && (
+							<>
+								<Profile />
+							</>
+						)}
+					</div>
 					<Routes>
 						<Route path="/" element={<h1>Home</h1>} />
 						<Route path="/explore" element={<h1>Explore</h1>} />
 						<Route path="/products" element={<h1>Products</h1>} />
 						<Route path="/mentors" element={<h1>Mentors</h1>} />
-						<Route path="/login" element={<LoginButton />} />
+						<Route path="/login" element={<h1>Log In</h1>} />
 						<Route path="/signup" element={<h1>Sign Up</h1>} />
 						<Route
 							path="/*"
@@ -36,9 +47,7 @@ function App() {
 						/>
 					</Routes>
 				</Router>
-
-				<Home />
-			</Box>
+			</main>
 		</ChakraProvider>
 	);
 }
