@@ -1,7 +1,7 @@
 import { useAuth0 } from "@auth0/auth0-react";
-import LoginButton from "../components/LoginButton";
-import LogoutButton from "../components/LogoutButton";
-import Profile from "../components/Profile";
+// import LoginButton from "../components/LoginButton";
+// import LogoutButton from "../components/LogoutButton";
+// import Profile from "../components/Profile";
 import { useEffect, useState } from "react";
 import { userData } from "../requests/types";
 import { getAllUsers } from "../requests/getAllUsers";
@@ -29,7 +29,7 @@ export const Login = () => {
 
 	return (
 		<Stack direction={"row"} className="App">
-			<h1>Auth0 Login</h1>
+			{/* <h1>Auth0 Login</h1>
 			{error && <p>Authentication Error</p>}
 			{!error && isLoading && <p>Loading...</p>}
 			{!error && !isLoading && (
@@ -41,7 +41,7 @@ export const Login = () => {
 						<Box>{user.name}</Box>
 					))}
 				</>
-			)}
+			)} */}
 		</Stack>
 	);
 };
