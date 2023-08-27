@@ -1,42 +1,19 @@
 import { Routes, Route, BrowserRouter as Router, Link } from "react-router-dom";
-import { ChakraProvider } from "@chakra-ui/react";
-import theme from "./theme";
-import { AuthenticationGuard } from "./components/AuthenticationGuard";
-import LoginButton from "./components/LoginButton";
-import LogoutButton from "./components/LogoutButton";
-import Home from "./pages/Home";
-
-const ProfilePage = () => <h1>ProfilePage</h1>;
+import { Box, ChakraProvider } from "@chakra-ui/react";
+import theme from "./theme/theme";
+import Home from "./pages/home";
 
 function App() {
-	const { user, isLoading, error } = useAuth0();
-
 	return (
 		<ChakraProvider theme={theme}>
-			<main className="App">
+			<Box className="App">
 				<Router>
 					<nav className="dummy-nav">
 						<Link to={"/explore"}>Explore</Link>
 						<Link to={"/products"}>Product</Link>
 						<Link to={"/mentors"}>Mentors</Link>
-						<>
-							{" "}
-							<LoginButton />
-							<LogoutButton />
-						</>
-
-						<Link to={"/signup"}>Sign Up</Link>
 					</nav>
 
-					<div className="profile-info">
-						{error && <p>Authentication Error</p>}
-						{!error && isLoading && <p>Loading...</p>}
-						{!error && !isLoading && (
-							<>
-								<Profile />
-							</>
-						)}
-					</div>
 					<Routes>
 						<Route path="/" element={<h1>Home</h1>} />
 						<Route path="/explore" element={<h1>Explore</h1>} />
@@ -50,7 +27,9 @@ function App() {
 						/>
 					</Routes>
 				</Router>
-			</main>
+
+				<Home />
+			</Box>
 		</ChakraProvider>
 	);
 }
