@@ -1,5 +1,9 @@
-import axios, { AxiosInstance, InternalAxiosRequestConfig } from "axios";
-const API_URL: string = process.env.API_URL || "";
+import axios, {
+	AxiosInstance,
+	AxiosResponse,
+	InternalAxiosRequestConfig
+} from "axios";
+const API_URL: string = process.env.REACT_APP_API_URL || "";
 
 abstract class AxiosInstanceBase {
 	protected readonly axiosInstance: AxiosInstance;
@@ -60,8 +64,8 @@ export class AxiosClient extends InterceptorBase {
 		return AxiosClient.axiosClient;
 	}
 
-	public async get<T>(endpoint: string, data?: T): Promise<T> {
-		const response = await this.axiosInstance<T>({
+	public async get<T>(endpoint: string, data?: T): Promise<AxiosResponse> {
+		const response = await this.axiosInstance<AxiosResponse>({
 			method: "GET",
 			data: data ?? undefined,
 			url: endpoint
@@ -76,8 +80,8 @@ export class AxiosClient extends InterceptorBase {
 		return response.data;
 	}
 
-	public async post<T>(endpoint: string, data: T): Promise<T> {
-		const response = await this.axiosInstance<T>({
+	public async post<T>(endpoint: string, data: T): Promise<AxiosResponse> {
+		const response = await this.axiosInstance<AxiosResponse>({
 			method: "POST",
 			data: data ?? undefined,
 			url: endpoint

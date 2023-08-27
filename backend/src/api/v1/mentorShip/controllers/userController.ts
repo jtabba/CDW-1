@@ -33,6 +33,13 @@ export const getSingle = async (req: Request, res: Response) => {
     //     "_id": "64e740b422d2034f57c25504",
     //     "name": "Jeff"
     // }
+
+    // Testing for postman
+    // body
+    // {
+    // "userId": "64e738b63ef7a62f2d9a3d60"
+    // endpoint: http://localhost:8080/api/v1/getUser
+    //  }
 }
 
 export const postUser = async (req: Request, res: Response) => {
