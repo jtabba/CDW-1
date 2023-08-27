@@ -1,46 +1,43 @@
-import { Routes, Route, BrowserRouter as Router, Link } from "react-router-dom";
-import { Box, ChakraProvider } from "@chakra-ui/react";
+import { ChakraProvider, Container, Grid } from "@chakra-ui/react";
+import { Outlet } from "react-router-dom";
 import theme from "./theme/theme";
-import LoginButton from "./components/LoginButton";
-import LogoutButton from "./components/LogoutButton";
-import Home from "./pages/Home";
+import { Header } from "./components/header/Header";
+import { useEffect, useState } from "react";
+import { getAllUsers } from "./requests/getAllUsers";
+import { userData } from "./requests/types";
 
-function App() {
+const App = () => {
+	const [users, setUsers] = useState<userData[]>([]);
+
+	// ***PURELY FOR EXAMPLE***
+	useEffect(() => {
+		// open browser console to see result
+		const getUsers = async () => {
+			const response = await getAllUsers();
+			console.log("response", response);
+
+			if (response.success) {
+				setUsers(response.data as userData[]);
+			} else {
+				// create error notification wth Chakra
+			}
+		};
+		getUsers();
+	});
+	// ***PURELY FOR EXAMPLE***
+
 	return (
 		<ChakraProvider theme={theme}>
-			<Box className="App">
-				<Router>
-					<nav className="dummy-nav">
-						<Link to={"/explore"}>Explore</Link>
-						<Link to={"/products"}>Product</Link>
-						<Link to={"/mentors"}>Mentors</Link>
-						<>
-							{" "}
-							<LoginButton />
-							<LogoutButton />
-						</>
+			<Container margin="auto" maxWidth="90%" padding={"28px 0px"}>
+				<Grid templateRows="repeat(3, auto)" gap={1}>
+					<Header />
 
-						<Link to={"/signup"}>Sign Up</Link>
-					</nav>
-
-					<Routes>
-						<Route path="/" element={<h1>Home</h1>} />
-						<Route path="/explore" element={<h1>Explore</h1>} />
-						<Route path="/products" element={<h1>Products</h1>} />
-						<Route path="/mentors" element={<h1>Mentors</h1>} />
-						<Route path="/login" element={<LoginButton />} />
-						<Route path="/signup" element={<h1>Sign Up</h1>} />
-						<Route
-							path="/*"
-							element={<h1>404: Page not found</h1>}
-						/>
-					</Routes>
-				</Router>
-
-				<Home />
-			</Box>
+					{/* Outlet acts as a placeholder for pages of our routes */}
+					<Outlet />
+				</Grid>
+			</Container>
 		</ChakraProvider>
 	);
-}
+};
 
 export default App;
