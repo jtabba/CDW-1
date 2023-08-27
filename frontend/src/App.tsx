@@ -1,17 +1,14 @@
 import { Routes, Route, BrowserRouter as Router, Link } from "react-router-dom";
-import { ChakraProvider } from "@chakra-ui/react";
+import { Box, ChakraProvider } from "@chakra-ui/react";
 import theme from "./theme/theme";
-import Home from "./pages/Home";
-import { useAuth0 } from "@auth0/auth0-react";
 import LoginButton from "./components/LoginButton";
 import LogoutButton from "./components/LogoutButton";
+import Home from "./pages/Home";
 
 function App() {
-	const { user, isLoading, error } = useAuth0();
-
 	return (
 		<ChakraProvider theme={theme}>
-			<main className="App">
+			<Box className="App">
 				<Router>
 					<nav className="dummy-nav">
 						<Link to={"/explore"}>Explore</Link>
@@ -31,7 +28,7 @@ function App() {
 						<Route path="/explore" element={<h1>Explore</h1>} />
 						<Route path="/products" element={<h1>Products</h1>} />
 						<Route path="/mentors" element={<h1>Mentors</h1>} />
-						<Route path="/login" element={<h1>Log In</h1>} />
+						<Route path="/login" element={<LoginButton />} />
 						<Route path="/signup" element={<h1>Sign Up</h1>} />
 						<Route
 							path="/*"
@@ -41,7 +38,7 @@ function App() {
 				</Router>
 
 				<Home />
-			</main>
+			</Box>
 		</ChakraProvider>
 	);
 }

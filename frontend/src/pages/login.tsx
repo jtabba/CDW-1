@@ -1,7 +1,7 @@
 import { useAuth0 } from "@auth0/auth0-react";
-import LoginButton from "../components/LoginButton";
-import LogoutButton from "../components/LogoutButton";
-import Profile from "../components/Profile";
+// import LoginButton from "../components/LoginButton";
+// import LogoutButton from "../components/LogoutButton";
+// import Profile from "../components/Profile";
 import { useEffect, useState } from "react";
 import { userData } from "../requests/types";
 import { getAllUsers } from "../requests/getAllUsers";
