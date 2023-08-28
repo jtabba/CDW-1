@@ -1,4 +1,6 @@
 import React from 'react';
+import { useNavigate } from "react-router-dom";
+import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import {
   Menu,
@@ -16,9 +18,15 @@ interface ProfileDropdownProps {
 const ProfileDropdown: React.FC<ProfileDropdownProps> = ({onSignOut}) => {
   const { user, isAuthenticated } = useAuth0();
 
+  const navigate = useNavigate();
+
   if (!isAuthenticated) {
     return null;
   }
+
+  const goToProfile = () => {
+    navigate("profile");
+  };
 
   return ( 
     <Menu>
@@ -26,7 +34,7 @@ const ProfileDropdown: React.FC<ProfileDropdownProps> = ({onSignOut}) => {
         <Avatar size={'sm'} src={user?.picture} name={user?.name} />
       </MenuButton>
       <MenuList>
-        <MenuItem>Profile</MenuItem>
+        <MenuItem onClick={goToProfile}>Profile</MenuItem>
         <MenuItem>Settings</MenuItem>
         <MenuItem onClick={onSignOut}>Sign Out</MenuItem>
       </MenuList>

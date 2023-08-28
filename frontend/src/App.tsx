@@ -4,6 +4,7 @@ import { userData } from "./theme/types";
 import { UserInterface } from "./components/UserInterface";
 import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
 import Home from "./pages/Home";
+import Profile from "./pages/Profile";
 
 const App = () => {
 	const [users, setUsers] = useState<userData[]>([]);
@@ -35,6 +36,7 @@ const App = () => {
 					<Route path="products" element={<h1>Products</h1>} />
 					<Route path="mentors" element={<h1>Mentors</h1>} />
 					<Route path="*" element={<h1>404: Page Not Found</h1>} />
+					<Route path="profile" element={<Profile />} />
 				</Route>
 			</Routes>
 		</Router>
