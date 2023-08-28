@@ -4,6 +4,7 @@ import { userData } from "./requests/types";
 import { UserInterface } from "./components/UserInterface";
 import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
 import Home from "./pages/Home";
+import Onboarding from "./pages/Onboarding";
 
 const App = () => {
   const [users, setUsers] = useState<userData[]>([]);
@@ -31,6 +32,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<UserInterface />}>
           <Route path="home" element={<Home />} />
+          <Route path="onboarding" element={<Onboarding />} />
           <Route path="explore" element={<h1>Explore</h1>} />
           <Route path="products" element={<h1>Products</h1>} />
           <Route path="mentors" element={<h1>Mentors</h1>} />
