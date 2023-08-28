@@ -1,17 +1,17 @@
 import React from "react";
 import { withAuthenticationRequired } from "@auth0/auth0-react";
 
-interface WithComponent: < T = React.ReactNode> {
-    component?: T;
+interface ComponentProps {
+    componentAsProps: () => React.ReactNode
 }
 
-export const ArthenticationGuard: FC<WithComponent> = ({component}) => {
-    const Component = withAuthenticationRequired(component, {
-        onRedirecting: () => (
-            <div> 
-                <h1>Loading....</h1>
+export const AuthenticationGuard: React.FC<ComponentProps> = ({componentAsProps}) => {
+    const Component = withAuthenticationRequired(componentAsProps, {
+        onRedirecting: ()=> (
+            <div className="page-layout">
+               <h1>Loading...</h1>
             </div>
-        ),
+        )
     })
     return <Component />
 }

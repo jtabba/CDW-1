@@ -3,6 +3,7 @@ import { getAllUsers } from "./theme/requests/getAllUsers";
 import { userData } from "./theme/requests/types";
 import { UserInterface } from "./components/UserInterface";
 import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
+import { AuthenticationGuard } from "./components/authentication/authenticationGuard";
 import Home from "./pages/home";
 import Profile from "./pages/profile";
 import { useAuth0 } from "@auth0/auth0-react";
