@@ -9,7 +9,11 @@ import {
   Button,
 } from '@chakra-ui/react';
 
-const ProfileDropdown: React.FC = () => {
+interface ProfileDropdownProps {
+  onSignOut: () => void;
+}
+
+const ProfileDropdown: React.FC<ProfileDropdownProps> = ({onSignOut}) => {
   const { user, isAuthenticated } = useAuth0();
 
   if (!isAuthenticated) {
@@ -24,7 +28,7 @@ const ProfileDropdown: React.FC = () => {
       <MenuList>
         <MenuItem>Profile</MenuItem>
         <MenuItem>Settings</MenuItem>
-        <MenuItem>Sign Out</MenuItem>
+        <MenuItem onClick={onSignOut}>Sign Out</MenuItem>
       </MenuList>
     </Menu>
   );
