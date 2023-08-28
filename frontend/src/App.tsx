@@ -7,6 +7,7 @@ import { AuthenticationGuard } from "./components/authentication/authenticationG
 import Home from "./pages/home";
 import Profile from "./pages/profile";
 import { useAuth0 } from "@auth0/auth0-react";
+import { profile } from "console";
 
 const App = () => {
 	const [users, setUsers] = useState<userData[]>([]);
@@ -45,7 +46,17 @@ const App = () => {
 				<Route path="home" element={<Home />} />
 				<Route path="explore" element={<h1>Explore</h1>} />
 				<Route path="products" element={<h1>Products</h1>} />
-				<Route path="mentors" element={<h1>Mentors</h1>} />
+				<Route
+					path="mentors"
+					element={
+						<AuthenticationGuard component={<h1>Mentors</h1>} />
+					}
+				/>
+				<Route
+					path="profile"
+					element={<AuthenticationGuard component={Profile} />}
+				/>
+				<Route path="callback" element={<CallbackPage />} />
 				<Route path="*" element={<h1>404: Page Not Found</h1>} />
 				<Route path="profile" element={<Profile />} />
 			</Route>
