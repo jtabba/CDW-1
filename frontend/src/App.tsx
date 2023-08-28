@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
-import { getAllUsers } from "./requests/getAllUsers";
-import { userData } from "./requests/types";
+import { getAllUsers } from "./theme/requests/getAllUsers";
+import { userData } from "./theme/requests/types";
 import { UserInterface } from "./components/UserInterface";
 import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
-import Home from "./pages/home";
+import Home from "./pages/Home";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const App = () => {
 	const [users, setUsers] = useState<userData[]>([]);
-
+	
 	// ***PURELY FOR EXAMPLE***
 	useEffect(() => {
 		// open browser console to see result
@@ -26,8 +27,19 @@ const App = () => {
 	});
 	// ***PURELY FOR EXAMPLE***
 
+	const { isLoading } = useAuth0()
+
+	if(isLoading){
+		return(
+			<div>
+				<h1>Loader...</h1>
+			</div>
+		)
+	}
+
+
 	return (
-		<Router>
+		
 			<Routes>
 				<Route path="/" element={<UserInterface />}>
 					<Route path="home" element={<Home />} />
@@ -36,7 +48,7 @@ const App = () => {
 					<Route path="mentors" element={<h1>Mentors</h1>} />
 				</Route>
 			</Routes>
-		</Router>
+		
 	);
 };
 
