@@ -1,9 +1,23 @@
-import { useState } from "react";
+import { useState, ChangeEvent } from "react";
 import { Button, ButtonGroup, Flex, Spacer, Input, FormControl, Heading, VStack, InputGroup, Textarea, FormLabel } from '@chakra-ui/react';
 
 const Onboarding = () => {
+    let [userInfo, setUserInfo] = useState({
+        role: '',
+        bio:'',
+        expertise: '',
+        learningGoals: '',
+        experience: '',
+        jobTitle: '',
+        interests: '',
+        hourlyRate: ''
+    });
 
-    let [role, setRole] = useState<string | null>(null);
+    const { role } = userInfo;
+
+    const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement >) => {
+        setUserInfo({...userInfo, [e.target.name]: e.target.value})
+    };
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         //POST request logic goes here
@@ -18,7 +32,6 @@ const Onboarding = () => {
             flexDirection='column'
             margin='auto'
         >
-            {/* Mentee or Mentor */}
             <Flex
                 border='1px'
                 borderRadius='10'
@@ -40,13 +53,13 @@ const Onboarding = () => {
                         size='lg'
                         flexWrap='wrap'
                     >
-                        <Button onClick={() => setRole('mentor')}>Mentor</Button>
-                        <Button onClick={() => setRole('mentee')}>Mentee</Button>
+                        <Button onClick={() => setUserInfo({...userInfo, role: 'mentor'})}>Mentor</Button>
+                        <Button onClick={() => setUserInfo({...userInfo, role: 'mentee'})}>Mentee</Button>
                     </ButtonGroup>
                 </VStack>
             </Flex>
-            {/* Mentee */}
-            {role === 'mentee' && 
+     
+            {role && 
                 <Flex
                     border='1px'
                     borderRadius='10'
@@ -57,7 +70,7 @@ const Onboarding = () => {
                     p={5}
                 >
       
-                        <Heading>Mentee</Heading>
+                        <Heading>{(role === 'mentee' && 'Mentee') || (role === 'mentor' && 'Mentor')}</Heading>
                         <form onSubmit={handleSubmit}>
                             <Flex
                                 flexDirection='column'
@@ -71,32 +84,78 @@ const Onboarding = () => {
                                     flexDirection='column'
                                 >
                                     <FormLabel>Tell us a little about yourself.</FormLabel>
-                                    <Textarea/>
+                                    <Textarea
+                                        name='bio'
+                                        value={userInfo.bio}
+                                        onChange={handleChange}
+                                    />
                                 </Flex>
-                                <Flex 
+                                {role === 'mentor' && 
+                                    <Flex 
                                     flexDirection='column'
-                                >
-                                    <FormLabel>What are you looking to learn?</FormLabel>
-                                    <Textarea/>
-                                </Flex>
+                                    >
+                                        <FormLabel>What are your areas of expertise?</FormLabel>
+                                        <Textarea
+                                            name='expertise'
+                                            value={userInfo.expertise}
+                                            onChange={handleChange}
+                                        />
+                                    </Flex>
+                                }
+                                {role === 'mentee' && 
+                                    <Flex 
+                                        flexDirection='column'
+                                    >
+                                        <FormLabel>What are you looking to learn?</FormLabel>
+                                        <Textarea
+                                            name='learningGoals'
+                                            value={userInfo.learningGoals}
+                                            onChange={handleChange}
+                                        />
+                                    </Flex>
+                                }
                                 <Flex 
                                     flexDirection='column'
                                 >
                                     <FormLabel>How many years of experience do you have as a software engineer?</FormLabel>
-                                    <Input />
+                                    <Input 
+                                        name='experience'
+                                        value={userInfo.experience}
+                                        onChange={handleChange}
+                                    />
                                 </Flex>
                                 <Flex 
                                     flexDirection='column'
                                 >
                                     <FormLabel>What is your current job title?</FormLabel>
-                                    <Input />
+                                    <Input 
+                                        name='jobTitle'
+                                        value={userInfo.jobTitle}
+                                        onChange={handleChange}
+                                    />
                                 </Flex>
                                 <Flex 
                                     flexDirection='column'
                                 >
                                     <FormLabel>What are your interests?</FormLabel>
-                                    <Textarea/>
+                                    <Textarea
+                                        name='interests'
+                                        value={userInfo.interests}
+                                        onChange={handleChange}
+                                    />
                                 </Flex>
+                                {role === 'mentor' && 
+                                    <Flex 
+                                        flexDirection='column'
+                                    >
+                                        <FormLabel>What is your hourly rate? Leave as 0 for free mentoring.</FormLabel>
+                                        <Input 
+                                            name='hourlyRate'
+                                            value={userInfo.hourlyRate}
+                                            onChange={handleChange}
+                                        />
+                                    </Flex>
+                                }
                             </InputGroup>
                             </Flex>
                             <br />
@@ -104,72 +163,6 @@ const Onboarding = () => {
                         </form>
 
                 </Flex>
-            }
-
-            {/* Mentor */}
-            {role === 'mentor' && 
-                <Flex
-                border='1px'
-                borderRadius='10'
-                borderColor='lightgray'
-                flexDirection='column'
-                rowGap={5}
-                textAlign='center'
-                p={5}
-            >
-                    <Heading>Mentor</Heading>
-                    <form onSubmit={handleSubmit}>
-                        <Flex
-                            flexDirection='column'
-                            gap={10}
-                        >
-                            <InputGroup
-                                flexDirection='column'
-                                gap={10}
-                            >
-                                <Flex
-                                    flexDirection='column'
-                                >
-                                    <FormLabel>Tell us a little about yourself.</FormLabel>
-                                    <Textarea/>
-                                </Flex>
-                                <Flex 
-                                    flexDirection='column'
-                                >
-                                    <FormLabel>What are your areas of expertise?</FormLabel>
-                                    <Textarea/>
-                                </Flex>
-                                <Flex 
-                                    flexDirection='column'
-                                >
-                                    <FormLabel>How many years of experience do you have as a software engineer?</FormLabel>
-                                    <Input />
-                                </Flex>
-                                <Flex 
-                                    flexDirection='column'
-                                >
-                                    <FormLabel>What is your current job title?</FormLabel>
-                                    <Input />
-                                </Flex>
-                                <Flex 
-                                    flexDirection='column'
-                                >
-                                    <FormLabel>What are your interests?</FormLabel>
-                                    <Textarea/>
-                                </Flex>
-                                <Flex 
-                                    flexDirection='column'
-                                >
-                                    <FormLabel>What is your hourly rate? Leave as 0 for free mentoring.</FormLabel>
-                                    <Input />
-                                </Flex>
-                            </InputGroup>
-                        </Flex>
-                        <br />
-                        <Button type='submit'>Submit</Button>
-                    </form>
-
-            </Flex>
             }
         </Flex>
     );
