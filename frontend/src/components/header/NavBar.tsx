@@ -1,9 +1,19 @@
 "use client";
 
-import { Box, Flex, Stack, useColorModeValue } from "@chakra-ui/react";
-import {} from "@chakra-ui/icons";
+import {
+  Box,
+  Flex,
+  Text,
+  IconButton,
+  Stack,
+  Collapse,
+  useColorModeValue,
+  useDisclosure,
+} from "@chakra-ui/react";
+import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 
 export default function NavBar() {
+  const { isOpen, onToggle } = useDisclosure();
   return (
     <Box>
       <Flex
@@ -15,14 +25,28 @@ export default function NavBar() {
         borderBottom={1}
         borderStyle={"solid"}
         borderColor={useColorModeValue("gray.200", "gray.900")}
-        align={"start"}
+        align={"center"}
       >
-        <Flex flex={{ base: 1 }} justify={{ base: "center", md: "start" }}>
-          <Flex display={{ base: "none", sm: "flex" }}>
-            <DesktopNav />
-          </Flex>
+        <Flex mt={"25"} display={{ base: "flex", md: "none" }}>
+          <IconButton
+            onClick={onToggle}
+            icon={
+              isOpen ? <CloseIcon w={3} h={3} /> : <HamburgerIcon w={5} h={5} />
+            }
+            variant={"ghost"}
+            aria-label={"Toggle Navigation"}
+          />
+        </Flex>
+
+        <Flex display={{ base: "none", md: "flex" }}>
+          <DesktopNav />
         </Flex>
       </Flex>
+      <Box position={"absolute"}>
+        <Collapse in={isOpen} animateOpacity>
+          <MobileNav />
+        </Collapse>
+      </Box>
     </Box>
   );
 }
@@ -51,6 +75,43 @@ const DesktopNav = () => {
           </Box>
         </Box>
       ))}
+    </Stack>
+  );
+};
+
+const MobileNav = () => {
+  return (
+    <Stack bg={useColorModeValue("white", "gray.800")} display={{ md: "none" }}>
+      {NAV_ITEMS.map((navItem) => (
+        <MobileNavItem key={navItem.label} {...navItem} />
+      ))}
+    </Stack>
+  );
+};
+
+const MobileNavItem = ({ label, children, href }: NavItem) => {
+  const { isOpen, onToggle } = useDisclosure();
+
+  return (
+    <Stack spacing={4} onClick={children && onToggle}>
+      <Box
+        py={2}
+        as="a"
+        href={href ?? "#"}
+        justifyContent="space-between"
+        alignItems="center"
+        textAlign={"center"}
+        _hover={{
+          textDecoration: "none",
+        }}
+      >
+        <Text
+          fontWeight={600}
+          color={useColorModeValue("gray.600", "gray.200")}
+        >
+          {label}
+        </Text>
+      </Box>
     </Stack>
   );
 };
