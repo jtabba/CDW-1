@@ -24,7 +24,7 @@ const ProfileDropdown: React.FC<ProfileDropdownProps> = ({onSignOut}) => {
     return null;
   }
 
-  const goToProfile = () => {
+  const handleGoToProfile = () => {
     navigate("profile");
   };
 
@@ -34,9 +34,9 @@ const ProfileDropdown: React.FC<ProfileDropdownProps> = ({onSignOut}) => {
         <Avatar size={'sm'} src={user?.picture} name={user?.name} />
       </MenuButton>
       <MenuList>
-        <MenuItem onClick={goToProfile}>Profile</MenuItem>
+        <MenuItem onClick={ handleGoToProfile }>Profile</MenuItem>
         <MenuItem>Settings</MenuItem>
-        <MenuItem onClick={onSignOut}>Sign Out</MenuItem>
+        <MenuItem onClick={ onSignOut }>Sign Out</MenuItem>
       </MenuList>
     </Menu>
   );

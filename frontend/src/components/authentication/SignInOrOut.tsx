@@ -6,10 +6,6 @@ import React, { useEffect } from 'react';
 export const AuthButtons = () => {
 	const { loginWithRedirect, isAuthenticated, logout } = useAuth0();
 
-	useEffect(() => {
-		console.log("Authentication state changed: ", isAuthenticated);
-	  }, [isAuthenticated]);
-
 	const handleLogin = () => {
 		loginWithRedirect();
 	};

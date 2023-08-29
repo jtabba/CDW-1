@@ -1,6 +1,6 @@
 import { isAxiosError } from "axios";
 import { AxiosClient } from "./clients/axiosClient";
-import { IErrorResponse, IResponse } from "../theme/types";
+import { IErrorResponse, IResponse } from "./types";
 
 // Comments for insight
 // 1. This is an example of a request that uses the AxiosClient to make a request to the backend
