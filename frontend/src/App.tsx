@@ -4,58 +4,56 @@ import { userData } from "./theme/requests/types";
 import { UserInterface } from "./components/UserInterface";
 import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
 import { AuthenticationGuard } from "./components/authentication/AuthenticationGuard";
-import { Spinner } from '@chakra-ui/react'
+import { Spinner } from "@chakra-ui/react";
 import Home from "./pages/Home";
 import Profile from "./pages/profile";
 import { useAuth0 } from "@auth0/auth0-react";
 
-
 const App = () => {
-	const [users, setUsers] = useState<userData[]>([]);
-	
-	// ***PURELY FOR EXAMPLE***
-	useEffect(() => {
-		// open browser console to see result
-		const getUsers = async () => {
-			const response = await getAllUsers();
+  const [users, setUsers] = useState<userData[]>([]);
 
-			if (response.success) {
-				setUsers(response.data as userData[]);
-			} else {
-				// create error notification wth Chakra
-			}
-		};
+  // ***PURELY FOR EXAMPLE***
+  useEffect(() => {
+    // open browser console to see result
+    const getUsers = async () => {
+      const response = await getAllUsers();
 
-		getUsers();
-		console.log("users", users);
-	});
-	// ***PURELY FOR EXAMPLE***
+      if (response.success) {
+        setUsers(response.data as userData[]);
+      } else {
+        // create error notification wth Chakra
+      }
+    };
 
-	const { isLoading } = useAuth0()
+    getUsers();
+    console.log("users", users);
+  });
+  // ***PURELY FOR EXAMPLE***
 
-	if(isLoading){
-		return(
-			<div>
-				<Spinner />
-			</div>
-		)
-	}
+  const { isLoading } = useAuth0();
 
+  if (isLoading) {
+    return (
+      <div>
+        <Spinner />
+      </div>
+    );
+  }
 
-	return (
-		
-			<Routes>
-				<Route path="/" element={<UserInterface />}>
-					<Route path="home" element={<Home />} />
-					<Route path="explore" element={<h1>Explore</h1>} />
-					<Route path="products" element={<h1>Products</h1>} />
-					<Route path="mentors" element={<h1>Mentors</h1>} />
-					<Route path="profile" element={<AuthenticationGuard componentAsProps={Profile} /> } />
-				</Route>
-
-			</Routes>
-		
-	);
+  return (
+    <Routes>
+      <Route path="/" element={<UserInterface />}>
+        <Route path="home" element={<Home />} />
+        <Route path="explore" element={<h1>Explore</h1>} />
+        <Route path="products" element={<h1>Products</h1>} />
+        <Route path="mentors" element={<h1>Mentors</h1>} />
+        <Route
+          path="profile"
+          element={<AuthenticationGuard componentAsProps={Profile} />}
+        />
+      </Route>
+    </Routes>
+  );
 };
 
 export default App;

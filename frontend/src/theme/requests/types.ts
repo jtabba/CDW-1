@@ -1,14 +1,18 @@
 export interface userData {
-	_id: string;
-	name: string;
+  _id: string;
+  name: string;
 }
 
 export interface IResponse {
-	success: boolean;
-	data: userData[];
+  success: boolean;
+  data: userData[];
 }
 
 export interface IErrorResponse {
-	success: boolean;
-	data: string;
+  success: boolean;
+  data: string;
+}
+
+export interface WithChildren<T = React.ReactNode> {
+  children?: T;
 }
