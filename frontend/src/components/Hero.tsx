@@ -3,10 +3,10 @@ import { FC } from "react";
 import logo from "../assets/logo-white-blue-round.png";
 
 interface HeroProps {
-	headline: string;
-	content: string;
-	buttonLabel: string;
-	buttonUrl: string;
+  headline: string;
+  content: string;
+  buttonLabel: string;
+  buttonUrl: string;
 }
 
 const Hero: FC<HeroProps> = ({ headline, content, buttonLabel, buttonUrl }) => {

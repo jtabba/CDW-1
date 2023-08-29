@@ -7,18 +7,18 @@ import { NavBar } from "./NavBar";
 interface HeaderProps {}
 
 export const Header: FC<HeaderProps> = () => {
-	return (
-		<Flex
-			justifyContent="space-between"
-			alignItems="center"
-			h="60px"
-			outline={1}
-		>
-			<Logo />
+  return (
+    <Flex
+      justifyContent="space-between"
+      alignItems="center"
+      h="60px"
+      outline={1}
+    >
+      <Logo />
 
-			<NavBar />
+      <NavBar />
 
-			<AuthButtons />
-		</Flex>
-	);
+      <AuthButtons />
+    </Flex>
+  );
 };

@@ -11,24 +11,19 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 const App = () => {
 	const [users, setUsers] = useState<userData[]>([]);
+  
+  // ***PURELY FOR EXAMPLE***
+  useEffect(() => {
+    // open browser console to see result
+    const getUsers = async () => {
+      const response = await getAllUsers();
 
-	// ***PURELY FOR EXAMPLE***
-	useEffect(() => {
-		// open browser console to see result
-		const getUsers = async () => {
-			const response = await getAllUsers();
-
-			if (response.success) {
-				setUsers(response.data as userData[]);
-			} else {
-				// create error notification wth Chakra
-			}
-		};
-
-		getUsers();
-		console.log("users", users);
-	});
-	// ***PURELY FOR EXAMPLE***
+      if (response.success) {
+        setUsers(response.data as userData[]);
+      } else {
+        // create error notification wth Chakra
+      }
+    };
 
 	const { isLoading } = useAuth0();
 

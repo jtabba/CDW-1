@@ -1,26 +1,23 @@
 import { extendTheme, type ThemeConfig } from '@chakra-ui/react';
 import '@fontsource/bree-serif';
 
-
 export const themeGrey = "#425473";
 export const themeBlue = "#0060DF";
 export const themeLightBlue = "#8ED1FC";
 export const themeDarkBlue = "#060D3E";
 
-
 const config: ThemeConfig = {
-    initialColorMode: 'light',
-    useSystemColorMode: false,
-}
+  initialColorMode: "light",
+  useSystemColorMode: false,
+};
 
 const theme = {
-    colors: {
-        primary: {
-            grey: themeGrey,
-            blue: themeBlue,
-            lightBlue: themeLightBlue,
-            darkBlue: themeDarkBlue,
-        }
+  colors: {
+    primary: {
+      grey: themeGrey,
+      blue: themeBlue,
+      lightBlue: themeLightBlue,
+      darkBlue: themeDarkBlue,
     },
     fonts: {
         heading: 'Bree Serif',
@@ -51,7 +48,7 @@ const theme = {
             borderBottom: "1px solid red"
         }
     }
+  }
 }
 
-
-export default extendTheme({...theme, config});
+export default extendTheme({ ...theme, config });
