@@ -10,7 +10,13 @@ import Footer from "./components/Footer";
 
 const App = () => {
   const [users, setUsers] = useState<userData[]>([]);
+  const [users, setUsers] = useState<userData[]>([]);
 
+  // ***PURELY FOR EXAMPLE***
+  useEffect(() => {
+    // open browser console to see result
+    const getUsers = async () => {
+      const response = await getAllUsers();
   // ***PURELY FOR EXAMPLE***
   useEffect(() => {
     // open browser console to see result
@@ -42,27 +48,21 @@ const App = () => {
     getUser();
   }, []);
 
-//  useEffect(() => {
-//   const registerUserData = async () => {
-//     const userData =   {
-//       firstName: "Boris",
-//       lastName: "Smith",
-//       email: "alice.smith@example.com",
-//       username: "alicesmith456",
-//       password: "mypassword",
-//       location: "Los Angeles"
-//     }
-    
-//     const response = await setNewUser(userData)
+ useEffect(() => {
+  const registerUserData = async () => {
+    const userData = {
+    //add userData
+  }
+    const response = await setNewUser(userData)
 
-//     if(response.success) {
-//       console.log(response.data)
-//     }else{
-//       console.log('No data recieved')
-//     }
-//   }
-//   registerUserData()
-//  }, [])
+    if(response.success) {
+      console.log(response.data)
+    }else{
+      console.log('No data recieved')
+    }
+  }
+  registerUserData()
+ }, [])
 
   return (
     <Router>
