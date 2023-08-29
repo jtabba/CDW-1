@@ -1,8 +1,10 @@
 .DS_Store
 
 frontend/node_modules
+frontend/.env
+frontend/build
 
 backend/node_modules
 backend/.env.local
 backend/.env
-frontend/.env
+backend/build
