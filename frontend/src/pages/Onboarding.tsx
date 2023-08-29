@@ -1,5 +1,5 @@
 import { useState, ChangeEvent } from "react";
-import { Button, ButtonGroup, Flex, Spacer, Input, FormControl, Heading, VStack, InputGroup, Textarea, FormLabel } from '@chakra-ui/react';
+import { Button, ButtonGroup, Flex, Spacer, Input, Heading, VStack, InputGroup, Textarea, FormLabel } from '@chakra-ui/react';
 
 const Onboarding = () => {
     let [userInfo, setUserInfo] = useState({
@@ -77,86 +77,86 @@ const Onboarding = () => {
                                 gap={10}
                             >
                                 <InputGroup
-                                flexDirection='column'
-                                gap={10}
-                            >
-                                <Flex
                                     flexDirection='column'
+                                    gap={10}
                                 >
-                                    <FormLabel>Tell us a little about yourself.</FormLabel>
-                                    <Textarea
-                                        name='bio'
-                                        value={userInfo.bio}
-                                        onChange={handleChange}
-                                    />
-                                </Flex>
-                                {role === 'mentor' && 
-                                    <Flex 
-                                    flexDirection='column'
+                                    <Flex
+                                        flexDirection='column'
                                     >
-                                        <FormLabel>What are your areas of expertise?</FormLabel>
+                                        <FormLabel>Tell us a little about yourself.</FormLabel>
                                         <Textarea
-                                            name='expertise'
-                                            value={userInfo.expertise}
+                                            name='bio'
+                                            value={userInfo.bio}
                                             onChange={handleChange}
                                         />
                                     </Flex>
-                                }
-                                {role === 'mentee' && 
+                                    {role === 'mentor' && 
+                                        <Flex 
+                                            flexDirection='column'
+                                        >
+                                            <FormLabel>What are your areas of expertise?</FormLabel>
+                                            <Textarea
+                                                name='expertise'
+                                                value={userInfo.expertise}
+                                                onChange={handleChange}
+                                            />
+                                        </Flex>
+                                    }
+                                    {role === 'mentee' && 
+                                        <Flex 
+                                            flexDirection='column'
+                                        >
+                                            <FormLabel>What are you looking to learn?</FormLabel>
+                                            <Textarea
+                                                name='learningGoals'
+                                                value={userInfo.learningGoals}
+                                                onChange={handleChange}
+                                            />
+                                        </Flex>
+                                    }
                                     <Flex 
                                         flexDirection='column'
                                     >
-                                        <FormLabel>What are you looking to learn?</FormLabel>
-                                        <Textarea
-                                            name='learningGoals'
-                                            value={userInfo.learningGoals}
-                                            onChange={handleChange}
-                                        />
-                                    </Flex>
-                                }
-                                <Flex 
-                                    flexDirection='column'
-                                >
-                                    <FormLabel>How many years of experience do you have as a software engineer?</FormLabel>
-                                    <Input 
-                                        name='experience'
-                                        value={userInfo.experience}
-                                        onChange={handleChange}
-                                    />
-                                </Flex>
-                                <Flex 
-                                    flexDirection='column'
-                                >
-                                    <FormLabel>What is your current job title?</FormLabel>
-                                    <Input 
-                                        name='jobTitle'
-                                        value={userInfo.jobTitle}
-                                        onChange={handleChange}
-                                    />
-                                </Flex>
-                                <Flex 
-                                    flexDirection='column'
-                                >
-                                    <FormLabel>What are your interests?</FormLabel>
-                                    <Textarea
-                                        name='interests'
-                                        value={userInfo.interests}
-                                        onChange={handleChange}
-                                    />
-                                </Flex>
-                                {role === 'mentor' && 
-                                    <Flex 
-                                        flexDirection='column'
-                                    >
-                                        <FormLabel>What is your hourly rate? Leave as 0 for free mentoring.</FormLabel>
+                                        <FormLabel>How many years of experience do you have as a software engineer?</FormLabel>
                                         <Input 
-                                            name='hourlyRate'
-                                            value={userInfo.hourlyRate}
+                                            name='experience'
+                                            value={userInfo.experience}
                                             onChange={handleChange}
                                         />
                                     </Flex>
-                                }
-                            </InputGroup>
+                                    <Flex 
+                                        flexDirection='column'
+                                    >
+                                        <FormLabel>What is your current job title?</FormLabel>
+                                        <Input 
+                                            name='jobTitle'
+                                            value={userInfo.jobTitle}
+                                            onChange={handleChange}
+                                        />
+                                    </Flex>
+                                    <Flex 
+                                        flexDirection='column'
+                                    >
+                                        <FormLabel>What are your interests?</FormLabel>
+                                        <Textarea
+                                            name='interests'
+                                            value={userInfo.interests}
+                                            onChange={handleChange}
+                                        />
+                                    </Flex>
+                                    {role === 'mentor' && 
+                                        <Flex 
+                                            flexDirection='column'
+                                        >
+                                            <FormLabel>What is your hourly rate? Leave as 0 for free mentoring.</FormLabel>
+                                            <Input 
+                                                name='hourlyRate'
+                                                value={userInfo.hourlyRate}
+                                                onChange={handleChange}
+                                            />
+                                        </Flex>
+                                    }
+                                </InputGroup>
                             </Flex>
                             <br />
                             <Button type='submit'>Submit</Button>
