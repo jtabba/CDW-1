@@ -1,8 +1,9 @@
-import React from "react";
+import React, { ComponentType } from "react";
 import { withAuthenticationRequired } from "@auth0/auth0-react";
+import { Spinner } from '@chakra-ui/react'
 
 interface ComponentProps {
-    componentAsProps: () => React.ReactNode
+    componentAsProps: ComponentType<object>
 }
 
 
@@ -10,7 +11,7 @@ export const AuthenticationGuard: React.FC<ComponentProps> = ({componentAsProps}
     const Component = withAuthenticationRequired(componentAsProps, {
         onRedirecting: ()=> (
             <div className="page-layout">
-               <h1>Loading....</h1>
+               <Spinner />
             </div>
         )
     })
@@ -18,16 +19,3 @@ export const AuthenticationGuard: React.FC<ComponentProps> = ({componentAsProps}
     
 }
 
-// interface ComponentProps {
-//     componentAsProps: () => React.ReactNode
-// }
-// export const AuthenticationGuard: React.FC<ComponentProps> = ({componentAsProps}) => {
-//     const Component = withAuthenticationRequired(componentAsProps, {
-//         onRedirecting: ()=> (
-//             <div className="page-layout">
-//                 <PageLoader />
-//             </div>
-//         )
-//     })
-//     return <Component />
-// }
