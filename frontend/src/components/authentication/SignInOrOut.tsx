@@ -1,5 +1,6 @@
 import { useAuth0 } from "@auth0/auth0-react";
 import { Flex, Button } from "@chakra-ui/react";
+import ProfileDropdown from "../ProfileDropdown";
 
 export const AuthButtons = () => {
 	const { loginWithRedirect, isAuthenticated, logout } = useAuth0();
@@ -17,9 +18,9 @@ export const AuthButtons = () => {
 			{!isAuthenticated ? (
 				<Button onClick={handleLogin}>Log In</Button>
 			) : (
-				<Button variant="outline" onClick={handleSignout}>
-					Sign out
-				</Button>
+				<>
+					<ProfileDropdown onSignOut={handleSignout} />
+				</>
 			)}
 		</Flex>
 	);

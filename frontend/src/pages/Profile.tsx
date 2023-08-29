@@ -15,7 +15,7 @@ export default function Profile() {
 					mt={7}
 					mr={10}
 					size="2xl"
-					name="Place Holder"
+					name={"Place Holder"}
 					src="https://bit.ly/ryan-florence"
 				></Avatar>
 				<Flex direction="column" wrap="wrap">
