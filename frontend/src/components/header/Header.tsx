@@ -2,7 +2,8 @@ import { Flex } from "@chakra-ui/react";
 import Logo from "./Logo";
 import { FC } from "react";
 import { AuthButtons } from "../authentication/SignInOrOut";
-import { NavBar } from "./NavBar";
+// import { NavBar } from "./NavBar";
+import NavBar from "./NavBar";
 
 interface HeaderProps {}
 
