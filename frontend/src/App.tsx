@@ -3,11 +3,12 @@ import { getAllUsers } from "./theme/requests/getAllUsers";
 import { userData } from "./theme/requests/types";
 import { UserInterface } from "./components/UserInterface";
 import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
-import { AuthenticationGuard } from "./components/authentication/authenticationGuard";
+import { AuthenticationGuard } from "./components/authentication/AuthenticationGuard";
+import { Spinner } from '@chakra-ui/react'
 import Home from "./pages/Home";
 import Profile from "./pages/profile";
 import { useAuth0 } from "@auth0/auth0-react";
-import { profile } from "console";
+
 
 const App = () => {
 	const [users, setUsers] = useState<userData[]>([]);
@@ -35,7 +36,7 @@ const App = () => {
 	if(isLoading){
 		return(
 			<div>
-				<h1>Loader...</h1>
+				<Spinner />
 			</div>
 		)
 	}
@@ -48,9 +49,8 @@ const App = () => {
 					<Route path="home" element={<Home />} />
 					<Route path="explore" element={<h1>Explore</h1>} />
 					<Route path="products" element={<h1>Products</h1>} />
-					<Route path="mentors" element={<AuthenticationGuard component={<h1>Mentors</h1>} />} />
-					<Route  path="profile" element={<AuthenticationGuard component={Profile} /> } />
-					<Route path="callback" elemtn={<CallbackPage />}/>
+					<Route path="mentors" element={<h1>Mentors</h1>} />
+					<Route path="profile" element={<AuthenticationGuard componentAsProps={Profile} /> } />
 				</Route>
 
 			</Routes>
