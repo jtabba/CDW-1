@@ -48,8 +48,6 @@ export const getSingleUser = async(user_id:string): Promise<IResponse | IErrorRe
 export  const setSingleUserData = async(user_id: string): Promise<IResponse | IErrorResponse> => {
 	const axiosClient = AxiosClient.createInstance();
 	
-	let payload = userObj
-
 	try{
 		const response = await axiosClient.post("api/v1/createUser", payload)
 		return {
