@@ -5,7 +5,7 @@ import { UserInterface } from "./components/UserInterface";
 import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
 import Home from "./pages/home";
 import Profile from "./pages/profile";
-import Onboarding from "./pages/Onboarding";
+import Onboarding from "./pages/onboarding";
 
 const App = () => {
 	const [users, setUsers] = useState<userData[]>([]);

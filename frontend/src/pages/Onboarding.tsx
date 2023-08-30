@@ -1,22 +1,148 @@
-import { useState, ChangeEvent } from "react";
-import { Button, ButtonGroup, Flex, Spacer, Input, Heading, VStack, InputGroup, Textarea, FormLabel } from '@chakra-ui/react';
+import React, { useState, ChangeEvent } from "react";
+import { Button, ButtonGroup, Flex, InputGroup } from '@chakra-ui/react';
+import FormRow from "../components/FormRow";
+import FormContainer from '../components/FormContainer';
+
+interface Persona {
+    role: string
+}
+
+interface MenteeInfo {
+    role: string
+    bio: string
+    learningGoals: string
+    experience: string
+    jobTitle: string
+    interests: string
+}
+
+interface MentorInfo {
+    role: string
+    bio: string
+    expertise: string
+    experience: string
+    jobTitle: string
+    interests: string
+    hourlyRate: string
+}
 
 const Onboarding = () => {
-    let [userInfo, setUserInfo] = useState({
-        role: '',
+
+    let [persona, setPersona] = useState<Persona>({
+        role: ''
+    });
+
+    let [menteeInfo, setMenteeInfo] = useState<MenteeInfo>({
+        role: 'mentee',
+        bio:'',
+        learningGoals: '',
+        experience: '',
+        jobTitle: '',
+        interests: '',
+    });
+
+    let [mentorInfo, setMentorInfo] = useState<MentorInfo>({
+        role: 'mentor',
         bio:'',
         expertise: '',
-        learningGoals: '',
         experience: '',
         jobTitle: '',
         interests: '',
         hourlyRate: ''
     });
 
-    const { role } = userInfo;
+    const menteeFields = [
+        {inputType: 'textArea', label: 'Tell us a little about yourself!', name: 'bio'},
+        {inputType: 'textArea', label: 'What are you looking to learn?', name: 'learningGoals'},
+        {inputType: 'input', label: 'How many years of experience do you have as a software engineer?', name: 'experience'},
+        {inputType: 'input', label: 'What is your current job title?', name: 'jobTitle'},
+        {inputType: 'textArea', label: 'What are your interests?', name: 'interests'}
+    ];
+
+    const mentorFields = [
+        {inputType: 'textArea', label: 'Tell us a little about yourself!', name: 'bio'},
+        {inputType: 'textArea', label: 'What are your areas of expertise?', name: 'expertise'},
+        {inputType: 'input', label: 'How many years of experience do you have as a software engineer?', name: 'experience'},
+        {inputType: 'input', label: 'What is your current job title?', name: 'jobTitle'},
+        {inputType: 'textArea', label: 'What are your interests?', name: 'interests'},
+        {inputType: 'textArea', label: 'WWhat is your hourly rate? Leave as 0 for free mentoring.', name: 'hourlyRate'}
+    ];
+
+    const { role } = persona;
+  
+    const renderRoleComponent = () => {
+        if(role === 'mentee') {
+            return (
+                <FormContainer
+                    heading='Mentee'
+                >
+                    <form onSubmit={handleSubmit}>
+                        <Flex
+                            flexDirection='column'
+                            gap={10}
+                        >
+                            <InputGroup
+                                flexDirection='column'
+                                gap={10}
+                            >
+                                {menteeFields.map((field, index) => 
+                                    <FormRow
+                                        key={index}
+                                        inputType={field.inputType} 
+                                        label={field.label} 
+                                        name={field.name} 
+                                        flexDirection='column' 
+                                        fontSize='clamp(1.3rem, -0.875rem + 8.333vw, 1rem)'
+                                        value={menteeInfo[field.name as keyof MenteeInfo]} 
+                                        onChange={handleChange}
+                                    />)
+                                }
+                            </InputGroup>
+                        </Flex>
+                        <br />
+                        <Button size='lg' type='submit'>Submit</Button>
+                    </form>
+                </FormContainer>
+            );
+        } else if (role === 'mentor') {
+            return (
+                <FormContainer
+                    heading='Mentor'
+                >
+                    <form onSubmit={handleSubmit}>
+                        <Flex
+                            flexDirection='column'
+                            gap={10}
+                        >
+                            <InputGroup
+                                flexDirection='column'
+                                gap={10}
+                            >
+                                {mentorFields.map((field, index) => 
+                                    <FormRow
+                                        key={index}
+                                        inputType={field.inputType} 
+                                        label={field.label} 
+                                        name={field.name} 
+                                        flexDirection='column' 
+                                        fontSize='clamp(1.3rem, -0.875rem + 8.333vw, 1rem)'
+                                        value={mentorInfo[field.name as keyof MentorInfo]} 
+                                        onChange={handleChange}
+                                    />)
+                                }
+                            </InputGroup>
+                        </Flex>
+                        <br />
+                        <Button size='lg' type='submit'>Submit</Button>
+                    </form>
+                </FormContainer>
+            );
+        }
+    };
 
     const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement >) => {
-        setUserInfo({...userInfo, [e.target.name]: e.target.value})
+        role === 'mentee' ? setMenteeInfo({ ...menteeInfo, [e.target.name]: e.target.value }) :
+        setMentorInfo({ ...mentorInfo, [e.target.name]: e.target.value});
     };
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -27,143 +153,25 @@ const Onboarding = () => {
 
     return (
         <Flex
-            maxWidth='30%'
-            gap={5}
+            maxWidth={{base: '100%', sm: '90%', md: '80%', lg: '60%', xl: '40%'}}
+            rowGap={5}
             flexDirection='column'
             margin='auto'
+            marginTop={[30,50,100]}
         >
-            <Flex
-                border='1px'
-                borderRadius='10'
-                borderColor='lightgray'
-                p={5}
+            <FormContainer
+                heading='Are you joining MentorShip as a mentor or mentee?'
             >
-                <VStack
-                    textAlign='center'
-                    flexWrap='wrap'
-                >
-                    <Heading
-                        fontSize='clamp(1rem, -0.875rem + 8.333vw, 2rem)'
-                    >
-                        Are you joining MentorShip as a mentor or mentee?
-                    </Heading>
-                    <Spacer />
-                    <Spacer />
-                    <ButtonGroup
+                <ButtonGroup
                         size='lg'
                         flexWrap='wrap'
-                    >
-                        <Button onClick={() => setUserInfo({...userInfo, role: 'mentor'})}>Mentor</Button>
-                        <Button onClick={() => setUserInfo({...userInfo, role: 'mentee'})}>Mentee</Button>
-                    </ButtonGroup>
-                </VStack>
-            </Flex>
-     
-            {role && 
-                <Flex
-                    border='1px'
-                    borderRadius='10'
-                    borderColor='lightgray'
-                    flexDirection='column'
-                    rowGap={5}
-                    textAlign='center'
-                    p={5}
+                        justifyContent='center'
                 >
-      
-                        <Heading>{(role === 'mentee' && 'Mentee') || (role === 'mentor' && 'Mentor')}</Heading>
-                        <form onSubmit={handleSubmit}>
-                            <Flex
-                                flexDirection='column'
-                                gap={10}
-                            >
-                                <InputGroup
-                                    flexDirection='column'
-                                    gap={10}
-                                >
-                                    <Flex
-                                        flexDirection='column'
-                                    >
-                                        <FormLabel>Tell us a little about yourself.</FormLabel>
-                                        <Textarea
-                                            name='bio'
-                                            value={userInfo.bio}
-                                            onChange={handleChange}
-                                        />
-                                    </Flex>
-                                    {role === 'mentor' && 
-                                        <Flex 
-                                            flexDirection='column'
-                                        >
-                                            <FormLabel>What are your areas of expertise?</FormLabel>
-                                            <Textarea
-                                                name='expertise'
-                                                value={userInfo.expertise}
-                                                onChange={handleChange}
-                                            />
-                                        </Flex>
-                                    }
-                                    {role === 'mentee' && 
-                                        <Flex 
-                                            flexDirection='column'
-                                        >
-                                            <FormLabel>What are you looking to learn?</FormLabel>
-                                            <Textarea
-                                                name='learningGoals'
-                                                value={userInfo.learningGoals}
-                                                onChange={handleChange}
-                                            />
-                                        </Flex>
-                                    }
-                                    <Flex 
-                                        flexDirection='column'
-                                    >
-                                        <FormLabel>How many years of experience do you have as a software engineer?</FormLabel>
-                                        <Input 
-                                            name='experience'
-                                            value={userInfo.experience}
-                                            onChange={handleChange}
-                                        />
-                                    </Flex>
-                                    <Flex 
-                                        flexDirection='column'
-                                    >
-                                        <FormLabel>What is your current job title?</FormLabel>
-                                        <Input 
-                                            name='jobTitle'
-                                            value={userInfo.jobTitle}
-                                            onChange={handleChange}
-                                        />
-                                    </Flex>
-                                    <Flex 
-                                        flexDirection='column'
-                                    >
-                                        <FormLabel>What are your interests?</FormLabel>
-                                        <Textarea
-                                            name='interests'
-                                            value={userInfo.interests}
-                                            onChange={handleChange}
-                                        />
-                                    </Flex>
-                                    {role === 'mentor' && 
-                                        <Flex 
-                                            flexDirection='column'
-                                        >
-                                            <FormLabel>What is your hourly rate? Leave as 0 for free mentoring.</FormLabel>
-                                            <Input 
-                                                name='hourlyRate'
-                                                value={userInfo.hourlyRate}
-                                                onChange={handleChange}
-                                            />
-                                        </Flex>
-                                    }
-                                </InputGroup>
-                            </Flex>
-                            <br />
-                            <Button type='submit'>Submit</Button>
-                        </form>
-
-                </Flex>
-            }
+                    <Button onClick={() => setPersona({role: 'mentor'})}>Mentor</Button>
+                    <Button onClick={() => setPersona({role: 'mentee'})}>Mentee</Button>
+                </ButtonGroup>
+            </FormContainer>
+            {renderRoleComponent()}
         </Flex>
     );
 
