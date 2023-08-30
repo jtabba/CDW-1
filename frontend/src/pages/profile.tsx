@@ -1,7 +1,16 @@
 import { Flex, Avatar, Text, List, ListItem, ListIcon } from "@chakra-ui/react";
 import { CheckCircleIcon, ArrowForwardIcon } from "@chakra-ui/icons";
+import { useAuth0 } from "@auth0/auth0-react";
 
-export default function Profile() {
+
+const Profile: React.FC = () => {
+
+	const { user, isAuthenticated } = useAuth0();
+
+	if (!isAuthenticated) {
+		return null;
+	}
+
 	return (
 		<Flex justify="center" w="80%" ml="auto" mr="auto" direction="column">
 			<Flex
@@ -15,21 +24,21 @@ export default function Profile() {
 					mt={7}
 					mr={10}
 					size="2xl"
-					name={"Place Holder"}
-					src="https://bit.ly/ryan-florence"
+					name={user?.name}
+					src={user?.picture}
 				></Avatar>
 				<Flex direction="column" wrap="wrap">
 					<Text fontSize="4xl" mt={6}>
-						Place Holder
+						{user?.name}
 					</Text>
 					<Text fontSize="l" mt={""}>
-						California, USA
+						Location: {user?.location || "Unknown"}
 					</Text>
 					<Text fontSize="m" mt={2}>
-						place@holder.com
+						Email: {user?.email}
 					</Text>
 					<Text fontSize="m" mt={2}>
-						username
+						Username: {user?.nickname}
 					</Text>
 				</Flex>
 			</Flex>
@@ -142,4 +151,6 @@ export default function Profile() {
 			</Flex>
 		</Flex>
 	);
-}
+};
+
+export default Profile;
