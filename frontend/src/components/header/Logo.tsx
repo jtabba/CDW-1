@@ -1,18 +1,18 @@
-import { Flex, Image, Box } from "@chakra-ui/react";
+import { Flex, Image, Box} from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import logo from "../../assets/logo-white.png";
+import '@fontsource/bree-serif';
+import './Logo.css';
 
 
 
 const Logo = () => {
 	return (
-		<Flex className="logo" >
-			<Box display="flex" alignItems="center" justifyContent="center" border="1px" boxSize="" p={10} w="100%">			
-				<Image objectFit="cover" boxSize="75px" src={logo} />
+		<Flex>
+			<Box className="logo" display="flex" alignItems="center" justifyContent="flex-start" pr={10} w="100%">			
+				<Image mr="15px" objectFit="cover" boxSize="38px" src={logo} />
 				<Link to={"home"}>MentorShip</Link>
 			</Box>
-			{/* <img src={logo} alt="logo" /> */}
-			{/* <Link to={"home"}>MentorShip</Link> */}
 		</Flex>
 	);
 };
