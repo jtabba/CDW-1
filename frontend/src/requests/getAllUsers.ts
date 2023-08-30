@@ -16,7 +16,7 @@ export const getAllUsers = async (): Promise<IResponse | IErrorResponse> => {
 
 		return {
 			success: true,
-			data: response.data
+			data: response.data 
 		};
 	} catch (err) {
 		console.error(err);
@@ -28,37 +28,38 @@ export const getAllUsers = async (): Promise<IResponse | IErrorResponse> => {
 	}
 };
 
-export const getSingleUser = async(user_id:string): Promise<IResponse | IErrorResponse> => {
-	const axiosClient = AxiosClient.createInstance();
+// export const getSingleUser = async(user_id:string ): Promise<IResponse | IErrorResponse> => {
+// 	const axiosClient = AxiosClient.createInstance();
+// 	try{
+// 		const response = await axiosClient.get(`api/v1/getUser/${user_id}`)
+// 		return{
+// 			success: true,
+// 			data: response.data as userData
+// 		}
 		
-	try{
-		const response = await axiosClient.get("api/v1/getUser", getSingle(user_id));
-		return {
-			success: true,
-			data: response.data
-		}
-	}catch (err) {
-		console.error (err)
-		return{
-			success: false,
-			data: isAxiosError(err) ? err.message : (err as string)
-		}
-	}
-}
-export  const setSingleUserData = async(user_id: string): Promise<IResponse | IErrorResponse> => {
+// 	}catch (err) {
+// 		console.error (err)
+// 		return{
+// 			success: false,
+// 			data: isAxiosError(err) ? err.message : (err as string)
+// 		}
+// 	}
+// }
+export  const setSingleUserData = async(userData: userData): Promise<IResponse | IErrorResponse> => {
 	const axiosClient = AxiosClient.createInstance();
 	
 	try{
-		const response = await axiosClient.post("api/v1/createUser", payload)
+		const response = await axiosClient.post("api/v1/createUser", userData)
 		return {
-			success: true
+			success: true,
+			data: response.data
 		}
 		
 	}catch (err) {
 		console.error(err)
 			return {
 				success: false,
-				data: isAxiosError(err) ? error.message : (err as string)
+				data: isAxiosError(err) ? err.message : (err as string)
 			
 		}
 	}
