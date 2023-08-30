@@ -1,6 +1,6 @@
 import { isAxiosError } from "axios";
 import { AxiosClient } from "./clients/axiosClient";
-import { IErrorResponse, IResponse } from "./types";
+import { IErrorResponse, IResponse, userData } from "./types";
 
 // Comments for insight
 // 1. This is an example of a request that uses the AxiosClient to make a request to the backend
@@ -27,3 +27,41 @@ export const getAllUsers = async (): Promise<IResponse | IErrorResponse> => {
 		};
 	}
 };
+
+export const getSingleUser = async(user_id:string): Promise<IResponse | IErrorResponse> => {
+	const axiosClient = AxiosClient.createInstance();
+		
+	try{
+		const response = await axiosClient.get("api/v1/getUser", getSingle(user_id));
+		return {
+			success: true,
+			data: response.data
+		}
+	}catch (err) {
+		console.error (err)
+		return{
+			success: false,
+			data: isAxiosError(err) ? err.message : (err as string)
+		}
+	}
+}
+export  const setSingleUserData = async(user_id: string): Promise<IResponse | IErrorResponse> => {
+	const axiosClient = AxiosClient.createInstance();
+	
+	let payload = userObj
+
+	try{
+		const response = await axiosClient.post("api/v1/createUser", payload)
+		return {
+			success: true
+		}
+		
+	}catch (err) {
+		console.error(err)
+			return {
+				success: false,
+				data: isAxiosError(err) ? error.message : (err as string)
+			
+		}
+	}
+}
