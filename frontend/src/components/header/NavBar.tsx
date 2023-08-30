@@ -48,7 +48,13 @@ export default function NavBar() {
             <DesktopNav />
           </Flex>
         </Flex>
-        <Box position={"absolute"} width={"100%"}>
+        <Box
+          position={"absolute"}
+          width={"100px"}
+          transform={"translateX(-15%)"}
+          boxShadow={"lg"}
+          rounded={"md"}
+        >
           <Collapse in={isOpen} animateOpacity>
             <MobileNav />
           </Collapse>
