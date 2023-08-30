@@ -50,13 +50,4 @@ export const postUser = async (req: Request, res: Response) => {
         message: 'Registration is done',
         data: insertedData
     })
-
-    /* {
-    "firstName": "John",
-    "lastName": "Rolfe",
-    "email": "mrjohn@mail.com",
-    "username": "johnro",
-    "password": "password",
-    "location": "Ontario"
-} */
 }
