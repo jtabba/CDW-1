@@ -13,12 +13,10 @@ export const Auth0ProviderWithNavigate: FC<WithChildren> = ({ children }) => {
 
 
 
-    const onRedirectCallback: (appState?: AppState | undefined, user?: User | undefined) => void = (
-        appState?: AppState,
-        user?: User
-    ) => {
+    const onRedirectCallback = (appState?: AppState, user?: User) => {
         navigate(appState?.returnTo || window.location.pathname);
     };
+    
     
    
     if(!(DOMAIN && CLIENT_ID && REDIRECT_URI)){

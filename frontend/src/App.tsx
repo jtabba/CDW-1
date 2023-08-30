@@ -4,7 +4,7 @@ import { userData } from "./theme/requests/types";
 import { UserInterface } from "./components/UserInterface";
 import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
 import { AuthenticationGuard } from "./components/authentication/AuthenticationGuard";
-import { Spinner } from "@chakra-ui/react";
+import { Box, Spinner } from "@chakra-ui/react";
 import Home from "./pages/Home";
 import Profile from "./pages/profile";
 import { useAuth0 } from "@auth0/auth0-react";
@@ -34,9 +34,9 @@ const App = () => {
 
   if (isLoading) {
     return (
-      <div>
+      <Box>
         <Spinner />
-      </div>
+      </Box>
     );
   }
 
