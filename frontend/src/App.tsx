@@ -41,7 +41,7 @@ const App = () => {
   }
 
 	return (
-		<Router>
+		// <Router>
 			<Routes>
 				<Route path="/" element={<UserInterface />}>
 					<Route path="home" element={<Home />} />
@@ -55,7 +55,7 @@ const App = () => {
         <Route path="*" element={<h1>404: Page Not Found</h1>} />
 				</Route>
 			</Routes>
-		</Router>
+		// </Router>
 	);
 };
 
