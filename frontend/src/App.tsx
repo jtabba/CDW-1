@@ -25,10 +25,10 @@ const App = () => {
       }
     };
 
-    getUsers();
-    console.log("users", users);
-  });
-  // ***PURELY FOR EXAMPLE***
+		getUsers();
+		console.log("users", users);
+	});
+	// ***PURELY FOR EXAMPLE***
 
   const { isLoading } = useAuth0();
 
@@ -40,20 +40,23 @@ const App = () => {
     );
   }
 
-  return (
-    <Routes>
-      <Route path="/" element={<UserInterface />}>
-        <Route path="home" element={<Home />} />
-        <Route path="explore" element={<h1>Explore</h1>} />
-        <Route path="products" element={<h1>Products</h1>} />
-        <Route path="mentors" element={<h1>Mentors</h1>} />
-        <Route
+	return (
+		<Router>
+			<Routes>
+				<Route path="/" element={<UserInterface />}>
+					<Route path="home" element={<Home />} />
+					<Route path="explore" element={<h1>Explore</h1>} />
+					<Route path="products" element={<h1>Products</h1>} />
+					<Route path="mentors" element={<h1>Mentors</h1>} />
+          <Route
           path="profile"
           element={<AuthenticationGuard componentAsProps={Profile} />}
         />
-      </Route>
-    </Routes>
-  );
+        <Route path="*" element={<h1>404: Page Not Found</h1>} />
+				</Route>
+			</Routes>
+		</Router>
+	);
 };
 
 export default App;

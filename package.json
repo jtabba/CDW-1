@@ -1,0 +1,11 @@
+{
+  "name": "cdw-1",
+  "version": "1.0.0",
+  "description": "This is a full stack app scaffolded with create-react-app and using auth0 for user authentication.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
