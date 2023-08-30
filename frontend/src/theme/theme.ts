@@ -26,9 +26,7 @@ const theme = {
         heading: 'Bree Serif',
     },
     textStyles: {
-        fonts: {
-            header: `'Bree Serif', serif`,
-        },
+
         header: {
             fontSize: ["md", "lg", "xl", "2xl"],
             margin: "30px"
