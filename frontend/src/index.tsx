@@ -6,6 +6,7 @@ import { ChakraProvider } from "@chakra-ui/react";
 import theme from "./theme/theme";
 import { Auth0Provider } from "@auth0/auth0-react";
 import App from "./App";
+import '@fontsource/bree-serif';
 
 const DOMAIN = process.env.REACT_APP_AUTH0_DOMAIN!;
 const CLIENT_ID = process.env.REACT_APP_AUTH0_CLIENT_ID!;
