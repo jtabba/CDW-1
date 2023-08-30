@@ -30,8 +30,8 @@ const App = () => {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<UserInterface />}>
-          <Route path="home" element={<Home />} />
+        <Route element={<UserInterface />}>
+          <Route path="/" element={<Home />} />
           <Route path="explore" element={<h1>Explore</h1>} />
           <Route path="products" element={<h1>Products</h1>} />
           <Route path="mentors" element={<h1>Mentors</h1>} />
