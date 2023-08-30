@@ -23,7 +23,8 @@ const App = () => {
       } else {
         // create error notification wth Chakra
       }
-    };
+    }
+  }, []);
 
 	const { isLoading } = useAuth0();
 
