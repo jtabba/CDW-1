@@ -1,18 +1,18 @@
 export interface userData {
-	_id: string;
-	name: string;
-	email: string;
-	dateOfBirth: string;
-	currentJobTitle: string;
-	AreasOfExpertise:string;
-	rate: number;
-	interests: string[]
-	aboutMe: string;
+	_id?: string;
+	name?: string;
+	email?: string;
+	dateOfBirth?: string;
+	currentJobTitle?: string;
+	AreasOfExpertise?:string;
+	rate?: number;
+	interests?: string[]
+	aboutMe?: string;
 }
 
 export interface IResponse {
 	success: boolean;
-	data: userData[];
+	data: {};
 }
 
 export interface IErrorResponse {

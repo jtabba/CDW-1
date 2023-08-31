@@ -5,27 +5,21 @@ import { UserInterface } from "./components/UserInterface";
 import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
 import Home from "./pages/Home";
 import Profile from "./pages/profile";
-
+import { useAuth0 } from "@auth0/auth0-react";
+import { setSingleUserData } from "./requests/getAllUsers";
 const App = () => {
 	const [users, setUsers] = useState<userData[]>([]);
+	const { user } = useAuth0()
 
-	// ***PURELY FOR EXAMPLE***
+	const usersData: Partial<userData> = {
+		_id: user?.sub,
+		name: user?.nickname,
+		email: user?.email,
+	}
+
 	useEffect(() => {
-		// open browser console to see result
-		const getUsers = async () => {
-			const response = await getAllUsers();
-
-			if (response.success) {
-				setUsers(response.data as userData[]);
-			} else {
-				// create error notification wth Chakra
-			}
-		};
-
-		getUsers();
-		console.log("users", users);
+		setSingleUserData(usersData)
 	});
-	// ***PURELY FOR EXAMPLE***
 
 	return (
 		<Router>

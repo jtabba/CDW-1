@@ -28,23 +28,24 @@ export const getAllUsers = async (): Promise<IResponse | IErrorResponse> => {
 	}
 };
 
-// export const getSingleUser = async(user_id:string ): Promise<IResponse | IErrorResponse> => {
-// 	const axiosClient = AxiosClient.createInstance();
-// 	try{
-// 		const response = await axiosClient.get(`api/v1/getUser/${user_id}`)
-// 		return{
-// 			success: true,
-// 			data: response.data as userData
-// 		}
+export const getSingleUser = async(user_id:string ): Promise<IResponse | IErrorResponse> => {
+	const axiosClient = AxiosClient.createInstance();
+	try{
+		const response = await axiosClient.get(`api/v1/getUser/${user_id}`)
+		return{
+			success: true,
+			data: response.data as userData
+		}
 		
-// 	}catch (err) {
-// 		console.error (err)
-// 		return{
-// 			success: false,
-// 			data: isAxiosError(err) ? err.message : (err as string)
-// 		}
-// 	}
-// }
+	}catch (err) {
+		console.error (err)
+		return{
+			success: false,
+			data: isAxiosError(err) ? err.message : (err as string)
+		}
+	}
+}
+
 export  const setSingleUserData = async(userData: userData): Promise<IResponse | IErrorResponse> => {
 	const axiosClient = AxiosClient.createInstance();
 	
