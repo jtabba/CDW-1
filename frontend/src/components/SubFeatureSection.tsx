@@ -4,7 +4,7 @@ import { FC } from 'react';
 
 interface SubFeatureProps {
   headline: string;
-  content: string;
+  content: string | JSX.Element;
   linkLabel: string;
   url: string;
 }

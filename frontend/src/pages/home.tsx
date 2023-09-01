@@ -16,10 +16,10 @@ interface SubFeatureProps {
 const Home = () => {
 	//Props stored here until we start implementing an appropriate store
 	const heroProps = {
-		headline: "Find a mentor and set sail.",
+		headline: "Set Sail for Coding Excellence",
 		content:
-			"Navigate the seas of programming mastery with MentorShip. Join hands with mentors, chart your course, and unlock the potential within your code.",
-		buttonLabel: "Set sail",
+			"Embark on a transformative journey in software development with MentorShip, where experienced captains mentor aspiring cadets through real-world projects, turning learning into an exhilarating voyage.",
+		buttonLabel: "Get Started",
 		buttonUrl: "/loremipsum"
 	};
 
@@ -27,7 +27,7 @@ const Home = () => {
 		headline: "Find a mentor and get ready to sail",
 		content:
 			"Whether you're navigating a career transition, striving to elevate your developer prowess, or seeking enhanced efficiency in your programming journey, we're your catalyst for success. Our platform serves as the bridge, connecting you with seasoned developers and accomplished engineers. Together, we unlock the power of mentorship and pave the way for more effective, empowered learning experiences.",
-		buttonLabel: "Lorem Ipsum",
+		buttonLabel: "Our Mentors",
 		buttonUrl: "/loremipsum"
 	};
 
@@ -46,9 +46,22 @@ const Home = () => {
 			url: "/loremipsum2"
 		},
 		{
-			headline: "Lorem Ipsum 3",
+			headline: "How MentorShip Works:",
 			content:
-				"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+			(
+				<ol>
+				  <li>Sign up or Log In.</li>
+				  <li>Complete your profile.</li>
+				  <li>Choose your role: 
+					<ul>
+						<li>Captains are here to share their knowledge & skills, leading their crew to glory.</li>
+						<li>Crew members are looking to learn and gain experience by helping their Ship complete its assignments.</li>
+					</ul>
+				  </li>
+				  <li>Find a Ship recruiting for your role.</li>
+				  <li>Find a Ship looking for your role.</li>
+				</ol>
+			  ),			
 			linkLabel: "Lorem Ipsum 3 >",
 			url: "/loremipsum3"
 		}

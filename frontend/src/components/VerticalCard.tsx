@@ -13,7 +13,7 @@ import { FC } from "react";
 
 interface VerticalCardProps {
 	headline: string;
-	content: string;
+	content: string | JSX.Element;
 	linkLabel: string;
 	url: string;
 }
