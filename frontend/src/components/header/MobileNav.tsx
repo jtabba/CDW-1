@@ -4,8 +4,17 @@ import {
   Stack,
   useColorModeValue,
   useDisclosure,
+  Flex,
+  MenuList,
+  Menu,
+  MenuButton,
+  Button,
+  MenuDivider,
 } from "@chakra-ui/react";
+import { FC } from "react";
 import { NAV_ITEMS, NavItem } from "./DesktopNav";
+import { AuthButtons } from "../authentication/SignInOrOut";
+import { CloseIcon, HamburgerIcon } from "@chakra-ui/icons";
 
 const MobileNavItem = ({ label, children, href }: NavItem) => {
   const { onToggle } = useDisclosure();
@@ -34,12 +43,27 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
   );
 };
 
-export const MobileNav = () => {
+interface NavBarProps {}
+
+export const MobileNav: FC<NavBarProps> = () => {
   return (
-    <Stack bg={useColorModeValue("white", "gray.800")} display={{ md: "none" }}>
-      {NAV_ITEMS.map((navItem) => (
-        <MobileNavItem key={navItem.label} {...navItem} />
-      ))}
-    </Stack>
+    <Menu>
+      {({ isOpen }) => (
+        <>
+          <MenuButton as={Button} rounded={"sm"} isActive={isOpen}>
+            {isOpen ? <CloseIcon w={5} h={5} /> : <HamburgerIcon w={5} h={5} />}
+          </MenuButton>
+          <MenuList>
+            <Flex justifyContent={"center"} py={1}>
+              <AuthButtons />
+            </Flex>
+            <MenuDivider />
+            {NAV_ITEMS.map((navItem) => (
+              <MobileNavItem key={navItem.label} {...navItem} />
+            ))}
+          </MenuList>
+        </>
+      )}
+    </Menu>
   );
 };

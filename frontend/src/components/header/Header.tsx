@@ -1,4 +1,4 @@
-import { Flex } from "@chakra-ui/react";
+import { Box, Flex } from "@chakra-ui/react";
 import Logo from "./Logo";
 import { FC } from "react";
 import { AuthButtons } from "../authentication/SignInOrOut";
@@ -14,7 +14,9 @@ export const Header: FC<HeaderProps> = () => {
 
       <NavBar />
 
-      <AuthButtons />
+      <Box display={{ base: "none", md: "flex" }}>
+        <AuthButtons />
+      </Box>
     </Flex>
   );
 };
