@@ -31,7 +31,9 @@ export const getAllUsers = async (): Promise<IResponse | IErrorResponse> => {
 export const getSingleUser = async(user_id:string ): Promise<IResponse | IErrorResponse> => {
 	const axiosClient = AxiosClient.createInstance();
 	try{
+	
 		const response = await axiosClient.get(`api/v1/getUser/${user_id}`)
+		console.log("getSingleUser request:", response.config);
 		return{
 			success: true,
 			data: response.data as userData

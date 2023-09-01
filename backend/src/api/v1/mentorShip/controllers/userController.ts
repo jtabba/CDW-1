@@ -12,13 +12,17 @@ export const getAll = async (req: Request, res: Response) => {
 }
 
 export const getSingle = async (req: Request, res: Response) => {
-    const userData = await getSingleUser(req.body.userId)
+    
+    const userId = req.params.user_id
+    console.log(req.params.user_id)
+    const userData = await getSingleUser(userId)
 
     return res.send({
         status: 200,
         message: 'Success',
         data: userData
     })
+}
 
     // for testing of single use one of the following IDs and add it to postman body as "userId": "id here"
     // {
@@ -36,4 +40,4 @@ export const getSingle = async (req: Request, res: Response) => {
     // "userId": "64e738b63ef7a62f2d9a3d60"
     // endpoint: http://localhost:8080/api/v1/getUser
     //  }
-}
+

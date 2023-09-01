@@ -6,6 +6,6 @@ dotenv.config()
 const router = express.Router()
 
 router.get('/getAll', getAll)
-router.get('/getUser', getSingle)
+router.get('/getUser/:user_id', getSingle)
 
 export default router

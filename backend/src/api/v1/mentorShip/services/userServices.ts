@@ -1,5 +1,5 @@
 import { ObjectId } from 'mongodb'
-import { getCollection } from '../../../../database/db'
+import { getCollection  } from '../../../../database/db'
 
 export const getAllDataService = async () => {
     const collection = await getCollection('users')

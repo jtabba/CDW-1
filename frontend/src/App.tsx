@@ -1,25 +1,39 @@
-import { useEffect, useState } from "react";
-import { getAllUsers } from "./requests/getAllUsers";
-import { userData } from "./requests/types";
+import { useEffect } from "react";
+// import { userData } from "./requests/types";
 import { UserInterface } from "./components/UserInterface";
 import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
 import Home from "./pages/Home";
-import Profile from "./pages/profile";
-import { useAuth0 } from "@auth0/auth0-react";
-import { setSingleUserData } from "./requests/getAllUsers";
+import Profile from "./pages/Profile";
+// import { useAuth0 } from "@auth0/auth0-react";
+import {   getSingleUser } from "./requests/getAllUsers";
+
 const App = () => {
-	const [users, setUsers] = useState<userData[]>([]);
-	const { user } = useAuth0()
+	// const [users, setUsers] = useState<userData[]>([]);
+	// const { user } = useAuth0()
 
-	const usersData: Partial<userData> = {
-		_id: user?.sub,
-		name: user?.nickname,
-		email: user?.email,
-	}
-
+	// const usersData: Partial<userData> = {
+	// 	_id: user?.sub,
+	// 	name: user?.nickname,
+	// 	email: user?.email,
+	// }
 	useEffect(() => {
-		setSingleUserData(usersData)
-	});
+		const fetchData = async () => {
+		try{
+			
+			const response = await getSingleUser('64e7ebcd41c790a1f83942c8')
+			console.log(response.data)
+			}catch(err){
+			console.error("an Error Occured:", err)
+		}
+		
+	} 
+
+	// 
+	
+	fetchData()
+		
+	}, []);
+	
 
 	return (
 		<Router>
