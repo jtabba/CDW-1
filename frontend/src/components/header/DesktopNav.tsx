@@ -1,4 +1,5 @@
 import { Box, Stack, useColorModeValue } from "@chakra-ui/react";
+import { FC } from "react";
 
 export interface NavItem {
   label: string;
@@ -25,7 +26,10 @@ export const NAV_ITEMS: Array<NavItem> = [
     href: "mentors",
   },
 ];
-export const DesktopNav = () => {
+
+interface DesktopNavProps {}
+
+export const DesktopNav: FC<DesktopNavProps> = () => {
   const linkColor = useColorModeValue("gray.600", "gray.200");
   const linkHoverColor = useColorModeValue("gray.800", "white");
 
@@ -37,7 +41,7 @@ export const DesktopNav = () => {
             as="a"
             p={2}
             href={navItem.href ?? "#"}
-            fontSize={"sm"}
+            fontSize={"lg"}
             fontWeight={500}
             color={linkColor}
             _hover={{
