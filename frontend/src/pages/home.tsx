@@ -16,10 +16,10 @@ interface SubFeatureProps {
 const Home = () => {
 	//Props stored here until we start implementing an appropriate store
 	const heroProps = {
-		headline: "We ship coders.",
+		headline: "Find a mentor and set sail.",
 		content:
-			"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-		buttonLabel: "Lorem Ipsum",
+			"Navigate the seas of programming mastery with MentorShip. Join hands with mentors, chart your course, and unlock the potential within your code.",
+		buttonLabel: "Set sail",
 		buttonUrl: "/loremipsum"
 	};
 
