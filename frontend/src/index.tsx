@@ -6,7 +6,6 @@ import theme from "./theme/theme";
 import { Auth0ProviderWithNavigate } from "./components/authentication/Auth0ProviderWithNavigate";
 import App from "./App";
 import Fonts from "./Fonts";
-import '@fontsource/bree-serif';
 import { BrowserRouter } from "react-router-dom";
 
 

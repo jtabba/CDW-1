@@ -1,7 +1,7 @@
 import { AppState, User, Auth0Provider } from "@auth0/auth0-react";
 import { FC } from "react";
 import { useNavigate } from "react-router-dom";
-import { WithChildren } from "../../theme/requests/types";
+import { WithChildren } from "../../requests/types";
 // Make a component that accepts children. 
     
 const DOMAIN = process.env.REACT_APP_AUTH0_DOMAIN!;
