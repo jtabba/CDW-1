@@ -5,8 +5,8 @@ import { DesktopNav } from "./DesktopNav";
 
 export default function NavBar() {
   return (
-    <Box>
-      <Flex display={{ base: "none", md: "flex" }}>
+    <Box display={"flex"}>
+      <Flex display={{ base: "none", md: "flex" }} alignItems={"center"}>
         <DesktopNav />
       </Flex>
 
