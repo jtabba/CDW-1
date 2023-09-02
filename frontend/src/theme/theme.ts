@@ -1,4 +1,5 @@
 import { extendTheme, type ThemeConfig } from '@chakra-ui/react';
+import '@fontsource/bree-serif';
 
 
 export const themeGrey = "#425473";
@@ -20,6 +21,9 @@ const theme = {
             lightBlue: themeLightBlue,
             darkBlue: themeDarkBlue,
         }
+    },
+    fonts: {
+        heading: 'Bree Serif',
     },
     textStyles: {
         header: {

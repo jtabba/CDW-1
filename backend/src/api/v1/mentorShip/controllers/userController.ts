@@ -1,5 +1,9 @@
 import { Request, Response } from 'express'
-import { getAllDataService, getSingleUser } from '../services/userServices'
+import {
+    getAllDataService,
+    getSingleUser,
+    postSingleUser
+} from '../services/userServices'
 
 export const getAll = async (req: Request, res: Response) => {
     const allData = await getAllDataService()
@@ -41,3 +45,13 @@ export const getSingle = async (req: Request, res: Response) => {
     // endpoint: http://localhost:8080/api/v1/getUser
     //  }
 
+
+export const postUser = async (req: Request, res: Response) => {
+    const insertedData = await postSingleUser(req.body)
+
+    return res.send({
+        status: 201,
+        message: 'Registration is done',
+        data: insertedData
+    })
+}
