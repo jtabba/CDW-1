@@ -2,8 +2,8 @@ import { useEffect } from "react";
 // import { userData } from "./requests/types";
 import { UserInterface } from "./components/UserInterface";
 import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
-import Home from "./pages/Home";
-import Profile from "./pages/Profile";
+import Home from "./pages/home";
+import Profile from "./pages/profile";
 // import { useAuth0 } from "@auth0/auth0-react";
 import {   getSingleUser } from "./requests/getAllUsers";
 

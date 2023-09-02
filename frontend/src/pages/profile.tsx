@@ -12,7 +12,7 @@ const Profile: React.FC = () => {
 	}
 
 
-export default function Profile() {
+
 
 	return (
 		<Flex justify="center" w="80%" ml="auto" mr="auto" direction="column">
