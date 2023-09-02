@@ -10,10 +10,7 @@ const Profile: React.FC = () => {
 	if (!isAuthenticated) {
 		return null;
 	}
-
-
-export default function Profile() {
-
+  
 	return (
 		<Flex justify="center" w="80%" ml="auto" mr="auto" direction="column">
 			<Flex
@@ -42,7 +39,6 @@ export default function Profile() {
 					</Text>
 					<Text fontSize="m" mt={2}>
 						Username: {user?.nickname}
-
 					</Text>
 				</Flex>
 			</Flex>
@@ -155,7 +151,6 @@ export default function Profile() {
 			</Flex>
 		</Flex>
 	);
-
 };
 
 export default Profile;
