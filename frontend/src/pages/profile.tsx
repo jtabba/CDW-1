@@ -10,7 +10,7 @@ const Profile: React.FC = () => {
 	if (!isAuthenticated) {
 		return null;
 	}
-
+  
 	return (
 		<Flex justify="center" w="80%" ml="auto" mr="auto" direction="column">
 			<Flex
