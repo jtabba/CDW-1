@@ -8,7 +8,7 @@ import MetricSection from "../components/MetricSection";
 const Home = () => {
 	//Props stored here until we start implementing an appropriate store
 	const heroProps = {
-		headline: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+		headline: "We ship coders.",
 		content:
 			"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
 		buttonLabel: "Lorem Ipsum",
