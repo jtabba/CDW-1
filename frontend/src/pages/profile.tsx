@@ -11,6 +11,9 @@ const Profile: React.FC = () => {
 		return null;
 	}
 
+
+export default function Profile() {
+
 	return (
 		<Flex justify="center" w="80%" ml="auto" mr="auto" direction="column">
 			<Flex
@@ -39,6 +42,7 @@ const Profile: React.FC = () => {
 					</Text>
 					<Text fontSize="m" mt={2}>
 						Username: {user?.nickname}
+
 					</Text>
 				</Flex>
 			</Flex>
@@ -151,6 +155,7 @@ const Profile: React.FC = () => {
 			</Flex>
 		</Flex>
 	);
+
 };
 
 export default Profile;
