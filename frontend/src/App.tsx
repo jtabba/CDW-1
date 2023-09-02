@@ -3,9 +3,9 @@ import { getAllUsers } from "./theme/requests/getAllUsers";
 import { userData } from "./theme/requests/types";
 import { UserInterface } from "./components/UserInterface";
 import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
-import { AuthenticationGuard } from "./components/authentication/AuthenticationGuard";
+import { AuthenticationGuard } from "./components/authentication/authenticationGuard";
 import { Box, Spinner } from "@chakra-ui/react";
-import Home from "./pages/Home";
+import Home from "./pages/home";
 import Profile from "./pages/profile";
 import { useAuth0 } from "@auth0/auth0-react";
 
@@ -41,7 +41,7 @@ const App = () => {
   }
 
 	return (
-		// <Router>
+		+
 			<Routes>
 				<Route path="/" element={<UserInterface />}>
 					<Route path="home" element={<Home />} />
@@ -55,7 +55,7 @@ const App = () => {
         <Route path="*" element={<h1>404: Page Not Found</h1>} />
 				</Route>
 			</Routes>
-		// </Router>
+
 	);
 };
 
