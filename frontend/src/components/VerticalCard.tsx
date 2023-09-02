@@ -27,7 +27,7 @@ const VerticalCard: FC<VerticalCardProps> = ({
 	return (
 		<Card flexDirection="column">
 			<CardHeader>
-				<QuestionIcon />
+				{/* <QuestionIcon /> */}
 			</CardHeader>
 			<CardBody>
 				<Flex flexDirection="column" rowGap={2}>
