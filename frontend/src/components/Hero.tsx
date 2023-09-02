@@ -26,7 +26,7 @@ const Hero: FC<HeroProps> = ({ headline, content, buttonLabel, buttonUrl }) => {
 
 			<Text
 				textAlign="center"
-				fontSize="clamp(1rem, -0.875rem + 8.333vw, 1.15rem)"
+				fontSize="clamp(1.6rem, -0.875rem + 8.333vw, 1.15rem)"
 				pb={4}
 			>
 				{content}

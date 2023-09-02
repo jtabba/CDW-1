@@ -1,4 +1,4 @@
-import { Flex } from '@chakra-ui/react';
+import { Flex, Heading, Text, Box } from '@chakra-ui/react';
 import VerticalCard from './VerticalCard';
 import { FC } from 'react';
 
@@ -16,11 +16,15 @@ interface Props {
 const SubFeatureSection: FC<Props> = ({ subFeatureProps }) => {
 
   return (
+    <Box maxWidth={{ base: '90%', md: '90%' }}>
     <Flex 
-      flexDirection='row' 
-      maxWidth='65%'
-      columnGap={8}
+      flexDirection='column' 
+      // maxWidth='90%'
+      // columnGap={8}
     >
+      {/* <Text fontSize={{ base: '2xl', md: '4xl' }} mb={4}> */}
+      <Heading fontSize={{ base: '2xl', md: '4xl' }} mb={4}>How MentorShip Works</Heading>
+      {/* </Text> */}
         {subFeatureProps.map((prop, index) => (
           <VerticalCard
             headline={prop.headline}
@@ -32,6 +36,7 @@ const SubFeatureSection: FC<Props> = ({ subFeatureProps }) => {
         ))
         }
     </Flex>
+    </Box>
   );
 };
 
