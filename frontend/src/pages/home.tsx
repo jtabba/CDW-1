@@ -19,51 +19,51 @@ const Home = () => {
 		headline: "About Us",
 		content:
 			"Introducing MentorShip, where experienced senior developers and engineers guide aspiring developers, all while navigating the seas of real-world projects.Step into our maritime-themed platform where real tech projects become 'Ships,' assignments become thrilling 'Voyages,' and developers form close-knit 'Crews' of junior developers to conquer coding challenges together.",
-		buttonLabel: "Lorem Ipsum",
+		buttonLabel: "Learn more...",
 		buttonUrl: "/loremipsum"
 	};
 
 	const subFeaturesProps = [
 		{
-			headline: "Tutorial Expedition",
+			headline: "Tutorial Expeditions",
 			content:
 				"Every voyage begins with a tutorial expedition. Prove your skills as a 'Captain' or showcase your dedication as a 'Cadet' by completing these starter assignments. Get acquainted with our platform and learn the ropes of MentorShip.",
-			linkLabel: "Lorem Ipsum 1 >",
+			linkLabel: "Learn more... >",
 			url: "/loremipsum1"
 		},
 		{
 			headline: "Craft Your Ship",
 			content:
 				"As a 'Captain,' take charge by creating a 'Ship' and crafting your unique 'Mission.' Design the challenges, set the deadlines, and guide your 'Crew' through uncharted coding waters towards your goal.",
-			linkLabel: "Lorem Ipsum 2 >",
+			linkLabel: "Learn more... >",
 			url: "/loremipsum2"
 		},
 		{
-			headline: "Recruitment and Assembling a Crews",
+			headline: "Assemble or Join a Crew",
 			content:
 				"Captains can browse a pool of motivated 'Cadets' who have completed the tutorials. Choose your crew wisely and embark on your voyage. On the flip side, 'Cadets' can explore 'Ships' and join projects that resonate with their aspirations.",
-			linkLabel: "Lorem Ipsum 3 >",
+			linkLabel: "Learn more... >",
 			url: "/loremipsum3"
 		},		
 		{
-			headline: "Sail Together:",
+			headline: "Set Sail Together",
 			content:
 				"The voyage begins! Collaborate with your 'Crew' to tackle tasks and challenges that mimic the real software development world. Peer code reviews, pull requests, and teamwork become second nature as you navigate your 'Mission.'",
-			linkLabel: "Advancement and Rank: >",
+			linkLabel: "Learn more...>",
 			url: "/loremipsum3"
 		},
 		{
 			headline: "Advancement and Rank",
 			content:
 				"As you navigate the development seas, gain experience and rise through the ranks. Both 'Captains' and 'Cadets' can unlock new features, making the journey even more rewarding.",
-			linkLabel: "Lorem Ipsum 3 >",
+			linkLabel: "Learn more... >",
 			url: "/loremipsum3"
 		},
 		{
-			headline: "Community and Camaraderie:",
+			headline: "Community and Support",
 			content:
 				"MentorShip is more than a platform—it's a community of passionate developers, united by a love for coding and learning. Forge lasting connections, share insights, and contribute to the growth of fellow developers.",
-			linkLabel: "Lorem Ipsum 3 >",
+			linkLabel: "Learn more... >",
 			url: "/loremipsum3"
 		}
 	];
