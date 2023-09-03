@@ -1,15 +1,14 @@
-import { QuestionIcon, ArrowForwardIcon } from "@chakra-ui/icons";
+import { ArrowForwardIcon } from "@chakra-ui/icons";
 import {
 	Flex,
 	Text,
 	Card,
 	CardBody,
 	CardFooter,
-	Link,
-	Heading,
-	CardHeader
+	Link
 } from "@chakra-ui/react";
 import { FC } from "react";
+import { themeBlue } from "../theme/theme";
 
 interface VerticalCardProps {
 	headline: string;
@@ -26,12 +25,9 @@ const VerticalCard: FC<VerticalCardProps> = ({
 }: VerticalCardProps) => {
 	return (
 		<Card flexDirection="column">
-			{/* <CardHeader> */}
-				{/* <QuestionIcon /> */}
-			{/* </CardHeader> */}
 			<CardBody mb={0}>
 				<Flex flexDirection="column" rowGap={2}>
-					<Text fontStyle="italic" fontWeight="medium" fontSize={{ base: 'xl', md: '2xl' }}><ArrowForwardIcon mt="-6px" style={{ stroke: "#0060DF", strokeWidth: "2px" }}/> {headline}</Text>
+					<Text fontStyle="italic" fontWeight="medium" fontSize={{ base: 'xl', md: '2xl' }}><ArrowForwardIcon mt="-6px" style={{ stroke: themeBlue, strokeWidth: "2px" }}/> {headline}</Text>
 					<Text fontSize={{ base: 'lg', md: 'xl'}}>{content}</Text>
 				</Flex>
 			</CardBody>
