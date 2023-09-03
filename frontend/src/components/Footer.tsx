@@ -20,7 +20,7 @@ const Footer = () => {
             <Divider margin='10px'/>
             <Flex justifyContent='space-between'>
                 <Text fontSize='10px'>
-                    Copyright © 2023 Lorem Ipsum
+                    Copyright © 2023 MentorShip
                 </Text>
                 <Flex gap='5px'>
                     {footerProps.map((element, index) => {
