@@ -94,18 +94,24 @@ const Home = () => {
     },
   ];
 
-  return (
-    <GridItem className="main" paddingBottom="48px">
-      <Flex maxWidth="60%" margin="auto">
-        <Hero {...heroProps} />
-      </Flex>
-      <Flex flexDirection="column" alignItems="center" rowGap={20}>
-        <FeatureSection {...featureProps} />
-        <SubFeatureSection subFeatureProps={subFeaturesProps} />
-        <MetricSection metricsProps={metricProps} />
-      </Flex>
-    </GridItem>
-  );
+	return (
+		<>
+			<GridItem className="main" paddingBottom="48px">
+				<Flex maxWidth="60%" margin="auto">
+					<Hero {...heroProps} />
+				</Flex>
+				<Flex flexDirection="column" alignItems="center" rowGap={20}>
+					<FeatureSection {...featureProps} />
+					<MetricSection metricsProps={metricProps} />
+					<SubFeatureSection subFeatureProps={subFeaturesProps} />
+
+				</Flex>
+			</GridItem>
+			<GridItem className="footer">
+				<Footer />
+			</GridItem>
+		</>
+	);
 };
 
 export default Home;
