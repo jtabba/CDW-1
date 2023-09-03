@@ -94,8 +94,9 @@ const Home = () => {
 				</Flex>
 				<Flex flexDirection="column" alignItems="center" rowGap={20}>
 					<FeatureSection {...featureProps} />
-					<SubFeatureSection subFeatureProps={subFeaturesProps} />
 					<MetricSection metricsProps={metricProps} />
+					<SubFeatureSection subFeatureProps={subFeaturesProps} />
+
 				</Flex>
 			</GridItem>
 			<GridItem className="footer">
