@@ -7,7 +7,6 @@ import { Auth0ProviderWithNavigate } from "./components/authentication/Auth0Prov
 import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 import Fonts from "./Fonts";
-import { BrowserRouter } from "react-router-dom";
 
 
 const root = ReactDOM.createRoot(
