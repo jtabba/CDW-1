@@ -1,7 +1,6 @@
 import { Box, Heading, Flex, Text, Button } from '@chakra-ui/react';
 import { FC } from "react";
 import { themeBlue } from "../theme/theme";
-// import { missionSectionProps } from "../pages/home/constants";
 
 interface MissionProps {
     MISSION_HEADLINE:string

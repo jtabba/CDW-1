@@ -1,7 +1,6 @@
 import { Button, Flex, Text, Heading, Image, Stack } from "@chakra-ui/react";
 import { FC } from "react";
 import logo from "../assets/logo-white-blue-round.png";
-// import { heroProps } from "../pages/home/constants"
 
 interface HeroProps {
 	HERO_HEADLINE: string;

@@ -17,11 +17,6 @@ export type VerticalCardProps = {
 	HOW_IT_WORKS_URL: string;
   }
 
-// interface VerticalCardProps {
-// 	cardInstance: string;
-// 	url: string;
-// }
-
 const VerticalCard: FC<VerticalCardProps> = ({
 	HOW_IT_WORKS_HEADING,
 	HOW_IT_WORKS_CONTENT,
