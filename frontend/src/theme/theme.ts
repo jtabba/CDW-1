@@ -12,13 +12,12 @@ const config: ThemeConfig = {
 };
 
 const theme = {
-    colors: {
-        primary: {
-            grey: themeGrey,
-            blue: themeBlue,
-            lightBlue: themeLightBlue,
-            darkBlue: themeDarkBlue,
-        }
+  colors: {
+    primary: {
+      grey: themeGrey,
+      blue: themeBlue,
+      lightBlue: themeLightBlue,
+      darkBlue: themeDarkBlue,
     },
     fonts: {
       heading: 'Bree Serif',
@@ -49,6 +48,7 @@ const theme = {
             borderBottom: "1px solid red"
         }
     }
+  }
 }
 
 export default extendTheme({ ...theme, config });

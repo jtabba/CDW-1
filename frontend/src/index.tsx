@@ -7,7 +7,7 @@ import { Auth0ProviderWithNavigate } from "./components/authentication/Auth0Prov
 import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 import Fonts from "./Fonts";
-import '@fontsource/bree-serif';
+import { BrowserRouter } from "react-router-dom";
 
 
 const root = ReactDOM.createRoot(
@@ -18,15 +18,11 @@ root.render(
 	<React.StrictMode>
 		<ChakraProvider theme={theme}>
 			<Fonts />
-			<Auth0Provider
-				domain={DOMAIN}
-				clientId={CLIENT_ID}
-				authorizationParams={{
-					redirect_uri: window.location.origin
-				}}
-			>
+			<BrowserRouter>
+				<Auth0ProviderWithNavigate>
 				<App />
-			</Auth0Provider>
+				</Auth0ProviderWithNavigate>
+			</BrowserRouter>
 		</ChakraProvider>
 	</React.StrictMode>
 );

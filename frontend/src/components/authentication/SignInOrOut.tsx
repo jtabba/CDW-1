@@ -32,18 +32,18 @@ export const AuthButtons = () => {
     });
   };
 
-  return (
-    <Flex>
-      {!isAuthenticated ? (
-        <>
-          <Button onClick={handleLogin}>Log In</Button>
-          <Button onClick={handleSignUp}>Sign Up</Button>
-        </>
-      ) : (
-        <Button variant="outline" onClick={handleSignout}>
-          Sign out
-        </Button>
-      )}
-    </Flex>
-  );
+	return (
+		<Flex>
+			{!isAuthenticated ? (
+				<>
+				<Button onClick={handleLogin}>Log In</Button>
+				<Button onClick={handleSignUp}>Sign Up</Button>
+				</>
+			) : (
+				<>
+					<ProfileDropdown onSignOut={handleSignout} />
+				</>
+			)}
+		</Flex>
+	);
 };
