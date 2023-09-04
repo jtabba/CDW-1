@@ -3,7 +3,7 @@ import { getAllUsers } from "./requests/getAllUsers";
 import { userData } from "./requests/types";
 import { UserInterface } from "./components/UserInterface";
 import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
-import Home from "./pages/home";
+import Home from "./pages/home/home";
 import Profile from "./pages/profile";
 import Onboarding from "./pages/onboarding";
 import Footer from "./components/Footer";

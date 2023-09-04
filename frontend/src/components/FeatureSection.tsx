@@ -1,27 +1,28 @@
 import { Box, Heading, Flex, Text, Image, Button} from '@chakra-ui/react';
 import { FC } from 'react';
 import { themeBlue } from "../theme/theme";
+// import { FEATURE_CONTENT, FEATURE_HEADLINE, FEATURE_LINK_LABEL } from '../pages/home/constants';
 
 interface FeatureSectionProps {
-    headline:string
-    content:string
-    buttonLabel:string
-    buttonUrl:string
+    FEATURE_HEADLINE:string
+    FEATURE_CONTENT:string
+    FEATURE_LINK_LABEL:string
+    FEATURE_URL:string
 }
 
-const FeatureSection: FC<FeatureSectionProps> = ({headline, content, buttonLabel, buttonUrl}) => {
+const FeatureSection: FC<FeatureSectionProps> = ({FEATURE_HEADLINE, FEATURE_CONTENT, FEATURE_LINK_LABEL, FEATURE_URL}) => {
     return (
         <Box maxWidth={{ base: '90%', md: '90%' }}>
             <Heading fontSize={{ base: '2xl', md: '4xl' }} mb={4}>
-                    About Us
+                    {FEATURE_HEADLINE}
             </Heading>
             <Flex flexDirection={{ base: 'column', md: 'row' }} alignItems='center'>
                 <Box width={{ base: '100%', md: '60%' }}>
                     <Text fontSize={{ base: 'lg', md: 'xl'}} pt={2} pr={2}>
-                    Introducing MentorShip, where experienced senior engineers guide aspiring junior developers, all while navigating the seas of real-world projects. Step into our maritime-themed platform where close-knit crews of developers board 'Ships,' complete real-world tech projects called 'Voyages,' gaining experience and advancing in rank by conquering coding challenges together.
+                    {FEATURE_CONTENT}
                     </Text>
                     <Button color={themeBlue} mt={6} mb={4} variant='outline'>
-                        Explore
+                        {FEATURE_LINK_LABEL}
                     </Button>
                     </Box>
                     <Box width={{ base: '100%', md: '40%' }} ml={{ base: 0, md: 4 }}>
