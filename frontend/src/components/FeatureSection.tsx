@@ -1,7 +1,6 @@
 import { Box, Heading, Flex, Text, Image, Button} from '@chakra-ui/react';
 import { FC } from 'react';
 import { themeBlue } from "../theme/theme";
-// import { FEATURE_CONTENT, FEATURE_HEADLINE, FEATURE_LINK_LABEL } from '../pages/home/constants';
 
 interface FeatureSectionProps {
     FEATURE_HEADLINE:string

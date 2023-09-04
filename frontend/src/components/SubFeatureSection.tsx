@@ -2,8 +2,6 @@ import { Flex, Heading, Box } from '@chakra-ui/react';
 import VerticalCard from './VerticalCard';
 import { FC } from 'react';
 
-
-
 interface SubFeatureProps {
   HOW_IT_WORKS_HEADING: string;
   HOW_IT_WORKS_CONTENT: string;
