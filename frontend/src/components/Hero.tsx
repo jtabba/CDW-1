@@ -1,15 +1,16 @@
 import { Button, Flex, Text, Heading, Image, Stack } from "@chakra-ui/react";
 import { FC } from "react";
 import logo from "../assets/logo-white-blue-round.png";
+// import { heroProps } from "../pages/home/constants"
 
 interface HeroProps {
-	headline: string;
-	content: string;
-	buttonLabel: string;
-	buttonUrl: string;
+	HERO_HEADLINE: string;
+	HERO_CONTENT: string;
+	HERO_LINK_LABEL: string;
+	HERO_URL: string;
 }
 
-const Hero: FC<HeroProps> = ({ headline, content, buttonLabel, buttonUrl }) => {
+const Hero: FC<HeroProps> = ({ HERO_HEADLINE, HERO_CONTENT, HERO_LINK_LABEL, HERO_URL }) => {
 	return (
 		<Flex mt={30}  mb={20} flexDirection="column" justifyContent="center" alignItems="center" w="90%" ml="auto" mr="auto">
 
@@ -19,7 +20,7 @@ const Hero: FC<HeroProps> = ({ headline, content, buttonLabel, buttonUrl }) => {
 						fontSize="clamp(2rem, -0.875rem + 8.333vw, 4.5rem)"
 						textAlign="center" justifyContent="center"
 					>
-					{headline}
+					{HERO_HEADLINE}
 					</Heading>
 					
 			</Stack>
@@ -29,11 +30,11 @@ const Hero: FC<HeroProps> = ({ headline, content, buttonLabel, buttonUrl }) => {
 				fontSize="clamp(1.6rem, -0.875rem + 8.333vw, 1.15rem)"
 				pb={4}
 			>
-				{content}
+				{HERO_CONTENT}
 			</Text>
 
 			<Button size="lg" width="3xs">
-				{buttonLabel}
+				{HERO_LINK_LABEL}
 			</Button>
 
 		</Flex>
