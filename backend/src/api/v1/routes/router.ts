@@ -10,7 +10,7 @@ dotenv.config()
 const router = express.Router()
 
 router.get('/getAll', getAll)
-router.get('/getUser', getSingle)
+router.get('/getSingle/:userId', getSingle )
 router.post('/register', postUser)
 
 export default router

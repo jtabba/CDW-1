@@ -14,9 +14,9 @@ export const getAll = async (req: Request, res: Response) => {
         data: allData
     })
 }
-
 export const getSingle = async (req: Request, res: Response) => {
-    const userData = await getSingleUser(req.body.userId)
+  
+    const userData = await getSingleUser(req.params.userId)
 
     return res.send({
         status: 200,
