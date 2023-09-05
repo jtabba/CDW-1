@@ -12,25 +12,25 @@ const App = () => {
   const [users, setUsers] = useState<userData[]>([]);
 
   // ***PURELY FOR EXAMPLE***
-  // useEffect(() => {
-  //   // open browser console to see result
-  //   const getUsers = async () => {
-  //     const response = await getAllUsers();
+  useEffect(() => {
+    // open browser console to see result
+    const getUsers = async () => {
+      const response = await getAllUsers();
 
-  //     if (response.success) {
-  //       // console.log(response.data as userData[]);
-  //     } else {
-  //       // create error notification wth Chakra
-  //     }
-  //   };
+      if (response.success) {
+        console.log(response.data as userData[]);
+      } else {
+        // create error notification wth Chakra
+      }
+    };
 
-  //   getUsers();
-  //   console.log("users", users);
-  // },[]);
+    getUsers();
+    console.log("users", users);
+  },[]);
 
   useEffect(() => {
     const getUser = async () => {
-      const userId = "4f686a1e27ce8f55fa92d55";
+      const userId = "64e7ef5cc67e2ffd4fc5d286";
       const response = await getUserById(userId);
   
        if (response.success) {
@@ -45,7 +45,7 @@ const App = () => {
 //  useEffect(() => {
 //   const registerUserData = async () => {
 //     const userData =   {
-//       firstName: "Alice",
+//       firstName: "Boris",
 //       lastName: "Smith",
 //       email: "alice.smith@example.com",
 //       username: "alicesmith456",
