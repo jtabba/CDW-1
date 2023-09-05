@@ -32,7 +32,7 @@ const Onboarding = () => {
         </ButtonGroup>
       </FormContainer>
       {role === 'mentee' && <MenteeForm menteeFields={MENTEE_FIELDS}/>}
-      {role === 'mentor' && <MentorForm mentorFields={MENTOR_FIELDS}/>}
+      {/* {role === 'mentor' && <MentorForm mentorFields={MENTOR_FIELDS}/>} */}
     </Flex>
   );
 };
