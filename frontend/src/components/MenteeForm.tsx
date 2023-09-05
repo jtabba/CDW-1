@@ -4,8 +4,12 @@ import FormRow from './FormRow';
 import { Flex, InputGroup, Button } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
 import { Field, MenteeInfo } from '../types';
+import { useForm } from 'react-hook-form';
+
 
 const MenteeForm: FC<{ menteeFields: Field[] }> = ({ menteeFields }) => {
+  const {watch} = useForm();
+  
   const navigate = useNavigate();
 
   let [menteeInfo, setMenteeInfo] = useState<MenteeInfo>({
@@ -21,19 +25,22 @@ const MenteeForm: FC<{ menteeFields: Field[] }> = ({ menteeFields }) => {
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => setMenteeInfo({ ...menteeInfo, [e.target.name]: e.target.value });
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const onSubmit = (/*e: React.FormEvent<HTMLFormElement>*/) => {
     //POST request logic goes here
-    e.preventDefault();
+    // e.preventDefault();
+    console.log('WATCHOBJ',watch('test'));
     navigate('/home');
   };
 
+  const { register, handleSubmit } = useForm();
   return (
     <FormContainer heading='Mentee'>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit(onSubmit)}>
         <Flex flexDirection='column' gap={10}>
           <InputGroup flexDirection='column' gap={10}>
             {menteeFields.map((field: Field, index: number) => (
-              <FormRow
+              <FormRow 
+                register={register}
                 key={index}
                 inputType={field.inputType}
                 label={field.label}

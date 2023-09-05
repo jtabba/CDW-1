@@ -4,8 +4,10 @@ import FormRow from './FormRow';
 import { Flex, InputGroup, Button } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
 import { Field, MentorInfo } from '../types';
+import { useForm } from 'react-hook-form';
 
 const MentorForm: FC<{ mentorFields: Field[] }> = ({ mentorFields }) => {
+  const { register } = useForm();
   const navigate = useNavigate();
 
   let [mentorInfo, setMentorInfo] = useState<MentorInfo>({
@@ -35,6 +37,7 @@ const MentorForm: FC<{ mentorFields: Field[] }> = ({ mentorFields }) => {
           <InputGroup flexDirection='column' gap={10}>
             {mentorFields.map((field: Field, index: number) => (
               <FormRow
+                register={register}
                 key={index}
                 inputType={field.inputType}
                 label={field.label}
