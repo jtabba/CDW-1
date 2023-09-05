@@ -5,6 +5,8 @@ import { UserInterface } from "./components/UserInterface";
 import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
 import Home from "./pages/home";
 import Profile from "./pages/profile";
+import Onboarding from "./pages/onboarding";
+import Footer from "./components/Footer";
 
 const App = () => {
   const [users, setUsers] = useState<userData[]>([]);
@@ -29,16 +31,19 @@ const App = () => {
 
   return (
     <Router>
+      <UserInterface />
       <Routes>
-        <Route element={<UserInterface />}>
-          <Route path="/" element={<Home />} />
-          <Route path="explore" element={<h1>Explore</h1>} />
-          <Route path="products" element={<h1>Products</h1>} />
-          <Route path="mentors" element={<h1>Mentors</h1>} />
-          <Route path="profile" element={<Profile />} />
-          <Route path="*" element={<h1>404: Page Not Found</h1>} />
-        </Route>
+        <Route path="/" element={<Home />} />
+        <Route path="onboarding" element={<Onboarding />} />
+        <Route path="explore" element={<h1>Explore</h1>} />
+        <Route path="products" element={<h1>Products</h1>} />
+        <Route path="mentors" element={<h1>Mentors</h1>} />
+        <Route path="profile" element={<Profile />} />
+
+        {/* The 404 route must always be last */}
+        <Route path="*" element={<h1>404: Page Not Found</h1>} />
       </Routes>
+      <Footer />
     </Router>
   );
 };
