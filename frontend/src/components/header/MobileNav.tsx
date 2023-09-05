@@ -16,7 +16,7 @@ import { NAV_ITEMS, NavItem } from "./DesktopNav";
 import { AuthButtons } from "../authentication/SignInOrOut";
 import { CloseIcon, HamburgerIcon } from "@chakra-ui/icons";
 
-const MobileNavItem = ({ label, children, href }: NavItem) => {
+const MobileNavItem: FC<NavItem> = ({ label, children, href }: NavItem) => {
   const { onToggle } = useDisclosure();
 
   return (
@@ -44,9 +44,7 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
   );
 };
 
-interface NavBarProps {}
-
-export const MobileNav: FC<NavBarProps> = () => {
+export const MobileNav = () => {
   return (
     <Menu>
       {({ isOpen }) => (
