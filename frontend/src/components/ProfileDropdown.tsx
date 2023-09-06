@@ -30,7 +30,6 @@ const ProfileDropdown: React.FC<ProfileDropdownProps> = ({ onSignOut }) => {
   return (
     <Menu>
       <MenuButton
-        //   as={Button}
         backgroundColor={"transparent"}
         shadow={"md"}
         borderRadius={"full"}
