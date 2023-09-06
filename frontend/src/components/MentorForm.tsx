@@ -24,11 +24,11 @@ const MentorForm: FC<{ mentorFields: Field[] }> = ({ mentorFields }) => {
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => setMentorInfo({ ...mentorInfo, [e.target.name]: e.target.value });
 
-  const onSubmit = (/*e: React.FormEvent<HTMLFormElement>*/) => {
+  const onSubmit = (  /*e: React.FormEvent<HTMLFormElement>*/) => {
     //POST request logic goes here
     // e.preventDefault();
     console.log('WATCHOBJ-MENTOR', watch('test'));
-    navigate('/home');
+    navigate('/');
   };
 
   const { register, handleSubmit } = useForm();
