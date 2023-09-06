@@ -3,25 +3,25 @@ import { Flex, Button } from "@chakra-ui/react";
 import ProfileDropdown from "../ProfileDropdown";
 
 export const AuthButtons = () => {
-	const { loginWithRedirect, isAuthenticated, logout } = useAuth0();
+  const { loginWithRedirect, isAuthenticated, logout } = useAuth0();
 
-	const handleLogin = () => {
-		loginWithRedirect();
-	};
+  const handleLogin = () => {
+    loginWithRedirect();
+  };
 
-	const handleSignout = () => {
-		logout();
-	};
+  const handleSignout = () => {
+    logout();
+  };
 
-	return (
-		<Flex>
-			{!isAuthenticated ? (
-				<Button onClick={handleLogin}>Log In</Button>
-			) : (
-				<>
-					<ProfileDropdown onSignOut={handleSignout} />
-				</>
-			)}
-		</Flex>
-	);
+  return (
+    <Flex>
+      {!isAuthenticated ? (
+        <Button onClick={handleLogin}>Log In</Button>
+      ) : (
+        <>
+          <ProfileDropdown onSignOut={handleSignout} />
+        </>
+      )}
+    </Flex>
+  );
 };
