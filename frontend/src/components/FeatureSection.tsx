@@ -3,25 +3,25 @@ import { FC } from 'react';
 import { themeBlue } from "../theme/theme";
 
 interface FeatureSectionProps {
-    FEATURE_HEADLINE:string
-    FEATURE_CONTENT:string
-    FEATURE_LINK_LABEL:string
-    FEATURE_URL:string
+    featureHeadline:string
+    featureContent:string
+    featureLinkLabel:string
+    featureUrl:string
 }
 
-const FeatureSection: FC<FeatureSectionProps> = ({FEATURE_HEADLINE, FEATURE_CONTENT, FEATURE_LINK_LABEL, FEATURE_URL}) => {
+const FeatureSection: FC<FeatureSectionProps> = ({featureHeadline, featureContent, featureLinkLabel, featureUrl}) => {
     return (
         <Box maxWidth={{ base: '90%', md: '90%' }}>
             <Heading fontSize={{ base: '2xl', md: '4xl' }} mb={4}>
-                    {FEATURE_HEADLINE}
+                    {featureHeadline}
             </Heading>
             <Flex flexDirection={{ base: 'column', md: 'row' }} alignItems='center'>
                 <Box width={{ base: '100%', md: '60%' }}>
                     <Text fontSize={{ base: 'lg', md: 'xl'}} pt={2} pr={2}>
-                    {FEATURE_CONTENT}
+                    {featureContent}
                     </Text>
                     <Button color={themeBlue} mt={6} mb={4} variant='outline'>
-                        {FEATURE_LINK_LABEL}
+                        {featureLinkLabel}
                     </Button>
                     </Box>
                     <Box width={{ base: '100%', md: '40%' }} ml={{ base: 0, md: 4 }}>

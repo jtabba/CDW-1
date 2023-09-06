@@ -1,12 +1,13 @@
 import { Flex, Heading, Box } from '@chakra-ui/react';
 import VerticalCard from './VerticalCard';
 import { FC } from 'react';
+import { HOW_HEADLINE } from '../pages/home/constants';
 
 interface SubFeatureProps {
-  HOW_IT_WORKS_HEADING: string;
-  HOW_IT_WORKS_CONTENT: string;
-  HOW_IT_WORKS_LINK_LABEL: string;
-  HOW_IT_WORKS_URL: string;
+  howHeading: string;
+  howContent: string;
+  howLinkLabel: string;
+  howUrl: string;
 }
 
 interface Props {
@@ -19,14 +20,14 @@ const SubFeatureSection: FC<Props> = ({ subFeatureProps }) => {
     <Box maxWidth={{ base: '90%', md: '90%' }}>
     <Flex 
       flexDirection='column'> 
-      <Heading fontSize={{ base: '2xl', md: '4xl' }} mb={4}>How MentorShip Works</Heading>
+      <Heading fontSize={{ base: '2xl', md: '4xl' }} mb={4}>{HOW_HEADLINE}</Heading>
  
         {subFeatureProps.map((prop, index) => (
           <VerticalCard
-            HOW_IT_WORKS_HEADING={prop.HOW_IT_WORKS_HEADING}
-            HOW_IT_WORKS_CONTENT={prop.HOW_IT_WORKS_CONTENT}
-            HOW_IT_WORKS_LINK_LABEL={prop.HOW_IT_WORKS_LINK_LABEL}
-            HOW_IT_WORKS_URL={prop.HOW_IT_WORKS_URL}
+            howHeading={prop.howHeading}
+            howContent={prop.howContent}
+            howLinkLabel={prop.howLinkLabel}
+            howUrl={prop.howUrl}
             key={index}
           />
         ))

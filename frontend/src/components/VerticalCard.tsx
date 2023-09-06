@@ -11,30 +11,30 @@ import { FC } from "react";
 import { themeBlue } from "../theme/theme";
 
 export type VerticalCardProps = {
-	HOW_IT_WORKS_HEADING: string;
-	HOW_IT_WORKS_CONTENT: string;
-	HOW_IT_WORKS_LINK_LABEL: string;
-	HOW_IT_WORKS_URL: string;
+	howHeading: string;
+	howContent: string;
+	howLinkLabel: string;
+	howUrl: string;
   }
 
 const VerticalCard: FC<VerticalCardProps> = ({
-	HOW_IT_WORKS_HEADING,
-	HOW_IT_WORKS_CONTENT,
-	HOW_IT_WORKS_LINK_LABEL,
-	HOW_IT_WORKS_URL
+	howHeading,
+	howContent,
+	howLinkLabel,
+	howUrl
 
 }: VerticalCardProps) => {
 	return (
 		<Card flexDirection="column">
 			<CardBody mb={0}>
 				<Flex flexDirection="column" rowGap={2}>
-					<Text fontStyle="italic" fontWeight="medium" fontSize={{ base: 'xl', md: '2xl' }}><ArrowForwardIcon mt="-6px" style={{ stroke: themeBlue, strokeWidth: "2px" }}/> {HOW_IT_WORKS_HEADING}</Text>
-					<Text fontSize={{ base: 'lg', md: 'xl'}}>{HOW_IT_WORKS_CONTENT}</Text>
+					<Text fontStyle="italic" fontWeight="medium" fontSize={{ base: 'xl', md: '2xl' }}><ArrowForwardIcon mt="-6px" style={{ stroke: themeBlue, strokeWidth: "2px" }}/> {howHeading}</Text>
+					<Text fontSize={{ base: 'lg', md: 'xl'}}>{howContent}</Text>
 				</Flex>
 			</CardBody>
 			<CardFooter fontSize={{ base: '1rem', md: 'xl' }} mt={0} pt={0}>
-				<Link mt={0} href={HOW_IT_WORKS_URL} textDecoration="underline">
-					{HOW_IT_WORKS_LINK_LABEL}
+				<Link mt={0} href={howUrl} textDecoration="underline">
+					{howLinkLabel}
 				</Link>
 			</CardFooter>
 		</Card>
