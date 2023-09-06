@@ -2,7 +2,8 @@ import { Request, Response } from 'express'
 import {
     getAllDataService,
     getSingleUser,
-    postSingleUser
+    // postSingleUser,
+    postUserFromAuth
 } from '../services/userServices'
 
 export const getAll = async (req: Request, res: Response) => {
@@ -16,7 +17,7 @@ export const getAll = async (req: Request, res: Response) => {
 }
 
 export const getSingle = async (req: Request, res: Response) => {
-    const userData = await getSingleUser(req.body.userId)
+    const userData = await getSingleUser(req.body)
 
     return res.send({
         status: 200,
@@ -42,7 +43,18 @@ export const getSingle = async (req: Request, res: Response) => {
     //  }
 }
 
-export const postUser = async (req: Request, res: Response) => {
+export const postUserAuth = async (req: Request, res: Response) => {
+    const insertedData = await postUserFromAuth(req.body)
+
+    return res.send({
+        status: 201,
+        message: 'success',
+        data: insertedData
+    })
+}
+
+// Commented because JT did not ask it to be deleted.
+/* export const postUser = async (req: Request, res: Response) => {
     const insertedData = await postSingleUser(req.body)
 
     return res.send({
@@ -50,4 +62,4 @@ export const postUser = async (req: Request, res: Response) => {
         message: 'Registration is done',
         data: insertedData
     })
-}
+} */

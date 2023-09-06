@@ -2,8 +2,9 @@ import express from 'express'
 import * as dotenv from 'dotenv'
 import {
     getAll,
-    getSingle
-    // postUser
+    getSingle,
+    // postUser,
+    postUserAuth
 } from '../mentorShip/controllers/userController'
 import {
     getArticles,
@@ -17,6 +18,7 @@ const router = express.Router()
 // users
 router.get('/getAll', getAll)
 router.get('/getUser', getSingle)
+router.post('/authSignup', postUserAuth)
 // router.post('/register', postUser)
 
 // articles
