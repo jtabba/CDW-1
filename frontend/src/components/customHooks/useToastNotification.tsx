@@ -40,8 +40,8 @@ export const useToastNotification = () => {
                 )
             })
         }
-        useEffect(()=> {}, [])
+       
         return showToast
     
     
-}
+} 
