@@ -8,8 +8,11 @@ import Profile from "./pages/profile";
 import Onboarding from "./pages/onboarding";
 import Explore from "./pages/explore";
 import Footer from "./components/Footer";
+import { useToastNotification } from "./components/customHooks/useToastNotification";
 
 const App = () => {
+
+  const showToast = useToastNotification()
   // const [users, setUsers] = useState<userData[]>([]);
 
   // ***PURELY FOR EXAMPLE***
@@ -29,7 +32,7 @@ const App = () => {
     console.log("users", users);
   }); */
   // ***PURELY FOR EXAMPLE***
-
+  showToast(404)
   return (
     <Router>
       <UserInterface />
