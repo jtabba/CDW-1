@@ -7,7 +7,7 @@ import { Field, MentorInfo } from '../types';
 import { useForm } from 'react-hook-form';
 
 const MentorForm: FC<{ mentorFields: Field[] }> = ({ mentorFields }) => {
-  const { register } = useForm();
+  const { watch } = useForm();
   const navigate = useNavigate();
 
   let [mentorInfo, setMentorInfo] = useState<MentorInfo>({
@@ -24,15 +24,18 @@ const MentorForm: FC<{ mentorFields: Field[] }> = ({ mentorFields }) => {
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => setMentorInfo({ ...mentorInfo, [e.target.name]: e.target.value });
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const onSubmit = (/*e: React.FormEvent<HTMLFormElement>*/) => {
     //POST request logic goes here
-    e.preventDefault();
+    // e.preventDefault();
+    console.log('WATCHOBJ-MENTOR', watch('test'));
     navigate('/home');
   };
 
+  const { register, handleSubmit } = useForm();
+
   return (
     <FormContainer heading='Mentor'>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit(onSubmit)}>
         <Flex flexDirection='column' gap={10}>
           <InputGroup flexDirection='column' gap={10}>
             {mentorFields.map((field: Field, index: number) => (
