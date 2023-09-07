@@ -35,7 +35,7 @@ const MentorForm: FC<{ mentorFields: Field[] }> = ({ mentorFields }) => {
     navigate('/');
   };
 
-  const { register, handleSubmit } = useForm();
+  const { register } = useForm();
 
   return (
     <FormContainer isForm={true} heading='Mentor' onSubmit={onSubmit}>

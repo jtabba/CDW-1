@@ -6,13 +6,17 @@ interface FormContainerProps {
   children: ReactNode;
   heading: string;
   onSubmit?: () => void;
-  isForm: boolean
+  isForm: boolean;
 }
 
-const FormContainer: FC<FormContainerProps> = ({ heading, children, onSubmit, isForm }) => {
+const FormContainer: FC<FormContainerProps> = ({
+  heading,
+  children,
+  onSubmit,
+  isForm,
+}) => {
   const { handleSubmit } = useForm();
   return (
-
     <Flex
       border='1px'
       borderRadius='10'
@@ -24,10 +28,10 @@ const FormContainer: FC<FormContainerProps> = ({ heading, children, onSubmit, is
       <Heading fontSize='clamp(1.5rem, -0.875rem + 8.333vw, 3rem)'>
         {heading}
       </Heading>
-      {isForm ?
+      {isForm ? (
         <form onSubmit={handleSubmit(onSubmit!)}>
           <Flex flexDirection='column' gap={10}>
-            <InputGroup flexDirection='column' gap={10}> 
+            <InputGroup flexDirection='column' gap={10}>
               {children}
             </InputGroup>
           </Flex>
@@ -35,8 +39,10 @@ const FormContainer: FC<FormContainerProps> = ({ heading, children, onSubmit, is
           <Button size='lg' type='submit'>
             Submit
           </Button>
-        </form> : children
-      } 
+        </form>
+      ) : (
+        children
+      )}
     </Flex>
   );
 };
