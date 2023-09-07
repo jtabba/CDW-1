@@ -3,13 +3,13 @@ import { FC } from "react";
 import logo from "../assets/logo-white-blue-round.png";
 
 interface HeroProps {
-	headline: string;
-	content: string;
-	buttonLabel: string;
-	buttonUrl: string;
+	heroHeadline: string;
+	heroContent: string;
+	heroLinkLabel: string;
+	heroUrl: string;
 }
 
-const Hero: FC<HeroProps> = ({ headline, content, buttonLabel, buttonUrl }) => {
+const Hero: FC<HeroProps> = ({ heroHeadline, heroContent, heroLinkLabel, heroUrl }) => {
 	return (
 		<Flex mt={30}  mb={20} flexDirection="column" justifyContent="center" alignItems="center" w="90%" ml="auto" mr="auto">
 
@@ -19,21 +19,21 @@ const Hero: FC<HeroProps> = ({ headline, content, buttonLabel, buttonUrl }) => {
 						fontSize="clamp(2rem, -0.875rem + 8.333vw, 4.5rem)"
 						textAlign="center" justifyContent="center"
 					>
-					{headline}
+					{heroHeadline}
 					</Heading>
 					
 			</Stack>
 
 			<Text
 				textAlign="center"
-				fontSize="clamp(1rem, -0.875rem + 8.333vw, 1.15rem)"
+				fontSize="clamp(1.6rem, -0.875rem + 8.333vw, 1.15rem)"
 				pb={4}
 			>
-				{content}
+				{heroContent}
 			</Text>
 
 			<Button size="lg" width="3xs">
-				{buttonLabel}
+				{heroLinkLabel}
 			</Button>
 
 		</Flex>
