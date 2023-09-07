@@ -1,8 +1,6 @@
 import { Flex, Input, FormLabel, Textarea, StyleProps } from '@chakra-ui/react';
 import { ChangeEvent, FC } from 'react';
-import { useForm, FieldValues, UseFormRegister } from 'react-hook-form';
-
-
+import { FieldValues, UseFormRegister } from 'react-hook-form';
 
 interface FormRowProps {
   register: UseFormRegister<FieldValues>;
@@ -13,6 +11,7 @@ interface FormRowProps {
   name: string;
   value: string;
   onChange: (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
+  key: string;
 }
 
 //if I can get this component to work, then I can map form rows in the form element of the onboarding page
@@ -24,16 +23,27 @@ const FormRow: FC<FormRowProps> = ({
   name,
   value,
   onChange,
+  key,
+  register
 }) => {
-const { register, handleSubmit } =  useForm();
 
   return (
     <Flex flexDirection={flexDirection}>
       <FormLabel fontSize={fontSize}>{label}</FormLabel>
       {inputType === 'textArea' ? (
-        <Textarea name={name} value={value} onChange={onChange} />
+        <Textarea
+          {...register(name)}
+          name={name}
+          value={value}
+          onChange={onChange}
+        />
       ) : (
-        <Input {...register('test')} name={name} value={value} onChange={onChange}></Input>
+        <Input
+          {...register(name)}
+          name={name}
+          value={value}
+          onChange={onChange}>
+        </Input>
       )}
     </Flex>
   );

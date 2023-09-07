@@ -4,8 +4,6 @@ import FormContainer from '../components/FormContainer';
 import MenteeForm from '../components/MenteeForm';
 import MentorForm from '../components/MentorForm';
 import { MENTEE_FIELDS, MENTOR_FIELDS } from '../constants';
-import { useForm } from 'react-hook-form';
-import Joi from 'joi';
 
 interface Persona {
   role: string;
@@ -25,14 +23,14 @@ const Onboarding = () => {
       flexDirection='column'
       margin='auto'
       marginTop={[30, 50, 100]}>
-      <FormContainer heading='Are you joining MentorShip as a mentor or mentee?'>
+      <FormContainer isForm={false} heading='Are you joining MentorShip as a mentor or mentee?'>
         <ButtonGroup size='lg' flexWrap='wrap' justifyContent='center'>
           <Button onClick={() => setPersona({ role: 'mentor' })}>Mentor</Button>
           <Button onClick={() => setPersona({ role: 'mentee' })}>Mentee</Button>
         </ButtonGroup>
       </FormContainer>
       {role === 'mentee' && <MenteeForm menteeFields={MENTEE_FIELDS}/>}
-      {/* {role === 'mentor' && <MentorForm mentorFields={MENTOR_FIELDS}/>} */}
+      {role === 'mentor' && <MentorForm mentorFields={MENTOR_FIELDS}/>}
     </Flex>
   );
 };

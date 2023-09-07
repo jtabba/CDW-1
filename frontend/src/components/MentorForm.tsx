@@ -1,7 +1,6 @@
 import { useState, ChangeEvent, FC } from 'react';
 import FormContainer from './FormContainer';
 import FormRow from './FormRow';
-import { Flex, InputGroup, Button } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
 import { Field, MentorInfo } from '../types';
 import { useForm } from 'react-hook-form';
@@ -24,24 +23,26 @@ const MentorForm: FC<{ mentorFields: Field[] }> = ({ mentorFields }) => {
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => setMentorInfo({ ...mentorInfo, [e.target.name]: e.target.value });
 
-  const onSubmit = (  /*e: React.FormEvent<HTMLFormElement>*/) => {
+  const onSubmit = () => {
     //POST request logic goes here
-    // e.preventDefault();
-    console.log('WATCHOBJ-MENTOR', watch('test'));
+    console.log('bio', watch('bio'));
+    console.log('experience', watch('experience'));
+    console.log('jobTitle', watch('jobTitle'));
+    console.log('interests', watch('interests'));
+    console.log('hourlyRate', watch('hourlyRate'));
+    console.log('expertise', watch('expertise'));
+
     navigate('/');
   };
 
   const { register, handleSubmit } = useForm();
 
   return (
-    <FormContainer heading='Mentor'>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <Flex flexDirection='column' gap={10}>
-          <InputGroup flexDirection='column' gap={10}>
-            {mentorFields.map((field: Field, index: number) => (
+    <FormContainer isForm={true} heading='Mentor' onSubmit={onSubmit}>
+            {mentorFields.map((field: Field) => (
               <FormRow
                 register={register}
-                key={index}
+                key={field.name}
                 inputType={field.inputType}
                 label={field.label}
                 name={field.name}
@@ -51,13 +52,6 @@ const MentorForm: FC<{ mentorFields: Field[] }> = ({ mentorFields }) => {
                 onChange={handleChange}
               />
             ))}
-          </InputGroup>
-        </Flex>
-        <br />
-        <Button size='lg' type='submit'>
-          Submit
-        </Button>
-      </form>
     </FormContainer>
   );
 };
