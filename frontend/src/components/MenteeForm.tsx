@@ -1,14 +1,12 @@
 import { useState, ChangeEvent, FC } from 'react';
 import FormContainer from './FormContainer';
 import FormRow from './FormRow';
-import { Flex, InputGroup, Button } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
 import { Field, MenteeInfo } from '../types';
 import { useForm } from 'react-hook-form';
 
-
 const MenteeForm: FC<{ menteeFields: Field[] }> = ({ menteeFields }) => {
-  const {watch} = useForm();
+  const { register, watch } = useForm();
   
   const navigate = useNavigate();
 
@@ -25,23 +23,22 @@ const MenteeForm: FC<{ menteeFields: Field[] }> = ({ menteeFields }) => {
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => setMenteeInfo({ ...menteeInfo, [e.target.name]: e.target.value });
 
-  const onSubmit = (/*e: React.FormEvent<HTMLFormElement>*/) => {
+  const onSubmit = () => {
     //POST request logic goes here
-    // e.preventDefault();
-    console.log('WATCHOBJ',watch('test'));
-    navigate('/home');
+    console.log('learningGoals',watch('learningGoals'));
+    console.log('bio', watch('bio'));
+    console.log('experience', watch('experience'));
+    console.log('jobTitle', watch('jobTitle'));
+    console.log('interests', watch('interests'));
+    navigate('/');
   };
-
-  const { register, handleSubmit } = useForm();
+  
   return (
-    <FormContainer heading='Mentee'>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <Flex flexDirection='column' gap={10}>
-          <InputGroup flexDirection='column' gap={10}>
-            {menteeFields.map((field: Field, index: number) => (
+    <FormContainer isForm={true} heading='Mentee' onSubmit={onSubmit}>
+            {menteeFields.map((field: Field) => (
               <FormRow 
                 register={register}
-                key={index}
+                key={field.name}
                 inputType={field.inputType}
                 label={field.label}
                 name={field.name}
@@ -51,13 +48,6 @@ const MenteeForm: FC<{ menteeFields: Field[] }> = ({ menteeFields }) => {
                 onChange={handleChange}
               />
             ))}
-          </InputGroup>
-        </Flex>
-        <br />
-        <Button size='lg' type='submit'>
-          Submit
-        </Button>
-      </form>
     </FormContainer>
   );
 };
