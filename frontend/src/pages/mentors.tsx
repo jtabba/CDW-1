@@ -13,6 +13,7 @@ import {
   Tag,
   Select,
   Box,
+  Flex,
 } from "@chakra-ui/react";
 import DefaultProfile from "../assets/default_profile.png";
 import { useEffect, useState } from "react";
@@ -39,7 +40,7 @@ export default function Mentors() {
       dateOfBirth: "1990-05-15",
       yearsOfExperience: 5,
       currentJobTitle: "Software Engineer",
-      AreasOfExpertise: ["Web Development", "JavaScript", "React"],
+      AreasOfExpertise: ["Java", "Web Development", "JavaScript", "React"],
       rate: 50,
       interests: ["Hiking", "Reading", "Coding"],
       aboutMe: "I love coding and helping others learn programming.",
@@ -140,7 +141,10 @@ export default function Mentors() {
     },
   ];
 
+  // TODO Look at refactoring this into a .filter
   const areasArray: string[] = [];
+
+  // Creates the filter groups based on user data
   mentors.forEach((mentor) => {
     mentor.AreasOfExpertise?.forEach((area) => {
       if (!areasArray.includes(area)) {
@@ -149,41 +153,41 @@ export default function Mentors() {
     });
   });
 
-  const [displayedMentors, setDisplayedMentors] = useState<Mentor[]>([]);
+  const [displayedMentors, setDisplayedMentors] = useState<Mentor[]>(mentors);
 
-  useEffect(() => {
-    setDisplayedMentors((prev) => mentors);
-  }, []);
-
-  const filterMentors = (e: any): Mentor[] => {
-    console.log(e.target.value);
-    // This needs to return an array of only the mentors whose interesting match the value
+  const filterMentors = (e: React.ChangeEvent<HTMLSelectElement>) => {
     let filteredMentors: Mentor[] = [];
 
-    mentors.forEach((mentor) => {
-      if (mentor.AreasOfExpertise?.includes(e.target.value)) {
-        filteredMentors.push(mentor);
-      }
-    });
-    setDisplayedMentors(filteredMentors);
-    return filteredMentors;
+    if (e.target.value === "All") {
+      setDisplayedMentors(mentors);
+    } else {
+      mentors.forEach((mentor) => {
+        if (mentor.AreasOfExpertise?.includes(e.target.value)) {
+          filteredMentors.push(mentor);
+        }
+      });
+      setDisplayedMentors(filteredMentors);
+    }
   };
+
   return (
     <div>
       <Heading textAlign={"center"} padding={8}>
         <Text>Mentors Page</Text>
       </Heading>
-      <Box m={8}>
+      <Box m={"4em auto"} width={"fit-content"}>
         <Select onChange={filterMentors}>
+          <option value={"All"}>-- All --</option>
           {areasArray.map((area) => (
             <option value={area}>{area}</option>
           ))}
         </Select>
-      </Box>{" "}
+      </Box>
       <SimpleGrid
         columns={{ base: 1, sm: 2, md: 3 }}
         spacing={10}
         m={{ base: 4, sm: "auto" }}
+        flexWrap={"wrap"}
         maxW={"900px"}
       >
         {displayedMentors.map((person) => (
