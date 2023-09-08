@@ -13,5 +13,5 @@ export  const  MESSAGE_ENUM: { [key: number]: string} = {
     503: 'Service unavailable',
     504: 'Gateway timeout',
     999: 'Custom error message',
-    // Add more error codes and messages as needed
+    
   };

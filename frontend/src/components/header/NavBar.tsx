@@ -4,12 +4,12 @@ import { MobileNav } from "./MobileNav";
 import { DesktopNav } from "./DesktopNav";
 
 export default function NavBar() {
-  return (
+  
+  return ( 
     <Box display={"flex"}>
       <Flex display={{ base: "none", md: "flex" }} alignItems={"center"}>
         <DesktopNav />
-      </Flex>
-
+      </Flex> 
       <Box display={{ base: "flex", md: "none" }}>
         <MobileNav />
       </Box>

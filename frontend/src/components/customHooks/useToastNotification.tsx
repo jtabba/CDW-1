@@ -3,30 +3,21 @@ import {Box, useToast} from '@chakra-ui/react'
 import { MESSAGE_ENUM } from "./enums";
 
 
-export const useToastNotification = () => {
+export const useToastNotification = (responseObject: number) => {
     const [message, setMessage] = useState('')
+    const [statusCode, setStatusCode] = useState(null)
     const toast = useToast()
 
-    const getStatusBytoasat = (code: number) => {
-        if(code >= 200 && code < 300){
-            return 'success'
-            // green toast
-        }else if(code >=300 && code < 400){
-            return 'info'
-            // blue toast
-        }else if(code >= 400 && code <= 500){
-            return 'error'
-            // red toast
-        }else if(code >= 500 && code < 600){
-            return 'warning'
-            //yellow toast
-        }
-    }
+    const toastStatus = (code: number) => code < 300 ? 'success' : 'error'
+
+    useEffect(()=> {
+       setStatusCode(responseObject)
+    }, [responseObject])
 
     const showToast = (statusCode: number) => {
-        
-            const status = getStatusBytoasat(statusCode)
-            setMessage(MESSAGE_ENUM[statusCode])
+            
+        const status = toastStatus(statusCode)
+        setMessage(MESSAGE_ENUM[statusCode])
 
             toast({
                 position: 'bottom-right',
@@ -41,7 +32,7 @@ export const useToastNotification = () => {
             })
         }
        
-        return showToast
+        return { showToast }
     
     
 } 
