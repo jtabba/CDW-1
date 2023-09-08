@@ -11,8 +11,11 @@ import {
   Grid,
   SimpleGrid,
   Tag,
+  Select,
+  Box,
 } from "@chakra-ui/react";
 import DefaultProfile from "../assets/default_profile.png";
+import { useEffect, useState } from "react";
 
 interface Mentor {
   name?: string;
@@ -28,6 +31,7 @@ interface Mentor {
 }
 
 export default function Mentors() {
+  // Dummy data for now until DB hook is implemented
   const mentors: Mentor[] = [
     {
       name: "John Doe",
@@ -101,7 +105,7 @@ export default function Mentors() {
         "Software Architecture",
       ],
       rate: 80,
-      interests: ["Cycling", "Chess", "Coding"],
+      interests: ["Cycling", "Chess", "Coding", "Reading"],
       aboutMe: "I have a strong background in software development.",
       id: "6",
     },
@@ -127,26 +131,62 @@ export default function Mentors() {
         "Graphic Design",
         "Illustration",
         "Adobe Creative Suite",
+        "Design",
       ],
       rate: 50,
-      interests: ["Drawing", "Movies", "Design"],
+      interests: ["Drawing", "Movies", "Design", "Cooking"],
       aboutMe: "I create visually stunning designs for various media.",
       id: "8",
     },
   ];
 
+  const areasArray: string[] = [];
+  mentors.forEach((mentor) => {
+    mentor.AreasOfExpertise?.forEach((area) => {
+      if (!areasArray.includes(area)) {
+        areasArray.push(area);
+      }
+    });
+  });
+
+  const [displayedMentors, setDisplayedMentors] = useState<Mentor[]>([]);
+
+  useEffect(() => {
+    setDisplayedMentors((prev) => mentors);
+  }, []);
+
+  const filterMentors = (e: any): Mentor[] => {
+    console.log(e.target.value);
+    // This needs to return an array of only the mentors whose interesting match the value
+    let filteredMentors: Mentor[] = [];
+
+    mentors.forEach((mentor) => {
+      if (mentor.AreasOfExpertise?.includes(e.target.value)) {
+        filteredMentors.push(mentor);
+      }
+    });
+    setDisplayedMentors(filteredMentors);
+    return filteredMentors;
+  };
   return (
     <div>
       <Heading textAlign={"center"} padding={8}>
         <Text>Mentors Page</Text>
       </Heading>
+      <Box m={8}>
+        <Select onChange={filterMentors}>
+          {areasArray.map((area) => (
+            <option value={area}>{area}</option>
+          ))}
+        </Select>
+      </Box>{" "}
       <SimpleGrid
-        columns={{ base: 1, sm: 2, md: 3, lg: 4 }}
+        columns={{ base: 1, sm: 2, md: 3 }}
         spacing={10}
         m={{ base: 4, sm: "auto" }}
         maxW={"900px"}
       >
-        {mentors.map((person) => (
+        {displayedMentors.map((person) => (
           <Card
             maxW={"sm"}
             textAlign={"center"}
@@ -157,7 +197,9 @@ export default function Mentors() {
                 <Image
                   src={DefaultProfile}
                   alt={person.name}
-                  borderRadius="lg"
+                  borderRadius="full"
+                  width={"50%"}
+                  m={"auto"}
                 />
                 <Heading size={"md"}>{person?.name}</Heading>
                 <Text>{person?.currentJobTitle}</Text>
@@ -168,8 +210,8 @@ export default function Mentors() {
                   flexWrap={"wrap"}
                   justifyContent={"center"}
                 >
-                  {person.interests?.map((interest) => (
-                    <Tag width={"fit-content"}>{interest}</Tag>
+                  {person.AreasOfExpertise?.map((area) => (
+                    <Tag width={"fit-content"}>{area}</Tag>
                   ))}
                 </Stack>
               </Stack>
