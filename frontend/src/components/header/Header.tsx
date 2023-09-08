@@ -8,7 +8,7 @@ interface HeaderProps {}
 
 export const Header: FC<HeaderProps> = () => {
   return (
-    <Flex width={"100%"} justifyContent={"space-between"}>
+    <Flex width={"100%"} justifyContent={"space-between"} p={8}>
       <Logo />
 
       <NavBar />
