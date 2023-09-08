@@ -10,6 +10,7 @@ import Explore from "./pages/explore";
 import Footer from "./components/Footer";
 import { VStack } from "@chakra-ui/react";
 import { Header } from "./components/header/Header";
+import Mentors from "./pages/mentors";
 
 const App = () => {
   // const [users, setUsers] = useState<userData[]>([]);
