@@ -23,8 +23,9 @@ const MenteeForm: FC<{ menteeFields: Field[] }> = ({ menteeFields }) => {
   //   e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   // ) => setMenteeInfo({ ...menteeInfo, [e.target.name]: e.target.value });
 
-  const onSubmit = () => {
+  const onSubmit = (data:object) => {
     //POST request logic goes here
+    console.log('data', data);
     console.log('learningGoals', watch('learningGoals'));
     console.log('bio', watch('bio'));
     console.log('experience', watch('experience'));
