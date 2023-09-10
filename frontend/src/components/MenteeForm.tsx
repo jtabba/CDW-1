@@ -10,18 +10,18 @@ const MenteeForm: FC<{ menteeFields: Field[] }> = ({ menteeFields }) => {
 
   const navigate = useNavigate();
 
-  let [menteeInfo, setMenteeInfo] = useState<MenteeInfo>({
-    role: 'mentee',
-    bio: '',
-    learningGoals: '',
-    experience: '',
-    jobTitle: '',
-    interests: '',
-  });
+  // let [menteeInfo, setMenteeInfo] = useState<MenteeInfo>({
+  //   role: 'mentee',
+  //   bio: '',
+  //   learningGoals: '',
+  //   experience: '',
+  //   jobTitle: '',
+  //   interests: '',
+  // });
 
-  const handleChange = (
-    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => setMenteeInfo({ ...menteeInfo, [e.target.name]: e.target.value });
+  // const handleChange = (
+  //   e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  // ) => setMenteeInfo({ ...menteeInfo, [e.target.name]: e.target.value });
 
   const onSubmit = () => {
     //POST request logic goes here
@@ -44,8 +44,8 @@ const MenteeForm: FC<{ menteeFields: Field[] }> = ({ menteeFields }) => {
           name={field.name}
           flexDirection='column'
           fontSize='clamp(1.3rem, -0.875rem + 8.333vw, 1rem)'
-          value={menteeInfo[field.name as keyof MenteeInfo]}
-          onChange={handleChange}
+          // value={menteeInfo[field.name as keyof MenteeInfo]}
+          // onChange={handleChange}
         />
       ))}
     </FormContainer>

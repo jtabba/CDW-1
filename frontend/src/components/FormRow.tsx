@@ -9,8 +9,8 @@ interface FormRowProps {
   flexDirection: StyleProps['flexDirection'];
   fontSize: StyleProps['fontSize'];
   name: string;
-  value: string;
-  onChange: (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
+  // value: string;
+  // onChange: (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
   key: string;
 }
 
@@ -21,8 +21,8 @@ const FormRow: FC<FormRowProps> = ({
   flexDirection,
   fontSize,
   name,
-  value,
-  onChange,
+  // value,
+  // onChange,
   key,
   register
 }) => {

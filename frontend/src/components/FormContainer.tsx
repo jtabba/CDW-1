@@ -5,7 +5,7 @@ import { useForm } from 'react-hook-form';
 interface FormContainerProps {
   children: ReactNode;
   heading: string;
-  onSubmit?: () => void;
+  onSubmit?: (data:object) => void;
   isForm: boolean;
 }
 

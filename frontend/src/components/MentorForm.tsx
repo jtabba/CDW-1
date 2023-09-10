@@ -9,19 +9,19 @@ const MentorForm: FC<{ mentorFields: Field[] }> = ({ mentorFields }) => {
   const { watch } = useForm();
   const navigate = useNavigate();
 
-  let [mentorInfo, setMentorInfo] = useState<MentorInfo>({
-    role: 'mentor',
-    bio: '',
-    expertise: '',
-    experience: '',
-    jobTitle: '',
-    interests: '',
-    hourlyRate: '',
-  });
+  // let [mentorInfo, setMentorInfo] = useState<MentorInfo>({
+  //   role: 'mentor',
+  //   bio: '',
+  //   expertise: '',
+  //   experience: '',
+  //   jobTitle: '',
+  //   interests: '',
+  //   hourlyRate: '',
+  // });
 
-  const handleChange = (
-    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => setMentorInfo({ ...mentorInfo, [e.target.name]: e.target.value });
+  // const handleChange = (
+  //   e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  // ) => setMentorInfo({ ...mentorInfo, [e.target.name]: e.target.value });
 
   const onSubmit = () => {
     //POST request logic goes here
@@ -48,8 +48,8 @@ const MentorForm: FC<{ mentorFields: Field[] }> = ({ mentorFields }) => {
                 name={field.name}
                 flexDirection='column'
                 fontSize='clamp(1.3rem, -0.875rem + 8.333vw, 1rem)'
-                value={mentorInfo[field.name as keyof MentorInfo]}
-                onChange={handleChange}
+                // value={mentorInfo[field.name as keyof MentorInfo]}
+                // onChange={handleChange}
               />
             ))}
     </FormContainer>
