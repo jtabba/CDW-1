@@ -26,24 +26,24 @@ const FormRow: FC<FormRowProps> = ({
   key,
   register
 }) => {
-
+  
   return (
     <Flex flexDirection={flexDirection}>
       <FormLabel fontSize={fontSize}>{label}</FormLabel>
       {inputType === 'textArea' ? (
         <Textarea
           {...register(name)}
-          name={name}
-          value={value}
-          onChange={onChange}
+          // name={name}
+          // value={value}
+          // onChange={onChange}
         />
       ) : (
         <Input
           {...register(name)}
-          name={name}
-          value={value}
-          onChange={onChange}>
-        </Input>
+          // name={name}
+          // value={value}
+          // onChange={onChange}
+        />
       )}
     </Flex>
   );
