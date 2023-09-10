@@ -23,8 +23,9 @@ const MentorForm: FC<{ mentorFields: Field[] }> = ({ mentorFields }) => {
   //   e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   // ) => setMentorInfo({ ...mentorInfo, [e.target.name]: e.target.value });
 
-  const onSubmit = () => {
+  const onSubmit = (data: object) => {
     //POST request logic goes here
+    console.log('data', data);
     console.log('bio', watch('bio'));
     console.log('experience', watch('experience'));
     console.log('jobTitle', watch('jobTitle'));
