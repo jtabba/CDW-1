@@ -4,9 +4,10 @@ import FormRow from './FormRow';
 import { useNavigate } from 'react-router-dom';
 import { Field, MenteeInfo } from '../types';
 import { useForm } from 'react-hook-form';
+import { DevTool } from '@hookform/devtools';
 
 const MenteeForm: FC<{ menteeFields: Field[] }> = ({ menteeFields }) => {
-  const { register, watch } = useForm();
+  const { register, watch, control } = useForm();
 
   const navigate = useNavigate();
 
@@ -49,6 +50,7 @@ const MenteeForm: FC<{ menteeFields: Field[] }> = ({ menteeFields }) => {
           // onChange={handleChange}
         />
       ))}
+       <DevTool control={control} /> {/* set up the dev tool */}
     </FormContainer>
   );
 };
