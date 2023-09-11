@@ -1,38 +1,73 @@
-import React, { useState, useEffect} from "react";
-import {Box, useToast} from '@chakra-ui/react'
-import { MESSAGE_ENUM } from "./enums";
+import { useState, useEffect } from "react";  
+import { useToast } from "@chakra-ui/react";
+
+interface AxiosResponseObject {
+    data?: any, 
+    status: number;
+    statusText: string,
+    headers: any, 
+    config: any,
+    request: any,
+}
 
 
-export const useToastNotification = (responseObject: number) => {
-    const [message, setMessage] = useState('')
-    const [statusCode, setStatusCode] = useState(null)
+export const useToastNotification = (response: AxiosResponseObject)=>{
     const toast = useToast()
-
-    const toastStatus = (code: number) => code < 300 ? 'success' : 'error'
+    const [responseObj, setresponseObj] = useState<number>(404)
 
     useEffect(()=> {
-       setStatusCode(responseObject)
-    }, [responseObject])
+        const codeStatus = response.status < 300 ? 'success' : 'error'
+        setresponseObj(response.status)
+        toast({
+            title: 'Status message',
+            description: `${response.statusText}`,
+            status: codeStatus ,
+            isClosable: true,
+            duration: 2000,
 
-    const showToast = (statusCode: number) => {
-            
-        const status = toastStatus(statusCode)
-        setMessage(MESSAGE_ENUM[statusCode])
+        })
+    },[response, toast, responseObj])
+        return toast
+}
 
-            toast({
-                position: 'bottom-right',
-                status: status,
-                isClosable: true,
-                variant: 'left-accent',
-                render: ()=>(
-                    <Box>
-                        {message}
-                    </Box>
-                )
-            })
-        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// export const useToastNotification  = (response: AxiosResponseObject) => {
+//     const [resNumCode, setResNumCode] = useState<number>(0)
+//     const toast = useToast()
+    
+//     useEffect(() => {
+//         const codeStatus = response.status < 300 ? 'success' : 'error'
+//         setResNumCode(response.status)
+//         toast({
+//             
+
+//         })
        
-        return { showToast }
-    
-    
-} 
+//     }, [response, resNumCode, toast])
+
+//     return toast
+// }
