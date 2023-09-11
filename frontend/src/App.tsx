@@ -8,6 +8,8 @@ import Profile from "./pages/profile";
 import Onboarding from "./pages/onboarding";
 import Explore from "./pages/explore";
 import Footer from "./components/Footer";
+import { VStack } from "@chakra-ui/react";
+import { Header } from "./components/header/Header";
 
 const App = () => {
   // const [users, setUsers] = useState<userData[]>([]);
@@ -32,19 +34,26 @@ const App = () => {
 
   return (
     <Router>
-      <UserInterface />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="onboarding" element={<Onboarding />} />
-        <Route path="explore" element={<Explore />} />
-        <Route path="products" element={<h1>Products</h1>} />
-        <Route path="mentors" element={<h1>Mentors</h1>} />
-        <Route path="profile" element={<Profile />} />
+      <VStack minHeight={"100dvh"} justifyContent={"space-between"}>
+        <Header />
+        <VStack>
+          <Routes>
+            <Route path="/" element={<UserInterface />}>
+              <Route path="/" element={<Home />} />
+              <Route path="onboarding" element={<Onboarding />} />
+              <Route path="explore" element={<Explore />} />
+              <Route path="products" element={<h1>Products</h1>} />
+              <Route path="mentors" element={<h1>Mentors</h1>} />
+              <Route path="profile" element={<Profile />} />
 
-        {/* The 404 route must always be last */}
-        <Route path="*" element={<h1>404: Page Not Found</h1>} />
-      </Routes>
-      <Footer />
+              {/* The 404 route must always be last */}
+              <Route path="*" element={<h1>404: Page Not Found</h1>} />
+            </Route>
+          </Routes>
+        </VStack>
+
+        <Footer />
+      </VStack>
     </Router>
   );
 };

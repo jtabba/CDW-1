@@ -16,7 +16,7 @@ const Logo = () => {
       >
         <Image mr="15px" objectFit="cover" boxSize="50px" src={logo} />
         <Heading>
-          <Link to={"home"}>MentorShip</Link>
+          <Link to={"/"}>MentorShip</Link>
         </Heading>
       </Box>
     </Flex>
