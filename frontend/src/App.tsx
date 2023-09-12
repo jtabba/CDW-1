@@ -44,7 +44,7 @@ const App = () => {
               <Route path="onboarding" element={<Onboarding />} />
               <Route path="explore" element={<Explore />} />
               <Route path="products" element={<h1>Products</h1>} />
-              <Route path="mentors" element={<h1>Mentors</h1>} />
+              <Route path="mentors" element={<Mentors />} />
               <Route path="profile" element={<Profile />} />
 
               {/* The 404 route must always be last */}

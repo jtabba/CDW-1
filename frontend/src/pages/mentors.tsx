@@ -1,22 +1,17 @@
 import {
   Card,
-  CardHeader,
   CardBody,
-  CardFooter,
   Text,
   Heading,
   Image,
   Stack,
-  HStack,
-  Grid,
   SimpleGrid,
   Tag,
   Select,
   Box,
-  Flex,
 } from "@chakra-ui/react";
 import DefaultProfile from "../assets/default_profile.png";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 interface Mentor {
   name?: string;
@@ -141,31 +136,19 @@ export default function Mentors() {
     },
   ];
 
-  // TODO Look at refactoring this into a .filter
-  const areasArray: string[] = [];
-
-  // Creates the filter groups based on user data
-  mentors.forEach((mentor) => {
-    mentor.AreasOfExpertise?.forEach((area) => {
-      if (!areasArray.includes(area)) {
-        areasArray.push(area);
-      }
-    });
-  });
+  const areasArray: string[] = mentors
+    .flatMap((mentor) => mentor.AreasOfExpertise ?? [])
+    .filter((area, index, self) => self.indexOf(area) === index);
 
   const [displayedMentors, setDisplayedMentors] = useState<Mentor[]>(mentors);
 
   const filterMentors = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    let filteredMentors: Mentor[] = [];
-
     if (e.target.value === "All") {
       setDisplayedMentors(mentors);
     } else {
-      mentors.forEach((mentor) => {
-        if (mentor.AreasOfExpertise?.includes(e.target.value)) {
-          filteredMentors.push(mentor);
-        }
-      });
+      const filteredMentors: Mentor[] = mentors.filter((mentor) =>
+        mentor.AreasOfExpertise?.includes(e.target.value)
+      );
       setDisplayedMentors(filteredMentors);
     }
   };
@@ -173,7 +156,7 @@ export default function Mentors() {
   return (
     <div>
       <Heading textAlign={"center"} padding={8}>
-        <Text>Mentors Page</Text>
+        <Text>Meet the Mentors</Text>
       </Heading>
       <Box m={"4em auto"} width={"fit-content"}>
         <Select onChange={filterMentors}>
