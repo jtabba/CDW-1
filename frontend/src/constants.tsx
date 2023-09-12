@@ -5,17 +5,17 @@ export const QUESTIONNAIRE_FIELDS = [
     name: 'bio',
   },
   {
-    inputType: 'input',
+    inputType: 'other',
     label: 'How many years of experience do you have as a software engineer?',
     name: 'experience',
   },
   {
-    inputType: 'input',
+    inputType: 'other',
     label: 'What is your current job title?',
     name: 'jobTitle',
   },
   {
-    inputType: 'textArea',
+    inputType: 'other',
     label: 'What are your interests?',
     name: 'interests',
   },
@@ -43,3 +43,79 @@ export const MENTOR_FIELDS = [
     name: 'hourlyRate',
   },
 ];
+
+export const LISTS = [
+  {
+    name: "experience",
+    values: "0-2 years",
+  },
+  {
+    name: "experience",
+    values: "2-4 years",
+  },
+  {
+    name: "experience",
+    values: "4-6 years",
+  },
+  {
+    name: "experience",
+    values: "6-8 years",
+  },
+  {
+    name: "experience",
+    values: "8-10 years",
+  },
+  {
+    name: "experience",
+    values: "10+ years",
+  },
+  {
+    name: "jobTitle",
+    values: "Unemployed/ Non-Tech",
+  },
+  {
+    name: "jobTitle",
+    values: "Freelance Engineer",
+  },
+  {
+    name: "jobTitle",
+    values: "Junior Engineer",
+  },
+  {
+    name: "jobTitle",
+    values: "Mid-Level Engineer",
+  },
+  {
+    name: "jobTitle",
+    values: "Senior Engineer",
+  },
+  {
+    name: "jobTitle",
+    values: "Technical Lead",
+  },
+  {
+    name: "interests",
+    values: "Full-Stack Development",
+  },
+  {
+    name: "interests",
+    values: "Back-End Development",
+  },
+  {
+    name: "interests",
+    values: "Front-End Development",
+  },
+  {
+    name: "interests",
+    values: "DevOps",
+  },
+  {
+    name: "interests",
+    values: "Communication",
+  },
+  {
+    name: "interests",
+    values: "Management",
+  },
+]
+

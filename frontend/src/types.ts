@@ -20,3 +20,8 @@ export interface MentorInfo extends QuestionnaireInfo {
 export interface MenteeInfo extends QuestionnaireInfo {
     learningGoals: string;
 }
+
+export interface OptionList {
+name: string;
+values?: string;    
+}

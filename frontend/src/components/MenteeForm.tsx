@@ -18,7 +18,7 @@ const MenteeForm: FC<{ menteeFields: Field[] }> = ({ menteeFields }) => {
   });
 
   const handleChange = (
-    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement >
   ) => setMenteeInfo({ ...menteeInfo, [e.target.name]: e.target.value });
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
