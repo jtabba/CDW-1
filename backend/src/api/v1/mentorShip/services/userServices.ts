@@ -1,16 +1,8 @@
-import { ObjectId } from 'mongodb'
+// import { ObjectId } from 'mongodb'
 import { getCollection } from '../../../../database/db'
-import { genSaltSync, hashSync } from 'bcrypt-ts'
-import { uuid } from 'uuidv4'
-
-interface userDetail {
-    firstName: string
-    lastName: string
-    email: string
-    username: string
-    password: string
-    location: string
-}
+// import { genSaltSync, hashSync } from 'bcrypt-ts'
+// import { uuid } from 'uuidv4'
+import { userData } from './types'
 
 export const getAllDataService = async () => {
     const collection = await getCollection('users')
@@ -21,25 +13,56 @@ export const getAllDataService = async () => {
     return allData
 }
 
-export const getSingleUser = async (id: string) => {
-    const collection = await getCollection('users')
-    const userData = await collection?.findOne({
-        _id: new ObjectId(id)
+export const getSingleUser = async (args: userData) => {
+    const userList = await getCollection('users')
+    const userData = await userList?.findOne({
+        email: args.email
     })
 
     console.log('user', userData)
 
     return userData
+
+    // test on Postman body with "email": "james@mail.com"
 }
 
-export const postSingleUser = async (args: userDetail) => {
-    const collection = await getCollection('users')
-    const usernameExist = await collection?.findOne({
-        username: args.username
+export const postUserFromAuth = async (args: userData) => {
+    const userList = await getCollection('users')
+    const emailExist = await userList?.findOne({
+        email: args.email
     })
 
-    if (usernameExist !== null) {
-        throw new Error('Username exists')
+    if (emailExist !== null) {
+        throw new Error('There is a user with that email')
+    }
+
+    const insertedData = await userList?.insertOne({
+        name: args.name,
+        email: args.email,
+        dateOfBirth: args.dateOfBirth,
+        yearsOfExperience: args.yearsOfExperience,
+        currentJobTitle: args.currentJobTitle,
+        areasOfExpertise: args.areasOfExpertise,
+        rate: args.rate,
+        interests: args.interests,
+        aboutMe: args.aboutMe,
+        id: args.id,
+        isMentor: args.isMentor
+    })
+
+    console.log(insertedData)
+    return insertedData
+}
+
+// Commented because JT didn't ask it to be removed
+/* export const postSingleUser = async (args: userData) => {
+    const userList = await getCollection('users')
+    const emailExist = await userList?.findOne({
+        email: args.email
+    })
+
+    if (emailExist !== null) {
+        throw new Error('There is a user with that email')
     }
 
     const userId: string = uuid()
@@ -50,7 +73,7 @@ export const postSingleUser = async (args: userDetail) => {
         genSaltSync(10)
     )
 
-    const insertedData = await collection?.insertOne({
+    const insertedData = await userList?.insertOne({
         id: userId,
         firstName: args.firstName,
         lastName: args.lastName,
@@ -64,4 +87,4 @@ export const postSingleUser = async (args: userDetail) => {
 
     console.log(insertedData)
     return insertedData
-}
+} */
