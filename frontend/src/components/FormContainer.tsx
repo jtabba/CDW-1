@@ -1,21 +1,52 @@
-import { Flex, Heading, InputGroup, Button } from '@chakra-ui/react';
+import { Flex, Heading, InputGroup, Input, Button } from '@chakra-ui/react';
 import { ReactNode, FC } from 'react';
-import { useForm } from 'react-hook-form';
+import { useForm, FieldValues, } from 'react-hook-form';
+import { DevTool } from '@hookform/devtools';
+import { joiResolver } from '@hookform/resolvers/joi';
+import { MenteeSchema } from '../schemas/schemas';
+import { useNavigate } from 'react-router-dom';
+import FormRow from './FormRow';
 
 interface FormContainerProps {
   children: ReactNode;
   heading: string;
-  onSubmit?: (data:object) => void;
+  // onSubmit?: (data:object) => void;
   isForm: boolean;
 }
 
 const FormContainer: FC<FormContainerProps> = ({
   heading,
   children,
-  onSubmit,
+  // onSubmit,
   isForm,
 }) => {
-  const { handleSubmit } = useForm();
+  const { register, watch, handleSubmit, control, formState:{ errors } } = useForm<FieldValues>({
+    defaultValues: {
+      bio: '',
+      learningGoals: '',
+      experience: '',
+      jobTitle: '',
+      interests: '',
+    },
+    mode:'onBlur',
+    resolver: joiResolver(MenteeSchema)
+  });
+
+  const navigate = useNavigate();
+
+  const onSubmit = (data:object) => {
+    //POST request logic goes here
+    console.log(watch('input'));
+    console.log(watch('formRow'));
+    console.log('data', data);
+    // console.log('learningGoals', watch('learningGoals'));
+    // console.log('bio', watch('bio'));
+    // console.log('experience', watch('experience'));
+    // console.log('jobTitle', watch('jobTitle'));
+    // console.log('interests', watch('interests'));
+    navigate('/');
+  };
+
   return (
     <Flex
       border='1px'
@@ -32,7 +63,16 @@ const FormContainer: FC<FormContainerProps> = ({
         <form onSubmit={handleSubmit(onSubmit!)}>
           <Flex flexDirection='column' gap={10}>
             <InputGroup flexDirection='column' gap={10}>
-              {children}
+              <Input {...register('input')}/>
+              <FormRow 
+                name={'formRow'}
+                inputType={'input'}
+                label={'formRow'}
+                register={register}
+                flexDirection='column'
+                fontSize='clamp(1.3rem, -0.875rem + 8.333vw, 1rem)'
+              />
+              {/* // {children} */}
             </InputGroup>
           </Flex>
           <br />
@@ -43,6 +83,7 @@ const FormContainer: FC<FormContainerProps> = ({
       ) : (
         children
       )}
+      <DevTool control={control} /> {/* set up the dev tool */}
     </Flex>
   );
 };

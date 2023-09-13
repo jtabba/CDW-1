@@ -39,8 +39,8 @@ const MentorForm: FC<{ mentorFields: Field[] }> = ({ mentorFields }) => {
   const { register } = useForm();
 
   return (
-    <FormContainer isForm={true} heading='Mentor' onSubmit={onSubmit}>
-            {mentorFields.map((field: Field) => (
+    <FormContainer isForm={true} heading='Mentor' /*onSubmit={onSubmit}*/>
+            {/* {mentorFields.map((field: Field) => (
               <FormRow
                 register={register}
                 key={field.name}
@@ -52,7 +52,7 @@ const MentorForm: FC<{ mentorFields: Field[] }> = ({ mentorFields }) => {
                 // value={mentorInfo[field.name as keyof MentorInfo]}
                 // onChange={handleChange}
               />
-            ))}
+            ))} */}
     </FormContainer>
   );
 };

@@ -3,11 +3,23 @@ import FormContainer from './FormContainer';
 import FormRow from './FormRow';
 import { useNavigate } from 'react-router-dom';
 import { Field, MenteeInfo } from '../types';
-import { useForm } from 'react-hook-form';
+import { FieldValues, useForm } from 'react-hook-form';
 import { DevTool } from '@hookform/devtools';
+import { MenteeSchema } from '../schemas/schemas';
+import { joiResolver } from '@hookform/resolvers/joi';
 
 const MenteeForm: FC<{ menteeFields: Field[] }> = ({ menteeFields }) => {
-  const { register, watch, control } = useForm();
+  // const { register, watch, control, formState:{ errors } } = useForm<FieldValues>({
+  //   defaultValues: {
+  //     bio: '',
+  //     learningGoals: '',
+  //     experience: '',
+  //     jobTitle: '',
+  //     interests: '',
+  //   },
+  //   mode:'onBlur',
+  //   resolver: joiResolver(MenteeSchema)
+  // });
 
   const navigate = useNavigate();
 
@@ -24,22 +36,23 @@ const MenteeForm: FC<{ menteeFields: Field[] }> = ({ menteeFields }) => {
   //   e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   // ) => setMenteeInfo({ ...menteeInfo, [e.target.name]: e.target.value });
 
-  const onSubmit = (data:object) => {
-    //POST request logic goes here
-    console.log('data', data);
-    console.log('learningGoals', watch('learningGoals'));
-    console.log('bio', watch('bio'));
-    console.log('experience', watch('experience'));
-    console.log('jobTitle', watch('jobTitle'));
-    console.log('interests', watch('interests'));
-    navigate('/');
-  };
-
+  // const onSubmit = (data:object) => {
+  //   //POST request logic goes here
+  //   console.log('data', data);
+  //   console.log('learningGoals', watch('learningGoals'));
+  //   console.log('bio', watch('bio'));
+  //   console.log('experience', watch('experience'));
+  //   console.log('jobTitle', watch('jobTitle'));
+  //   console.log('interests', watch('interests'));
+  //   navigate('/');
+  // };
+  // console.log('errors', errors);
   return (
-    <FormContainer isForm={true} heading='Mentee' onSubmit={onSubmit}>
-      {menteeFields.map((field: Field) => (
+    <FormContainer isForm={true} heading='Mentee' /*onSubmit={onSubmit}*/>
+      {/* {menteeFields.map((field: Field) => (
         <FormRow
-          register={register}
+          // errors={errors}
+          // register={register}
           key={field.name}
           inputType={field.inputType}
           label={field.label}
@@ -49,8 +62,7 @@ const MenteeForm: FC<{ menteeFields: Field[] }> = ({ menteeFields }) => {
           // value={menteeInfo[field.name as keyof MenteeInfo]}
           // onChange={handleChange}
         />
-      ))}
-       <DevTool control={control} /> {/* set up the dev tool */}
+      ))} */}
     </FormContainer>
   );
 };
