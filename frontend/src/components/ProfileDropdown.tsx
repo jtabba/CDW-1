@@ -29,8 +29,17 @@ const ProfileDropdown: React.FC<ProfileDropdownProps> = ({ onSignOut }) => {
 
   return (
     <Menu>
-      <MenuButton as={Button} rounded={"full"}>
-        <Avatar size={"sm"} src={user?.picture} name={user?.name} />
+      <MenuButton
+        backgroundColor={"transparent"}
+        shadow={"md"}
+        borderRadius={"full"}
+      >
+        <Avatar
+          size={"lg"}
+          src={user?.picture}
+          name={user?.name}
+          border={"1px solid lightgray"}
+        />
       </MenuButton>
       <MenuList fontSize={"lg"}>
         <MenuItem onClick={handleGoToProfile}>Profile</MenuItem>
