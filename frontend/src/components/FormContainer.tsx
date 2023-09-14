@@ -46,7 +46,7 @@ const FormContainer: FC<FormContainerProps> = ({
     // console.log('interests', watch('interests'));
     navigate('/');
   };
-
+  console.log('errors', errors);
   return (
     <Flex
       border='1px'
@@ -63,7 +63,7 @@ const FormContainer: FC<FormContainerProps> = ({
         <form onSubmit={handleSubmit(onSubmit!)}>
           <Flex flexDirection='column' gap={10}>
             <InputGroup flexDirection='column' gap={10}>
-              <Input {...register('input')}/>
+              <Input {...register('input', {required: true})}/>
               <FormRow 
                 name={'formRow'}
                 inputType={'input'}
