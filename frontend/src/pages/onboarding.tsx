@@ -1,9 +1,8 @@
 import { useState } from 'react';
-import { Button, ButtonGroup, Flex } from '@chakra-ui/react';
-import FormContainer from '../components/FormContainer';
-import MenteeForm from '../components/MenteeForm';
-import MentorForm from '../components/MentorForm';
-import { MENTEE_FIELDS, MENTOR_FIELDS } from '../constants';
+import { Button, Heading, ButtonGroup, Flex } from '@chakra-ui/react';
+import FormContainer from '../components/form/FormContainer';
+import MenteeForm from '../components/form/MenteeForm';
+import MentorForm from '../components/form/MentorForm';
 
 interface Persona {
   role: string;
@@ -23,14 +22,16 @@ const Onboarding = () => {
       flexDirection='column'
       margin='auto'
       marginTop={[30, 50, 100]}>
-      <FormContainer isForm={false} heading='Are you joining MentorShip as a mentor or mentee?'>
+      <FormContainer>
+        <Heading>Are you joining MentorShip as a mentor or mentee?'</Heading>
         <ButtonGroup size='lg' flexWrap='wrap' justifyContent='center'>
           <Button onClick={() => setPersona({ role: 'mentor' })}>Mentor</Button>
           <Button onClick={() => setPersona({ role: 'mentee' })}>Mentee</Button>
         </ButtonGroup>
       </FormContainer>
-      {role === 'mentee' && <MenteeForm menteeFields={MENTEE_FIELDS}/>}
-      {role === 'mentor' && <MentorForm mentorFields={MENTOR_FIELDS}/>}
+      {/* I tink I can bring down the field constants to mentee and metor form components */}
+      {role === 'mentee' && <MenteeForm/>}
+      {role === 'mentor' && <MentorForm/>}
     </Flex>
   );
 };

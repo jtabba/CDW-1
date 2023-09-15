@@ -43,3 +43,27 @@ export const MENTOR_FIELDS = [
     name: 'hourlyRate',
   },
 ];
+
+export const QUESTIONNAIRE_DEFAULT_VALUES = [
+  {
+    bio: '',
+    experience: '',
+    jobTitle: '',
+    interests: ''
+  }
+];
+
+export const MENTEE_DEFAULT_VALUES = [
+  {
+    ...QUESTIONNAIRE_DEFAULT_VALUES,
+    learningGoals: ''
+  }
+];
+
+export const MENTOR_DEFAULT_VALUES = [
+  {
+    ...QUESTIONNAIRE_DEFAULT_VALUES,
+    expertise: '',
+    hourlyRate: ''
+  }
+];
