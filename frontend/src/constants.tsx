@@ -8,16 +8,19 @@ export const QUESTIONNAIRE_FIELDS = [
     inputType: 'other',
     label: 'How many years of experience do you have as a software engineer?',
     name: 'experience',
+    options: ["0-2 years", "2-4 years", "4-6 years", "6-8 years", "8-10 years", "10+ years"],
   },
   {
     inputType: 'other',
     label: 'What is your current job title?',
     name: 'jobTitle',
+    options: ["Unemployed/ Non-Tech", "Freelance Engineer", "Junior Engineer", "Mid-Level Engineer", "Senior Engineer", "Technical Lead"],
   },
   {
     inputType: 'other',
     label: 'What are your interests?',
     name: 'interests',
+    options: ["Full-Stack Development", "Front-End Development", "Back-End Development", "DevOps", "Management", "Communications"]
   },
 ];
 
@@ -43,79 +46,3 @@ export const MENTOR_FIELDS = [
     name: 'hourlyRate',
   },
 ];
-
-export const LISTS = [
-  {
-    name: "experience",
-    values: "0-2 years",
-  },
-  {
-    name: "experience",
-    values: "2-4 years",
-  },
-  {
-    name: "experience",
-    values: "4-6 years",
-  },
-  {
-    name: "experience",
-    values: "6-8 years",
-  },
-  {
-    name: "experience",
-    values: "8-10 years",
-  },
-  {
-    name: "experience",
-    values: "10+ years",
-  },
-  {
-    name: "jobTitle",
-    values: "Unemployed/ Non-Tech",
-  },
-  {
-    name: "jobTitle",
-    values: "Freelance Engineer",
-  },
-  {
-    name: "jobTitle",
-    values: "Junior Engineer",
-  },
-  {
-    name: "jobTitle",
-    values: "Mid-Level Engineer",
-  },
-  {
-    name: "jobTitle",
-    values: "Senior Engineer",
-  },
-  {
-    name: "jobTitle",
-    values: "Technical Lead",
-  },
-  {
-    name: "interests",
-    values: "Full-Stack Development",
-  },
-  {
-    name: "interests",
-    values: "Back-End Development",
-  },
-  {
-    name: "interests",
-    values: "Front-End Development",
-  },
-  {
-    name: "interests",
-    values: "DevOps",
-  },
-  {
-    name: "interests",
-    values: "Communication",
-  },
-  {
-    name: "interests",
-    values: "Management",
-  },
-]
-
