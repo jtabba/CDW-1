@@ -1,10 +1,18 @@
-import { Link } from "react-router-dom";
+import { Box, Flex } from "@chakra-ui/react";
 
-export const NavBar = () => (
-	<>
-		<Link to={"/explore"}>Explore</Link>
-		<Link to={"/products"}>Product</Link>
-		<Link to={"/mentors"}>Mentors</Link>
-		<Link to={"/profile"}>Profile</Link>
-	</>
-);
+import { MobileNav } from "./MobileNav";
+import { DesktopNav } from "./DesktopNav";
+
+export default function NavBar() {
+  return (
+    <Box display={"flex"}>
+      <Flex display={{ base: "none", md: "flex" }} alignItems={"center"}>
+        <DesktopNav />
+      </Flex>
+
+      <Box display={{ base: "flex", md: "none" }}>
+        <MobileNav />
+      </Box>
+    </Box>
+  );
+}

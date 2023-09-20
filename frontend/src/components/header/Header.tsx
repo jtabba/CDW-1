@@ -1,24 +1,21 @@
-import { Flex } from "@chakra-ui/react";
+import { Box, Flex } from "@chakra-ui/react";
 import Logo from "./Logo";
 import { FC } from "react";
 import { AuthButtons } from "../authentication/SignInOrOut";
-import { NavBar } from "./NavBar";
+import NavBar from "./NavBar";
 
 interface HeaderProps {}
 
 export const Header: FC<HeaderProps> = () => {
   return (
-    <Flex
-      justifyContent="space-between"
-      alignItems="center"
-      h="60px"
-      outline={1}
-    >
+    <Flex width={"100%"} justifyContent={"space-between"} p={8}>
       <Logo />
 
       <NavBar />
 
-      <AuthButtons />
+      <Box display={{ base: "none", md: "flex" }}>
+        <AuthButtons />
+      </Box>
     </Flex>
   );
 };

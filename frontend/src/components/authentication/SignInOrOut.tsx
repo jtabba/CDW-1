@@ -6,44 +6,22 @@ export const AuthButtons = () => {
   const { loginWithRedirect, isAuthenticated, logout } = useAuth0();
 
   const handleLogin = () => {
-    loginWithRedirect({
-      appState: {
-        returnTo: "/home",
-      },
-    });
-  };
-
-  const handleSignUp = async () => {
-    await loginWithRedirect({
-      appState: {
-        returnTo: "./home",
-      },
-      authorizationParams: {
-        screen_hint: "signup",
-      },
-    });
+    loginWithRedirect();
   };
 
   const handleSignout = () => {
-    logout({
-      logoutParams: {
-        returnTo: window.location.origin,
-      },
-    });
+    logout();
   };
 
-	return (
-		<Flex>
-			{!isAuthenticated ? (
-				<>
-				<Button onClick={handleLogin}>Log In</Button>
-				<Button onClick={handleSignUp}>Sign Up</Button>
-				</>
-			) : (
-				<>
-					<ProfileDropdown onSignOut={handleSignout} />
-				</>
-			)}
-		</Flex>
-	);
+  return (
+    <Flex>
+      {!isAuthenticated ? (
+        <Button onClick={handleLogin}>Log In</Button>
+      ) : (
+        <>
+          <ProfileDropdown onSignOut={handleSignout} />
+        </>
+      )}
+    </Flex>
+  );
 };

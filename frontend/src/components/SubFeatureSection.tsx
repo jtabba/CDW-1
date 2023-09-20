@@ -1,12 +1,13 @@
-import { Flex } from "@chakra-ui/react";
-import VerticalCard from "./VerticalCard";
-import { FC } from "react";
+import { Flex, Heading, Box } from '@chakra-ui/react';
+import VerticalCard from './VerticalCard';
+import { FC } from 'react';
+import { HOW_HEADLINE } from '../pages/home/constants';
 
 interface SubFeatureProps {
-  headline: string;
-  content: string;
-  linkLabel: string;
-  url: string;
+  howHeading: string;
+  howContent: string;
+  howLinkLabel: string;
+  howUrl: string;
 }
 
 interface Props {
@@ -15,17 +16,23 @@ interface Props {
 
 const SubFeatureSection: FC<Props> = ({ subFeatureProps }) => {
   return (
-    <Flex flexDirection="row" maxWidth="65%" columnGap={8}>
-      {subFeatureProps.map((prop, index) => (
-        <VerticalCard
-          headline={prop.headline}
-          content={prop.content}
-          linkLabel={prop.linkLabel}
-          url={prop.url}
-          key={index}
-        />
-      ))}
+    <Box maxWidth={{ base: '90%', md: '90%' }}>
+    <Flex 
+      flexDirection='column'> 
+      <Heading fontSize={{ base: '2xl', md: '4xl' }} mb={4}>{HOW_HEADLINE}</Heading>
+ 
+        {subFeatureProps.map((prop, index) => (
+          <VerticalCard
+            howHeading={prop.howHeading}
+            howContent={prop.howContent}
+            howLinkLabel={prop.howLinkLabel}
+            howUrl={prop.howUrl}
+            key={index}
+          />
+        ))
+        }
     </Flex>
+    </Box>
   );
 };
 
