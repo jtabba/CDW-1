@@ -8,14 +8,8 @@ interface HeaderProps {}
 
 export const Header: FC<HeaderProps> = () => {
   return (
-    <Flex
-      justifyContent="space-between"
-      position={"absolute"}
-      top={0}
-      left={0}
-      width={"100dvw"}
-      padding={8}
-    >
+
+    <Flex width={"100%"} justifyContent={"space-between"} p={8}>
       <Logo />
 
       <NavBar />
