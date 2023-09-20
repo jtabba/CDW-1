@@ -4,6 +4,7 @@ import FormRow from './FormRow';
 import { Flex, InputGroup, Button } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
 import { Field, MenteeInfo } from '../types';
+import { MENTEE_FIELDS } from '../constants';
 
 const MenteeForm: FC<{ menteeFields: Field[] }> = ({ menteeFields }) => {
   const navigate = useNavigate();
@@ -18,7 +19,7 @@ const MenteeForm: FC<{ menteeFields: Field[] }> = ({ menteeFields }) => {
   });
 
   const handleChange = (
-    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement >
   ) => setMenteeInfo({ ...menteeInfo, [e.target.name]: e.target.value });
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -41,6 +42,7 @@ const MenteeForm: FC<{ menteeFields: Field[] }> = ({ menteeFields }) => {
                 flexDirection='column'
                 fontSize='clamp(1.3rem, -0.875rem + 8.333vw, 1rem)'
                 value={menteeInfo[field.name as keyof MenteeInfo]}
+                array={MENTEE_FIELDS}
                 onChange={handleChange}
               />
             ))}

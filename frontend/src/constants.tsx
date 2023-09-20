@@ -5,19 +5,22 @@ export const QUESTIONNAIRE_FIELDS = [
     name: 'bio',
   },
   {
-    inputType: 'input',
+    inputType: 'other',
     label: 'How many years of experience do you have as a software engineer?',
     name: 'experience',
+    options: ["0-2 years", "2-4 years", "4-6 years", "6-8 years", "8-10 years", "10+ years"],
   },
   {
-    inputType: 'input',
+    inputType: 'other',
     label: 'What is your current job title?',
     name: 'jobTitle',
+    options: ["Unemployed/ Non-Tech", "Freelance Engineer", "Junior Engineer", "Mid-Level Engineer", "Senior Engineer", "Technical Lead"],
   },
   {
-    inputType: 'textArea',
+    inputType: 'other',
     label: 'What are your interests?',
     name: 'interests',
+    options: ["Full-Stack Development", "Front-End Development", "Back-End Development", "DevOps", "Management", "Communications"]
   },
 ];
 

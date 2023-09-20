@@ -4,6 +4,7 @@ import FormRow from './FormRow';
 import { Flex, InputGroup, Button } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
 import { Field, MentorInfo } from '../types';
+import { MENTOR_FIELDS } from '../constants';
 
 const MentorForm: FC<{ mentorFields: Field[] }> = ({ mentorFields }) => {
   const navigate = useNavigate();
@@ -19,8 +20,8 @@ const MentorForm: FC<{ mentorFields: Field[] }> = ({ mentorFields }) => {
   });
 
   const handleChange = (
-    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => setMentorInfo({ ...mentorInfo, [e.target.name]: e.target.value });
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+  ) => setMentorInfo({ ...mentorInfo, [e.target.name]: e.target.value});
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     //POST request logic goes here
@@ -42,6 +43,7 @@ const MentorForm: FC<{ mentorFields: Field[] }> = ({ mentorFields }) => {
                 flexDirection='column'
                 fontSize='clamp(1.3rem, -0.875rem + 8.333vw, 1rem)'
                 value={mentorInfo[field.name as keyof MentorInfo]}
+                array={MENTOR_FIELDS}
                 onChange={handleChange}
               />
             ))}

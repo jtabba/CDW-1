@@ -2,6 +2,7 @@ export interface Field {
     inputType: string;
     label: string;
     name: string;
+    options?: string[];
 }
 
 export interface QuestionnaireInfo {
@@ -20,3 +21,5 @@ export interface MentorInfo extends QuestionnaireInfo {
 export interface MenteeInfo extends QuestionnaireInfo {
     learningGoals: string;
 }
+
+
