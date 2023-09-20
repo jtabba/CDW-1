@@ -1,11 +1,16 @@
-FROM node:alpine
+FROM node:20-slim AS Production
 
-WORKDIR /frontend/
+ENV NODE_ENV=production
 
-COPY public/ /frontend/public
-COPY src/ /frontend/src
-COPY package.json /frontend/package.json
+WORKDIR /usr/src/frontend
+
+COPY package.json .
+COPY package-lock.json .
 
 RUN npm install
 
-CMD ["npm", "start"]
+COPY . .
+
+RUN npm run build
+
+CMD ["sh", "-c", "npm run start"]

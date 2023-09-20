@@ -8,3 +8,5 @@ backend/node_modules
 backend/.env.local
 backend/.env
 backend/build
+
+.env

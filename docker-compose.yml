@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  backend:
+    container_name: cdw-backend
+    restart: unless-stopped
+    image: cdw-backend-prod:1.0.0
+    environment:
+      PORT: ${PORT}
+      URI: ${URI}
+    build: 
+      context: backend
+      target: production
+      dockerfile: Dockerfile
+    ports:
+      - 8080:8080
+    networks:
+      - shared-network
+
+  frontend:
+    container_name: cdw-frontend
+    restart: unless-stopped
+    image: cdw-frontend-prod:1.0.0
+    environment:
+      REACT_APP_API_URL: ${REACT_APP_API_URL}
+      REACT_APP_AUTH0_DOMAIN: ${REACT_APP_AUTH0_DOMAIN}
+      REACT_APP_AUTH0_CLIENT_ID: ${REACT_APP_AUTH0_CLIENT_ID}
+    build: 
+      context: frontend
+      target: production
+      dockerfile: Dockerfile
+    ports:
+      - 3000:3000
+    networks:
+      - shared-network
+    depends_on:
+      - backend
+
+networks:
+  shared-network:
