@@ -5,6 +5,7 @@ import "@fontsource/bree-serif";
 
 const Logo = () => {
   return (
+
     <Flex>
       <Box
         className="logo"
@@ -19,6 +20,7 @@ const Logo = () => {
           <Link to={"/"}>MentorShip</Link>
         </Heading>
       </Box>
+
     </Flex>
   );
 };

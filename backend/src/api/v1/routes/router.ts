@@ -17,7 +17,9 @@ const router = express.Router()
 
 // users
 router.get('/getAll', getAll)
-router.get('/getUser', getSingle)
+router.get('/getSingle/:userId', getSingle )
+router.post('/register', postUser)
+
 router.post('/authSignup', postUserAuth)
 // router.post('/register', postUser)
 
@@ -25,5 +27,6 @@ router.post('/authSignup', postUserAuth)
 router.get('/getArticles', getArticles)
 router.post('/postArticle', postArticle)
 router.post('/postArticles', postArticles)
+
 
 export default router

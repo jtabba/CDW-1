@@ -3,6 +3,18 @@ export interface Field {
     label: string;
     name: string;
 }
+export interface UserData {
+    name?: string;
+    email?: string;
+    dateOfBirth?: string;
+    yearsOfExperience?: number;
+    currentJobTitle?: string;
+    AreasOfExpertise?: string[];
+    rate?: number;
+    interests?: string[];
+    aboutMe?: string;
+    id?: string;
+  }
 
 export interface QuestionnaireInfo {
     role: string;

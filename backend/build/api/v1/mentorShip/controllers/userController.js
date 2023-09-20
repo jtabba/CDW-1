@@ -7,7 +7,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-import { getAllDataService, getSingleUser } from '../services/userServices';
+import { getAllDataService, postSingleUser } from '../services/userServices';
 export const getAll = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const allData = yield getAllDataService();
     return res.send({
@@ -17,12 +17,39 @@ export const getAll = (req, res) => __awaiter(void 0, void 0, void 0, function* 
     });
 });
 export const getSingle = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const userData = yield getSingleUser(req.body.userId);
-    return res.send({
-        status: 200,
-        message: 'Success',
-        data: userData
-    });
+    console.log('Get single was hit');
+    res.sendStatus(200);
+    // const userData = await getSingleUser(req.params.userId)
+    // return res.send({
+    //     status: 200,
+    //     message: 'Success',
+    //     data: userData
+    // })
+    // export const getSingle = async (req: Request, res: Response) => {
+    //     console.log('Route handler for /getUser is executed.');
+    //     try {
+    //         const userData = await getSingleUser(req.body.userId);
+    //         if (!userData) {
+    //             return res.status(404).json({
+    //                 status: 404,
+    //                 message: 'User not found',
+    //                 data: null,
+    //             });
+    //         }
+    //         return res.status(200).json({
+    //             status: 200,
+    //             message: 'Success',
+    //             data: userData,
+    //         });
+    //     } catch (error) {
+    //         console.error('Error in /getUser:', error);
+    //         return res.status(500).json({
+    //             status: 500,
+    //             message: 'Internal server error',
+    //             data: error.message,
+    //         });
+    //     }
+    // }
     // for testing of single use one of the following IDs and add it to postman body as "userId": "id here"
     // {
     //     "_id": "64e738b63ef7a62f2d9a3d60",
@@ -38,4 +65,12 @@ export const getSingle = (req, res) => __awaiter(void 0, void 0, void 0, functio
     // "userId": "64e738b63ef7a62f2d9a3d60"
     // endpoint: http://localhost:8080/api/v1/getUser
     //  }
+});
+export const postUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const insertedData = yield postSingleUser(req.body);
+    return res.send({
+        status: 201,
+        message: 'Registration is done',
+        data: insertedData
+    });
 });
