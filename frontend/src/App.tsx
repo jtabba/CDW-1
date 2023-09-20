@@ -10,6 +10,7 @@ import Explore from "./pages/explore";
 import Footer from "./components/Footer";
 import { VStack } from "@chakra-ui/react";
 import { Header } from "./components/header/Header";
+import Mentors from "./pages/mentors";
 
 const App = () => {
   // const [users, setUsers] = useState<userData[]>([]);
@@ -43,7 +44,7 @@ const App = () => {
               <Route path="onboarding" element={<Onboarding />} />
               <Route path="explore" element={<Explore />} />
               <Route path="products" element={<h1>Products</h1>} />
-              <Route path="mentors" element={<h1>Mentors</h1>} />
+              <Route path="mentors" element={<Mentors />} />
               <Route path="profile" element={<Profile />} />
 
               {/* The 404 route must always be last */}
