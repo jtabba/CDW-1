@@ -13,8 +13,9 @@ import {
 const Home = () => {
   return (
     <>
-      <GridItem className="main" paddingBottom="48px">
-        <Flex maxWidth="60%" margin="auto">
+      <GridItem className="main" width="100%">
+        <Flex maxWidth="100%" margin={"auto"}
+        >
           <Hero {...HERO_PROPS} />
         </Flex>
         <Flex flexDirection="column" alignItems="center" rowGap={20}>

@@ -3,12 +3,13 @@ import Logo from "./Logo";
 import { FC } from "react";
 import { AuthButtons } from "../authentication/SignInOrOut";
 import NavBar from "./NavBar";
+import theme from "../../theme/theme";
 
 interface HeaderProps {}
 
 export const Header: FC<HeaderProps> = () => {
   return (
-    <Flex width={"100%"} justifyContent={"space-between"} p={8}>
+    <Flex color="white" bg={theme.colors.primary.darkGrey} width={"100%"} justifyContent={"space-between"} p={4}>
       <Logo />
 
       <NavBar />

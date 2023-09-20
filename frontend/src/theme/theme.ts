@@ -2,10 +2,11 @@ import { extendTheme, type ThemeConfig } from '@chakra-ui/react';
 import '@fontsource/bree-serif';
 
 
-export const themeGrey = "#425473";
+export const themeGrey = "#4a4a4a";
 export const themeBlue = "#0060DF";
 export const themeLightBlue = "#8ED1FC";
 export const themeDarkBlue = "#060D3E";
+export const themeDarkGrey = "#1a1a1a";
 
 
 const config: ThemeConfig = {
@@ -20,6 +21,7 @@ const theme = {
             blue: themeBlue,
             lightBlue: themeLightBlue,
             darkBlue: themeDarkBlue,
+            darkGrey: themeDarkGrey,
         }
     },
     fonts: {
@@ -28,11 +30,11 @@ const theme = {
     textStyles: {
         header: {
             fontSize: ["md", "lg", "xl", "2xl"],
-            margin: "30px"
+            margin: 0
         },
         body: {
             fontSize: ["sm", "md", "lg", "xl"],
-            margin: "15px",
+            margin: 0,
             color: "primary.white"
         },
         description: {

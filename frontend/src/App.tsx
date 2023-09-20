@@ -8,7 +8,7 @@ import Profile from "./pages/profile";
 import Onboarding from "./pages/onboarding";
 import Explore from "./pages/explore";
 import Footer from "./components/Footer";
-import { VStack } from "@chakra-ui/react";
+import { VStack, Flex } from "@chakra-ui/react";
 import { Header } from "./components/header/Header";
 
 const App = () => {
@@ -34,26 +34,24 @@ const App = () => {
 
   return (
     <Router>
-      <VStack minHeight={"100dvh"} justifyContent={"space-between"}>
+      {/* <VStack minHeight={"100dvh"} justifyContent={"column"}> */}
         <Header />
-        <VStack>
-          <Routes>
-            <Route path="/" element={<UserInterface />}>
-              <Route path="/" element={<Home />} />
-              <Route path="onboarding" element={<Onboarding />} />
-              <Route path="explore" element={<Explore />} />
-              <Route path="products" element={<h1>Products</h1>} />
-              <Route path="mentors" element={<h1>Mentors</h1>} />
-              <Route path="profile" element={<Profile />} />
-
-              {/* The 404 route must always be last */}
-              <Route path="*" element={<h1>404: Page Not Found</h1>} />
-            </Route>
-          </Routes>
-        </VStack>
-
+        <Flex width="100%" justifyContent="column">
+            <Routes>
+              <Route path="/" element={<UserInterface />}>
+                <Route path="/" element={<Home />} />
+                <Route path="onboarding" element={<Onboarding />} />
+                <Route path="explore" element={<Explore />} />
+                <Route path="products" element={<h1>Products</h1>} />
+                <Route path="mentors" element={<h1>Mentors</h1>} />
+                <Route path="profile" element={<Profile />} />
+                {/* The 404 route must always be last */}
+                <Route path="*" element={<h1>404: Page Not Found</h1>} />
+              </Route>
+            </Routes>
+        </Flex>
         <Footer />
-      </VStack>
+      {/* </VStack> */}
     </Router>
   );
 };
