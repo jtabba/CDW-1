@@ -4,12 +4,12 @@ ENV NODE_ENV=production
 
 WORKDIR /usr/src/backend
 
-COPY package.json /usr/src/backend/
-COPY package-lock.json /usr/src/backend/
+COPY package.json package-lock.json ./
 
+# Install dependencies
 RUN npm install
 
-COPY . /usr/src/backend/
+COPY . .
 
 RUN npm run build
 
