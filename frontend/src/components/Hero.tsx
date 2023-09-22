@@ -11,7 +11,7 @@ interface HeroProps {
 
 const Hero: FC<HeroProps> = ({ heroHeadline, heroContent, heroLinkLabel, heroUrl }) => {
 	return (
-		<Flex mt={30}  mb={20} flexDirection="column" justifyContent="center" alignItems="center" w="90%" ml="auto" mr="auto">
+		<Flex bg="yellow" mt={30}  mb={20} flexDirection="column" justifyContent="center" alignItems="center" w="100%" ml="auto" mr="auto">
 
 			<Stack mt={20} mb={6} direction={["column", "row"]} spacing={4} alignItems="center">
 			<Image height="150px" width="150px" src={logo}/>

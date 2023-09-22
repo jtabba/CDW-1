@@ -13,7 +13,7 @@ import {
 const Home = () => {
   return (
     <>
-      <GridItem className="main" paddingBottom="48px">
+      <GridItem width="100%" bg="red" className="main" paddingBottom="48px" maxHeight="100%">
         <Flex maxWidth="60%" margin="auto">
           <Hero {...HERO_PROPS} />
         </Flex>

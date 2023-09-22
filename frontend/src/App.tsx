@@ -1,6 +1,3 @@
-// import { useEffect, useState } from "react";
-// import { getAllUsers } from "./requests/getAllUsers";
-// import { userData } from "./requests/types";
 import { UserInterface } from "./components/UserInterface";
 import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
 import Home from "./pages/home/home";
@@ -8,39 +5,20 @@ import Profile from "./pages/profile";
 import Onboarding from "./pages/onboarding";
 import Explore from "./pages/explore";
 import Footer from "./components/Footer";
-import { VStack } from "@chakra-ui/react";
+import { VStack, Flex } from "@chakra-ui/react";
 import { Header } from "./components/header/Header";
 import Mentors from "./pages/mentors";
+import "./App.css";
 
 const App = () => {
-  // const [users, setUsers] = useState<userData[]>([]);
-
-  // ***PURELY FOR EXAMPLE***
-  /* useEffect(() => {
-    // open browser console to see result
-    const getUsers = async () => {
-      const response = await getAllUsers();
-
-      if (response.success) {
-        setUsers(response.data as userData[]);
-      } else {
-        // create error notification wth Chakra
-      }
-    };
-
-    getUsers();
-    console.log("users", users);
-  }); */
-  // ***PURELY FOR EXAMPLE***
-
   return (
     <Router>
-      <VStack minHeight={"100dvh"} justifyContent={"space-between"}>
+      {/* <VStack m="0" bg="grey" minHeight={"100dvh"} justifyContent={"space-between"}> */}
         <Header />
-        <VStack>
-          <Routes>
+        <Flex bg="grey" width="100%" minHeight="100vh" justifyContent="column" m="0">
+          <Routes >
             <Route path="/" element={<UserInterface />}>
-              <Route path="/" element={<Home />} />
+              <Route path="/" element={<Home />}/>
               <Route path="onboarding" element={<Onboarding />} />
               <Route path="explore" element={<Explore />} />
               <Route path="products" element={<h1>Products</h1>} />
@@ -51,10 +29,10 @@ const App = () => {
               <Route path="*" element={<h1>404: Page Not Found</h1>} />
             </Route>
           </Routes>
-        </VStack>
+        </Flex>
 
         <Footer />
-      </VStack>
+      {/* </VStack> */}
     </Router>
   );
 };
