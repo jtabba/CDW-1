@@ -33,6 +33,7 @@ const App = () => {
 
         <Footer />
       {/* </VStack> */}
+      {/* </VStack> */}
     </Router>
   );
 };
