@@ -9,7 +9,7 @@ interface HeaderProps {}
 
 export const Header: FC<HeaderProps> = () => {
   return (
-    <Flex color="white" bg={theme.colors.primary.darkGrey} width={"100%"} justifyContent={"space-between"} p={4}>
+    <Flex color="white" bgColor="white" width={"100%"} justifyContent={"space-between"} p={4}>
       <Logo />
 
       <NavBar />

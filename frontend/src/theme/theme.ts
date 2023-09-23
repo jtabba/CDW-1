@@ -2,11 +2,15 @@ import { extendTheme, type ThemeConfig } from '@chakra-ui/react';
 import '@fontsource/bree-serif';
 
 
-export const themeGrey = "#4a4a4a";
+
 export const themeBlue = "#0060DF";
-export const themeLightBlue = "#8ED1FC";
-export const themeDarkBlue = "#060D3E";
-export const themeDarkGrey = "#1a1a1a";
+export const themeLightBlue = "#EBF4FF";
+export const themeDarkBlue = "#003eaa";
+export const themeGrey = "#4a4a4a";
+export const themeLightGrey = "#E0E0E0";
+export const themeDarkGrey = "#2B1B3C";
+export const themePurple = "#9400FF";
+export const themeDarkPurple = "#47007A";
 
 
 const config: ThemeConfig = {

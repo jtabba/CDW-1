@@ -1,7 +1,7 @@
 import { Button, Flex, Text, Heading, Image, Stack } from "@chakra-ui/react";
 import { FC } from "react";
 import logo from "../assets/logo-white-blue-round.png";
-import theme from "../theme/theme";
+import { themeBlue, themeDarkBlue, themePurple } from "../theme/theme";
 
 interface HeroProps {
 	heroHeadline: string;
@@ -12,12 +12,12 @@ interface HeroProps {
 
 const Hero: FC<HeroProps> = ({ heroHeadline, heroContent, heroLinkLabel, heroUrl }) => {
 	return (
-		<Flex bgColor="blue" w="100%">
+		<Flex bgGradient="linear(to-t,#47007A, #0060DF)" color="white" w="100%">
 			<Flex maxWidth={{ base: '90%', md: '60%' }} pt={30} pb={20} flexDirection="column" justifyContent="center" alignItems="center" ml="auto" mr="auto">
 				<Stack mt={20} mb={6} direction={["column", "row"]} spacing={4} alignItems="center" >
-				<Image height="150px" width="150px" src={logo}/>
+				{/* <Image height="150px" width="150px" src={logo}/> */}
 						<Heading
-							fontSize="clamp(2rem, -0.875rem + 8.333vw, 4.5rem)"
+							fontSize="clamp(3rem, -0.875rem + 8.333vw, 4.5rem)"
 							textAlign="center" justifyContent="center"
 						>
 						{heroHeadline}
@@ -33,7 +33,7 @@ const Hero: FC<HeroProps> = ({ heroHeadline, heroContent, heroLinkLabel, heroUrl
 					{heroContent}
 				</Text>
 
-				<Button size="lg" width="3xs">
+				<Button bgColor="white" color={themeBlue} size="lg" width="3xs">
 					{heroLinkLabel}
 				</Button>
 			</Flex>

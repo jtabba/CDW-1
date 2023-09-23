@@ -20,7 +20,7 @@ const MobileNavItem: FC<NavItem> = ({ label, children, href }: NavItem) => {
   const { onToggle } = useDisclosure();
 
   return (
-    <Stack spacing={4} onClick={children && onToggle}>
+    <Stack mt={2} spacing={4} onClick={children && onToggle}>
       <Box
         py={2}
         as="a"
@@ -49,7 +49,7 @@ export const MobileNav = () => {
     <Menu>
       {({ isOpen }) => (
         <>
-          <MenuButton as={Button} rounded={"sm"} isActive={isOpen}>
+          <MenuButton mt={1} as={Button} rounded={"sm"} isActive={isOpen}>
             {isOpen ? <CloseIcon w={5} h={5} /> : <HamburgerIcon w={5} h={5} />}
           </MenuButton>
           <MenuList>
