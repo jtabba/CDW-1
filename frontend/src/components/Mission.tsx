@@ -12,21 +12,23 @@ interface MissionProps {
 const Mission: FC<MissionProps> = ({ missionHeadline, missionContent, missionLinkLabel, missionUrl} ) => {
 
     return (
-    <Box maxWidth={{ base: '90%', md: '90%' }}>
-        <Heading fontSize={{ base: '2xl', md: '4xl' }} mb={4}>
-                {missionHeadline}
-        </Heading>
-        <Flex flexDirection={{ base: 'column', md: 'row' }} alignItems='center'>
-            <Box width={{ base: '100%', md: '100%' }}>
-                <Text fontSize={{ base: 'lg', md: 'xl'}} pt={2} pr={2}>
-                {missionContent}
-                </Text>
-                <Button color={themeBlue} mt={6} mb={4} variant='outline'>
-                    {missionLinkLabel}
-                </Button>
-            </Box>
-        </Flex>
-    </Box>
+    <Flex bgColor="blue" pb={16}>
+        <Box maxWidth={{ base: '90%', md: '70%' }} ml="auto" mr="auto" pt="70px">
+            <Heading fontSize={{ base: '2xl', md: '4xl' }} mb={4}>
+                    {missionHeadline}
+            </Heading>
+            <Flex flexDirection={{ base: 'column', md: 'row' }} alignItems='center'>
+                <Box width={{ base: '100%', md: '100%' }}>
+                    <Text fontSize={{ base: 'lg', md: 'xl'}} pt={2} pr={2}>
+                    {missionContent}
+                    </Text>
+                    <Button color={themeBlue} mt={6} mb={4} variant='outline'>
+                        {missionLinkLabel}
+                    </Button>
+                </Box>
+            </Flex>
+        </Box>
+    </Flex>
     );
 };
 

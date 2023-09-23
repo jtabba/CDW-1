@@ -17,23 +17,25 @@ interface Props {
 const SubFeatureSection: FC<Props> = ({ subFeatureProps }) => {
 
   return (
-    <Box maxWidth={{ base: '90%', md: '90%' }}>
-    <Flex 
-      flexDirection='column'> 
-      <Heading fontSize={{ base: '2xl', md: '4xl' }} mb={4}>{HOW_HEADLINE}</Heading>
- 
-        {subFeatureProps.map((prop, index) => (
-          <VerticalCard
-            howHeading={prop.howHeading}
-            howContent={prop.howContent}
-            howLinkLabel={prop.howLinkLabel}
-            howUrl={prop.howUrl}
-            key={index}
-          />
-        ))
-        }
+    <Flex bgColor="green" pb={16} height="100%">
+      <Box maxWidth={{ base: '90%', md: '70%' }} ml="auto" mr="auto" pt="70px">
+      <Flex 
+        flexDirection='column'> 
+        <Heading fontSize={{ base: '2xl', md: '4xl' }} mb={4}>{HOW_HEADLINE}</Heading>
+  
+          {subFeatureProps.map((prop, index) => (
+            <VerticalCard
+              howHeading={prop.howHeading}
+              howContent={prop.howContent}
+              howLinkLabel={prop.howLinkLabel}
+              howUrl={prop.howUrl}
+              key={index}
+            />
+          ))
+          }
+      </Flex>
+      </Box>
     </Flex>
-    </Box>
   );
 };
 

@@ -5,17 +5,15 @@ import Profile from "./pages/profile";
 import Onboarding from "./pages/onboarding";
 import Explore from "./pages/explore";
 import Footer from "./components/Footer";
-import { VStack, Flex } from "@chakra-ui/react";
+import { Flex } from "@chakra-ui/react";
 import { Header } from "./components/header/Header";
 import Mentors from "./pages/mentors";
-import "./App.css";
 
 const App = () => {
   return (
     <Router>
-      {/* <VStack m="0" bg="grey" minHeight={"100dvh"} justifyContent={"space-between"}> */}
         <Header />
-        <Flex bg="grey" width="100%" minHeight="100vh" justifyContent="column" m="0">
+        <Flex bg="grey" minHeight="100vh" justifyContent="column" mb={0} pb={0}>
           <Routes >
             <Route path="/" element={<UserInterface />}>
               <Route path="/" element={<Home />}/>
@@ -24,16 +22,12 @@ const App = () => {
               <Route path="products" element={<h1>Products</h1>} />
               <Route path="mentors" element={<Mentors />} />
               <Route path="profile" element={<Profile />} />
-
               {/* The 404 route must always be last */}
               <Route path="*" element={<h1>404: Page Not Found</h1>} />
             </Route>
           </Routes>
         </Flex>
-
         <Footer />
-      {/* </VStack> */}
-      {/* </VStack> */}
     </Router>
   );
 };

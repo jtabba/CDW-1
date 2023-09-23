@@ -25,7 +25,7 @@ const VerticalCard: FC<VerticalCardProps> = ({
 
 }: VerticalCardProps) => {
 	return (
-		<Card flexDirection="column">
+		<Card flexDirection="column" mb={3}>
 			<CardBody mb={0}>
 				<Flex flexDirection="column" rowGap={2}>
 					<Text fontStyle="italic" fontWeight="medium" fontSize={{ base: 'xl', md: '2xl' }}><ArrowForwardIcon mt="-6px" style={{ stroke: themeBlue, strokeWidth: "2px" }}/> {howHeading}</Text>

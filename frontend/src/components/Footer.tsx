@@ -9,11 +9,11 @@ const Footer = () => {
   ];
 
   return (
-    <Box flexWrap="wrap" height="10vh">
+    <Box flexWrap="wrap" height="8vh">
       <Divider margin="10px" />
-      <Flex justifyContent="space-between">
+      <Flex justifyContent="space-between" maxWidth="90%" ml="auto" mr="auto">
         <Text fontSize="10px">Copyright © 2023 Mentorship |&nbsp;</Text>
-        <Flex gap="5px">
+        <Flex gap="6px">
           {footerLinks.map((element, index) => {
             return (
               <>
