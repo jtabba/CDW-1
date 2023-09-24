@@ -21,7 +21,7 @@ export const MISSION_PROPS = {
     missionHeadline: "Our Misson",
     missionContent:
     "At MentorShip, our mission is to reshape the landscape of software development mentorship. We're committed to providing an innovative platform that empowers senior developers to guide and mentor pre-junior developers, fostering an environment of collaborative learning and growth. Through our maritime-inspired approach, we aim to create a community where knowledge flows freely, challenges are met with enthusiasm, and connections are forged that last a lifetime. Our goal is to revolutionize how mentorship takes shape, enabling aspiring developers to chart their course towards excellence while sailing alongside seasoned experts. Join us on this transformative journey, where mentorship knows no limits and the waves of coding mastery are yours to conquer.",
-    missionLinkLabel: "Enlist Today",
+    missionLinkLabel: "Join Us",
     missionUrl: "/loremipsum"
 };
 

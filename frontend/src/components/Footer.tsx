@@ -1,4 +1,4 @@
-import { Flex, Box, Text, Link, Divider } from "@chakra-ui/react";
+import { Flex, Box, Text, Link, Divider, useColorModeValue } from "@chakra-ui/react";
 import { themeBlue, themeGrey, themeDarkBlue,themeDarkGrey } from "../theme/theme";
 
 const Footer = () => {

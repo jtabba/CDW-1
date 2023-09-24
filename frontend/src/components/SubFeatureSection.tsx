@@ -16,13 +16,15 @@ interface Props {
 }
 
 const SubFeatureSection: FC<Props> = ({ subFeatureProps }) => {
-  const bg = useColorModeValue('white', themeDarkGrey)
+  const bg = useColorModeValue("#E0E0E0", "#001b3d")
+  const color = useColorModeValue(themeBlue, "#fff")
+  const borderTop = useColorModeValue("red", "fff")
   return (
-    <Flex bg={bg} pb={16} height="100%" w="100%">
+    <Flex borderTopColor={borderTop} bg={bg} pb={16} height="100%" w="100%">
       <Box maxWidth={{ base: '90%', md: '70%', xl: '55%' }} ml="auto" mr="auto" pt="70px">
       <Flex 
         flexDirection='column'> 
-        <Heading color="white" fontSize={{ base: '2xl', md: '4xl' }} mb={8}>{HOW_HEADLINE}</Heading>
+        <Heading color={color} fontSize={{ base: '2xl', md: '4xl' }} mb={8}>{HOW_HEADLINE}</Heading>
   
           {subFeatureProps.map((prop, index) => (
             <VerticalCard

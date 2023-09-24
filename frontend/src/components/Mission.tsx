@@ -1,6 +1,6 @@
-import { Box, Heading, Flex, Text, Button } from '@chakra-ui/react';
+import { Box, Heading, Flex, Text, Button, useColorModeValue } from '@chakra-ui/react';
 import { FC } from "react";
-import { themeBlue, themeGrey, themeDarkBlue, themeLightGrey, themeLightBlue } from "../theme/theme";
+import { themeBlue, themeGrey, themeDarkGrey, themeLightGrey, themeLightBlue } from "../theme/theme";
 
 interface MissionProps {
     missionHeadline:string
@@ -10,9 +10,12 @@ interface MissionProps {
 }
 
 const Mission: FC<MissionProps> = ({ missionHeadline, missionContent, missionLinkLabel, missionUrl} ) => {
+    const bg = useColorModeValue("#EBEBEB", themeDarkGrey)
+	const buttonBg = useColorModeValue("#fff", themeBlue)
+	const buttonColor = useColorModeValue(themeBlue, "fff")
 
     return (
-    <Flex bgColor={themeLightGrey} pb={16} width="100%">
+    <Flex bgColor={bg} pb={16} width="100%">
         <Box maxWidth={{ base: '90%', md: '70%', xl: '55%' }} ml="auto" mr="auto" pt="70px">
             <Heading color={themeBlue} fontSize={{ base: '2xl', md: '4xl' }} mb={4}>
                     {missionHeadline}
@@ -22,7 +25,7 @@ const Mission: FC<MissionProps> = ({ missionHeadline, missionContent, missionLin
                     <Text fontSize={{ base: 'lg', md: 'xl'}} pt={2} pr={2}>
                     {missionContent}
                     </Text>
-                    <Button color={themeBlue}bgColor="white" mt={6} mb={4}>
+                    <Button color={themeBlue} bgColor="white" pt={1} mt={6} mb={4}>
                         {missionLinkLabel}
                     </Button>
                 </Box>

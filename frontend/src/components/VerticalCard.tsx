@@ -5,10 +5,11 @@ import {
 	Card,
 	CardBody,
 	CardFooter,
-	Link
+	Link,
+	useColorModeValue
 } from "@chakra-ui/react";
 import { FC } from "react";
-import { themeBlue } from "../theme/theme";
+import { themeBlue, themeGrey } from "../theme/theme";
 
 export type VerticalCardProps = {
 	howHeading: string;
@@ -24,9 +25,10 @@ const VerticalCard: FC<VerticalCardProps> = ({
 	howUrl
 
 }: VerticalCardProps) => {
+	const bg = useColorModeValue("#fff", themeGrey)
 	return (
-		<Card flexDirection="column" mb={3}>
-			<CardBody mb={0}>
+		<Card bgColor={bg} flexDirection="column" mb={3}>
+			<CardBody  mb={0}>
 				<Flex flexDirection="column" rowGap={2}>
 					<Text fontStyle="bold" fontWeight="bold" fontSize={{ base: 'xl', md: '2xl' }}><ArrowForwardIcon mt="-6px" style={{ stroke: themeBlue, strokeWidth: "2px" }}/> {howHeading}</Text>
 					<Text fontSize={{ base: 'lg', md: 'xl'}}>{howContent}</Text>

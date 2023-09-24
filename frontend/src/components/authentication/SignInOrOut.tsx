@@ -21,7 +21,7 @@ export const AuthButtons = () => {
   return (
     <Flex>
       <Button p={0} mt={1} mr={3} onClick={toggleColorMode}>
-         {colorMode === 'light' ? <IconButton aria-label='dark mode' icon={<MoonIcon />} /> : <IconButton aria-label='dark mode' icon={<SunIcon />} />}
+         {colorMode === 'light' ? <IconButton aria-label='dark mode' icon={<MoonIcon />} /> : <IconButton aria-label='light mode' icon={<SunIcon />} />}
       </Button>
       {!isAuthenticated ? (
         <Button color="white" bgColor={themeBlue} mt={1} onClick={handleLogin}>Log In</Button>

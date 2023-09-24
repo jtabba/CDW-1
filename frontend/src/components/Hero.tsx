@@ -36,7 +36,7 @@ const Hero: FC<HeroProps> = ({ heroHeadline, heroContent, heroLinkLabel, heroUrl
 					{heroContent}
 				</Text>
 
-				<Button bg={buttonBg} color={buttonColor} size="lg" width="3xs">
+				<Button bg={buttonBg} color={buttonColor} size="lg" width="3xs" pt={1}>
 					{heroLinkLabel}
 				</Button>
 			</Flex>
