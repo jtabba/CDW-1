@@ -1,12 +1,13 @@
-import { Flex, Image, Box, Heading } from "@chakra-ui/react";
+import { Flex, Image, Box, Heading, useColorModeValue } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import logo from "../../assets/logo-white-blue-round.png";
 import "@fontsource/bree-serif";
 import {themeBlue, themePurple} from "../../theme/theme";
 
 const Logo = () => {
+  const color = useColorModeValue(themeBlue, 'white')
   return (
-    <Flex color={themeBlue}>
+    <Flex color={color}>
       <Box
         className="logo"
         display="flex"

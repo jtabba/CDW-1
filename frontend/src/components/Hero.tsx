@@ -1,7 +1,7 @@
-import { Button, Flex, Text, Heading, Image, Stack } from "@chakra-ui/react";
+import { Button, Flex, Text, Heading, Image, Stack, useColorModeValue } from "@chakra-ui/react";
 import { FC } from "react";
 import logo from "../assets/logo-white-blue-round.png";
-import { themeBlue, themeDarkBlue, themePurple } from "../theme/theme";
+import { themeBlue, themeDarkGrey, themePurple } from "../theme/theme";
 
 interface HeroProps {
 	heroHeadline: string;
@@ -11,8 +11,11 @@ interface HeroProps {
 }
 
 const Hero: FC<HeroProps> = ({ heroHeadline, heroContent, heroLinkLabel, heroUrl }) => {
+	const bg = useColorModeValue(themeBlue, themeDarkGrey)
+	const buttonBg = useColorModeValue("#fff", themeBlue)
+	const buttonColor = useColorModeValue(themeBlue, "fff")
 	return (
-		<Flex bgGradient="linear(to-t,#47007A, #0060DF)" color="white" w="100%">
+		<Flex bg={bg} color="white" w="100%">
 			<Flex maxWidth={{ base: '90%', md: '60%' }} pt={30} pb={20} flexDirection="column" justifyContent="center" alignItems="center" ml="auto" mr="auto">
 				<Stack mt={20} mb={6} direction={["column", "row"]} spacing={4} alignItems="center" >
 				{/* <Image height="150px" width="150px" src={logo}/> */}
@@ -33,7 +36,7 @@ const Hero: FC<HeroProps> = ({ heroHeadline, heroContent, heroLinkLabel, heroUrl
 					{heroContent}
 				</Text>
 
-				<Button bgColor="white" color={themeBlue} size="lg" width="3xs">
+				<Button bg={buttonBg} color={buttonColor} size="lg" width="3xs">
 					{heroLinkLabel}
 				</Button>
 			</Flex>

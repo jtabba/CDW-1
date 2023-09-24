@@ -4,9 +4,9 @@ import '@fontsource/bree-serif';
 export const themeBlue = "#0060DF";
 export const themeLightBlue = "#EBF4FF";
 export const themeDarkBlue = "#003eaa";
-export const themeGrey = "#4a4a4a";
-export const themeLightGrey = "#E0E0E0";
-export const themeDarkGrey = "#2B1B3C";
+export const themeGrey = "#292929";
+export const themeLightGrey = "#474747";
+export const themeDarkGrey = "#121212";
 export const themePurple = "#9400FF";
 export const themeDarkPurple = "#47007A";
 

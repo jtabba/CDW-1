@@ -3,6 +3,7 @@ import Logo from "./Logo";
 import { FC } from "react";
 import { AuthButtons } from "../authentication/SignInOrOut";
 import NavBar from "./NavBar";
+import { themeGrey } from "../../theme/theme";
 
 interface HeaderProps {}
 
@@ -12,10 +13,9 @@ interface HeaderProps {}
 
 
 export const Header: FC<HeaderProps> = () => {
-  const bg = useColorModeValue('red.500', 'red.200')
-  const color = useColorModeValue('white', 'gray.800')
+  const bg = useColorModeValue('white', themeGrey)
   return (
-    <Flex color={color} bgColor={bg} width={"100%"} justifyContent={"space-between"} p={4}>
+    <Flex bgColor={bg} width={"100%"} justifyContent={"space-between"} p={4}>
       <Logo />
 
       <NavBar />
