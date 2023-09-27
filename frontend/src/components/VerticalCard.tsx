@@ -5,10 +5,11 @@ import {
 	Card,
 	CardBody,
 	CardFooter,
-	Link
+	Link,
+	useColorModeValue
 } from "@chakra-ui/react";
 import { FC } from "react";
-import { themeBlue } from "../theme/theme";
+import { themeBlue, themeGrey, themeLightBlue } from "../theme/theme";
 
 export type VerticalCardProps = {
 	howHeading: string;
@@ -24,16 +25,17 @@ const VerticalCard: FC<VerticalCardProps> = ({
 	howUrl
 
 }: VerticalCardProps) => {
+	const bg = useColorModeValue("#fff", themeGrey)
 	return (
-		<Card flexDirection="column">
-			<CardBody mb={0}>
+		<Card bgColor={bg} flexDirection="column" mb={3}>
+			<CardBody  mb={0}>
 				<Flex flexDirection="column" rowGap={2}>
-					<Text fontStyle="italic" fontWeight="medium" fontSize={{ base: 'xl', md: '2xl' }}><ArrowForwardIcon mt="-6px" style={{ stroke: themeBlue, strokeWidth: "2px" }}/> {howHeading}</Text>
+					<Text fontStyle="bold" fontWeight="bold" fontSize={{ base: 'xl', md: '2xl' }}><ArrowForwardIcon mt="-6px" style={{ stroke: themeBlue, strokeWidth: "2px" }}/> {howHeading}</Text>
 					<Text fontSize={{ base: 'lg', md: 'xl'}}>{howContent}</Text>
 				</Flex>
 			</CardBody>
 			<CardFooter fontSize={{ base: '1rem', md: 'xl' }} mt={0} pt={0}>
-				<Link mt={0} href={howUrl} textDecoration="underline">
+				<Link _hover={{ color:themeLightBlue, textDecoration: "none" }}mt={0} href={howUrl} textDecoration="none" color={themeBlue} fontWeight="bold">
 					{howLinkLabel}
 				</Link>
 			</CardFooter>

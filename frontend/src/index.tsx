@@ -1,7 +1,7 @@
 import "./index.css";
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { ChakraProvider } from "@chakra-ui/react";
+import { ChakraProvider, ColorModeScript } from "@chakra-ui/react";
 import theme from "./theme/theme";
 import { Auth0Provider } from "@auth0/auth0-react";
 import App from "./App";
@@ -26,6 +26,7 @@ root.render(
 					redirect_uri: window.location.origin
 				}}
 			>
+				<ColorModeScript initialColorMode={theme.config.initialColorMode} />
 				<App />
 			</Auth0Provider>
 		</ChakraProvider>

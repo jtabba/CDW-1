@@ -13,11 +13,11 @@ import {
 const Home = () => {
   return (
     <>
-      <GridItem className="main" paddingBottom="48px">
-        <Flex maxWidth="60%" margin="auto">
+      <GridItem width="100%" bg="red" className="main" height="100%">
+        <Flex maxWidth="100%" margin="auto">
           <Hero {...HERO_PROPS} />
         </Flex>
-        <Flex flexDirection="column" alignItems="center" rowGap={20}>
+        <Flex flexDirection="column" alignItems="center" rowGap={0}>
           <FeatureSection {...FEATURE_PROPS} />
           <Mission {...MISSION_PROPS} />
           <SubFeatureSection subFeatureProps={SUB_FEATURES_PROPS} />

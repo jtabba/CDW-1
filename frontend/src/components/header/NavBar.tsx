@@ -10,7 +10,7 @@ export default function NavBar() {
         <DesktopNav />
       </Flex>
 
-      <Box display={{ base: "flex", md: "none" }}>
+      <Box  display={{ base: "flex", md: "none" }}>
         <MobileNav />
       </Box>
     </Box>

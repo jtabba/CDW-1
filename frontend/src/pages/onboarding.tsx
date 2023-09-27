@@ -23,7 +23,7 @@ const Onboarding = () => {
       flexDirection='column'
       margin='auto'
       marginTop={[30, 50, 100]}>
-      <FormContainer heading='Are you joining MentorShip as a mentor or mentee?'>
+      <FormContainer isForm={false} heading='Are you joining MentorShip as a mentor or mentee?'>
         <ButtonGroup size='lg' flexWrap='wrap' justifyContent='center'>
           <Button onClick={() => setPersona({ role: 'mentor' })}>Mentor</Button>
           <Button onClick={() => setPersona({ role: 'mentee' })}>Mentee</Button>
