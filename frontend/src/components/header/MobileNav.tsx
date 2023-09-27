@@ -18,10 +18,11 @@ import { CloseIcon, HamburgerIcon } from "@chakra-ui/icons";
 
 const MobileNavItem: FC<NavItem> = ({ label, children, href }: NavItem) => {
   const { onToggle } = useDisclosure();
-
+ 
   return (
     <Stack mt={2} spacing={4} onClick={children && onToggle}>
       <Box
+        
         py={2}
         as="a"
         href={href ?? "#"}

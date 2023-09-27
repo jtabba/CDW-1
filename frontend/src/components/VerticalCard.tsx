@@ -9,7 +9,7 @@ import {
 	useColorModeValue
 } from "@chakra-ui/react";
 import { FC } from "react";
-import { themeBlue, themeGrey } from "../theme/theme";
+import { themeBlue, themeGrey, themeLightBlue } from "../theme/theme";
 
 export type VerticalCardProps = {
 	howHeading: string;
@@ -35,7 +35,7 @@ const VerticalCard: FC<VerticalCardProps> = ({
 				</Flex>
 			</CardBody>
 			<CardFooter fontSize={{ base: '1rem', md: 'xl' }} mt={0} pt={0}>
-				<Link mt={0} href={howUrl} textDecoration="none" color={themeBlue} fontWeight="bold">
+				<Link _hover={{ color:themeLightBlue, textDecoration: "none" }}mt={0} href={howUrl} textDecoration="none" color={themeBlue} fontWeight="bold">
 					{howLinkLabel}
 				</Link>
 			</CardFooter>

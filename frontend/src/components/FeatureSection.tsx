@@ -1,6 +1,6 @@
 import { Box, Heading, Flex, Text, Image, Button, useColorModeValue} from '@chakra-ui/react';
 import { FC } from 'react';
-import { themeBlue, themeDarkGrey, themeGrey } from "../theme/theme";
+import { themeBlue, themeDarkGrey, themeDarkBlue, themeGrey, themeLightGrey } from "../theme/theme";
 
 interface FeatureSectionProps {
     featureHeadline:string
@@ -10,10 +10,10 @@ interface FeatureSectionProps {
 }
 
 const FeatureSection: FC<FeatureSectionProps> = ({featureHeadline, featureContent, featureLinkLabel, featureUrl}) => {
-    const bg = useColorModeValue("#fff", "#000")
+    const bg = useColorModeValue("#fff", "#001b3d")
 	const buttonBg = useColorModeValue(themeBlue, themeGrey)
-    // const buttonBorder = useColorModeValue("#fff", themeBlue)
-	const buttonColor = useColorModeValue(themeBlue, "fff")
+	const buttonBgHover = useColorModeValue(themeDarkBlue, themeLightGrey)
+	const buttonColor = useColorModeValue("#FFFFFF", "#fff")
     return (
         <Flex bg={bg} pb={16} width="100%">
             <Box  maxWidth={{ base: '90%', md: '70%', lg: '55%' }} pt="70px" ml="auto" mr="auto">
@@ -25,7 +25,7 @@ const FeatureSection: FC<FeatureSectionProps> = ({featureHeadline, featureConten
                         <Text fontSize={{ base: 'lg', md: 'xl'}} pt={2} pr={2}>
                         {featureContent}
                         </Text>
-                        <Button color="white" bgColor={buttonBg} pt={1} mt={6} mb={8} >
+                        <Button _hover={{ background: buttonBgHover, color: "white" }}bgColor={buttonBg} color={buttonColor} mt={6} mb={8} >
                             {featureLinkLabel}
                         </Button>
                         </Box>
