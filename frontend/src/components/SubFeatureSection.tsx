@@ -11,11 +11,10 @@ interface SubFeatureProps {
 }
 
 interface Props {
-  subFeatureProps: SubFeatureProps[]; 
+  subFeatureProps: SubFeatureProps[];
 }
 
 const SubFeatureSection: FC<Props> = ({ subFeatureProps }) => {
-
   return (
     <Box maxWidth={{ base: '90%', md: '90%' }}>
     <Flex 

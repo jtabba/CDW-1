@@ -16,14 +16,3 @@ export interface IErrorResponse {
 export interface WithChildren<T = React.ReactNode> {
   children?: T;
 }
-
-export interface articleData {
-	_id: string;
-	articleName: string;
-	url: string;
-}
-
-export interface IResponseArticle {
-	success: boolean;
-	data: articleData[];
-}

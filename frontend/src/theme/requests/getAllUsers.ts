@@ -9,21 +9,21 @@ import { IErrorResponse, IResponse } from "./types";
 // 4. we can create similar get/post functions for all the different endpoints we need to hit and handle their data appropriately
 
 export const getAllUsers = async (): Promise<IResponse | IErrorResponse> => {
-	const axiosClient = AxiosClient.createInstance();
+  const axiosClient = AxiosClient.createInstance();
 
-	try {
-		const response = await axiosClient.get("/api/v1/getall");
+  try {
+    const response = await axiosClient.get("/api/v1/getall");
 
-		return {
-			success: true,
-			data: response.data
-		};
-	} catch (err) {
-		console.error(err);
+    return {
+      success: true,
+      data: response.data,
+    };
+  } catch (err) {
+    console.error(err);
 
-		return {
-			success: false,
-			data: isAxiosError(err) ? err.message : (err as string)
-		};
-	}
+    return {
+      success: false,
+      data: isAxiosError(err) ? err.message : (err as string),
+    };
+  }
 };
