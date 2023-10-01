@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "tsx": "^3.12.10"
+    "tsx": "^3.12.10",
+    "zustand": "^4.4.1"
   }
 }
